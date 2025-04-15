@@ -3,7 +3,9 @@
 _______________________________________________________________________________________
 15.04.2025
 - Created ft_memcpy
-	# The memcpy() function copies n bytes from memory area src to memory area dest. The memory areas must not overlap. Use memmove(3) if the memory areas do overlap.
+	(::comment)
+	The memcpy() function copies n bytes from memory area src to memory area dest. The memory areas must not overlap. Use memmove(3) if the memory areas do overlap.
+	(:/comment)
 - Created ft_bzero function
 	# The bzero() function sets the first n bytes of the area starting at s to zero (bytes containing aq\0aq).
 - Created ft_memset function
