@@ -1,38 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 18:09:29 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/15 19:40:48 by jgueon           ###   ########.fr       */
+/*   Created: 2025/04/15 19:43:08 by jgueon            #+#    #+#             */
+/*   Updated: 2025/04/15 19:43:12 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_atoi(const char *str)
+int	isalnum(int c)
 {
-	int	sign;
-	int	result;d
-
-	sign = 1;
-	result = 0;
-	while(*str == ' ' || *str >= 9 && *str <= 13)
-		str++;
-
-	if (*str == '-' || *str == '+')
-	{
-		if(*str == '-')
-		{
-			sign *= -1;
-		}
-	}
-	while(*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90))
+		return (1);
+	return (0);
 }

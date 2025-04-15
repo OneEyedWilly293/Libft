@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/14 18:09:29 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/15 19:40:48 by jgueon           ###   ########.fr       */
+/*   Created: 2025/04/14 17:48:02 by jgueon            #+#    #+#             */
+/*   Updated: 2025/04/15 19:42:04 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_atoi(const char *str)
+void	ft_strlen(char *str)
 {
-	int	sign;
-	int	result;d
+	int	length;
 
-	sign = 1;
-	result = 0;
-	while(*str == ' ' || *str >= 9 && *str <= 13)
-		str++;
-
-	if (*str == '-' || *str == '+')
+	length = 0;
+	while(str[length] != '\0')
 	{
-		if(*str == '-')
-		{
-			sign *= -1;
-		}
+		length++;
 	}
-	while(*str >= '0' && *str <= '9')
-	{
-		result = result * 10 + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+	return (length);
 }
