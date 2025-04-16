@@ -1,8 +1,34 @@
 # Libft
+__________________________________________________________________________
 
-_______________________________________________________________________________________
+# 16.04.2025
+- Created ft_strchr function
+	<!--
+	The strchr() function returns a pointer to the first occurrence of the character c in the string s.
+	-->
+- Created ft_tolower function
+	<!--
+	tolower() converts the letter c to lower case, if possible.
+	-->
+- Created ft_toupper function
+	<!--
+	toupper() converts the letter c to upper case, if possible.
+	-->
+- Created ft_strlcat function
+	<!--
+	The strlcat() function appends the NUL-terminated string src to the end of dst. It will append at most size - strlen(dst) - 1 bytes, NUL-terminating the result.
+	-->
+- Created ft_strlcpy function
+	<!--
+	The strlcpy() function copies up to size - 1 characters from the NUL-terminated string src to dst, NUL-terminating the result.
+	-->
+- Created ft_memmove function
+	<!--
+	The memmove() function copies n bytes from memory area src to memory area dest. The memory areas may overlap: copying takes place as though the bytes in src are first copied into a temporary array that does not overlap src or dest, and the bytes are then copied from the temporary array to dest.
+	-->
+__________________________________________________________________________
 # 15.04.2025
-- Created ft_memcpy
+- Created ft_memcpy function
 	<!---
 	The memcpy() function copies n bytes from memory area src to memory area dest. The memory areas must not overlap. Use memmove(3) if the memory areas do overlap.
 	--->
@@ -21,9 +47,10 @@ ________________________________________________________________________________
 - Added comments of descriptions of each individual functions(visible in file)
 - Updated minor error in the 42 header of ft_atoi and ft_strlen
 - Updated ft_strlen function name(from strlen)
-- Created git repo(personal)
+
 - Quality of life configuration done in VScode(github, terminal change[bash->zsh], added additional extensions)
 - Created README.md
+- Created git repo(personal)
 _____________________________________________________________________________________
 # 14.04.2025
 - Created strlen
