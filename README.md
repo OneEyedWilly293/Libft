@@ -1,5 +1,14 @@
 # Libft
-__________________________________________________________________________
+# 17.04.2025
+- Created ft_strncmp function
+<!--
+	The strncmp() function is similar, except it only compares the first (at most) n bytes of s1 and s2.
+-->
+- Created ft_strrchr function
+<!--
+	The strrchr() function returns a pointer to the last occurrence of the character c in the string s.
+-->
+
 
 # 16.04.2025
 - Created ft_strchr function
@@ -26,7 +35,8 @@ __________________________________________________________________________
 	<!--
 	The memmove() function copies n bytes from memory area src to memory area dest. The memory areas may overlap: copying takes place as though the bytes in src are first copied into a temporary array that does not overlap src or dest, and the bytes are then copied from the temporary array to dest.
 	-->
-__________________________________________________________________________
+
+
 # 15.04.2025
 - Created ft_memcpy function
 	<!---
@@ -51,7 +61,8 @@ __________________________________________________________________________
 - Quality of life configuration done in VScode(github, terminal change[bash->zsh], added additional extensions)
 - Created README.md
 - Created git repo(personal)
-_____________________________________________________________________________________
+
+
 # 14.04.2025
 - Created strlen
 - Created ft_atoi
