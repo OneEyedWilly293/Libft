@@ -1,11 +1,10 @@
 # Libft
-## 17.04.2025
+### 17.04.2025
 - Created ft_split function
-<!--
-	Allocates memory (using malloc(3)) and returns a
+	> *Allocates memory (using malloc(3)) and returns a
 copy of ’s1’ with characters from ’set’ removed
-from the beginning and the end.
--->
+from the beginning and the end.* 
+
 - Created ft_memchr function
 <!--
 	The memchr() function scans the initial n bytes of the memory area pointed to by s for the first instance of c. Both c and the bytes of the memory area pointed to by s are interpreted as unsigned char.
