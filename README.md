@@ -1,5 +1,5 @@
 # Libft
-# 17.04.2025
+## 17.04.2025
 - Created ft_split function
 <!--
 	Allocates memory (using malloc(3)) and returns a
