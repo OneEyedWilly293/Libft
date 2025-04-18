@@ -1,9 +1,12 @@
 # Libft
 
-## <ins>Logs ### <ins>18.04.2025</ins>
+## <ins>Logs</ins>
+### <ins>18.04.2025</ins>
 - Created ft_calloc function
-	> *The calloc() function allocates memory for an array of nmemb elements of size bytes each and returns a pointer to the allocated memory. The memory is set to zero. If nmemb or size is 0, then calloc() returns 	either NULL, or a unique pointer value that can later be successfully passed to free().*
+	> *The calloc() function allocates memory for an array of nmemb elements of size bytes each and returns a pointer to the allocated memory. The memory is set to zero. If nmemb or size is 0, then calloc() returns either NULL, or a unique pointer value that can later be successfully passed to free().*
+
 - Added Description for the <sub>atoi</sub> function
+
 - Created ft_strnstr function
 	> *The strnstr() function locates the first occurrence of the null-termi-
      nated string s2 in the string s1, where not more than n characters are
