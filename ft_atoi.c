@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:09:29 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/15 19:40:48 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/19 00:45:43 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void ft_atoi(const char *str)
 {
 	int	sign;
-	int	result;d
+	int	result;
 
 	sign = 1;
 	result = 0;

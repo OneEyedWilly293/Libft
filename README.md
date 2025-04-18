@@ -1,5 +1,6 @@
 # Libft
 ### <ins>18.04.2025</ins>
+- Added Description for the <sub>atoi</sub> function
 - Created ft_strnstr function
 	> *The strnstr() function locates the first occurrence of the null-termi-
      nated string s2 in the string s1, where not more than n characters are
@@ -72,3 +73,6 @@
 ### <ins>14.04.2025</ins>
 - Created strlen
 - Created ft_atoi
+	> * The atoi() function converts the initial portion of the string pointed to by nptr to int. The behavior is the same as
+			strtol(nptr, NULL, 10);
+		except that atoi() does not detect errors.*
