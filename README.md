@@ -1,7 +1,15 @@
 # Libft
 ### <ins>18.04.2025</ins>
+- Created ft_strnstr function
+	> *The strnstr() function locates the first occurrence of the null-termi-
+     nated string s2 in the string s1, where not more than n characters are
+     searched.  Characters that appear after a `\0' character are not
+     searched.  Since the strnstr() function is a FreeBSD specific API, it
+     should only be used when portability is not a concern.*
+
 - Created ft_memcmp function
 	> *The memcmp() function compares the first n bytes (each interpreted as unsigned char) of the memory areas s1 and s2.*
+
 
 ### <ins>17.04.2025</ins>
 - Created ft_split function
