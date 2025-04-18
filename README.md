@@ -1,9 +1,11 @@
 # Libft
+### <ins>18.04.2025</ins>
+- Created ft_memcmp function
+	> *The memcmp() function compares the first n bytes (each interpreted as unsigned char) of the memory areas s1 and s2.*
+
 ### <ins>17.04.2025</ins>
 - Created ft_split function
-	> *Allocates memory (using malloc(3)) and returns a
-copy of ’s1’ with characters from ’set’ removed
-from the beginning and the end.* 
+	> *Allocates memory (using malloc(3)) and returns a copy of ’s1’ with characters from ’set’ removed from the beginning and the end.* 
 
 - Created ft_memchr function
 	> *The memchr() function scans the initial n bytes of the memory area pointed to by s for the first instance of c. Both c and the bytes of the memory area pointed to by s are interpreted as unsigned char.*
