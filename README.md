@@ -1,6 +1,18 @@
 # Libft
 
 ## <ins>Logs</ins>
+
+### <ins>20.04.2025</ins>
+- Created ft_substr function
+	> *Allocates memory (using malloc(3)) and returns a
+	substring from the string ’s’.
+	The substring starts at index ’start’ and has a
+	maximum length of ’len’.*
+
+- Created ft_strdup function
+	> *The strdup() function returns a pointer to a new string which is a duplicate of the string s. Memory for the new string is obtained with malloc(3), and can be freed with free(3).*
+
+
 ### <ins>18.04.2025</ins>
 - Created ft_calloc function
 	> *The calloc() function allocates memory for an array of nmemb elements of size bytes each and returns a pointer to the allocated memory. The memory is set to zero. If nmemb or size is 0, then calloc() returns either NULL, or a unique pointer value that can later be successfully passed to free().*
