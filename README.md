@@ -3,6 +3,10 @@
 ## <ins>Logs</ins>
 
 ### <ins>20.04.2025</ins>
+- Created ft_strjoin function
+	> *Allocates memory (using malloc(3)) and returns a
+	new string, which is the result of concatenating
+	’s1’ and ’s2’.*
 
 - Created ft_substr function
 	> *Allocates memory (using malloc(3)) and returns a
