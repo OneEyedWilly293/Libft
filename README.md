@@ -3,6 +3,7 @@
 ## <ins>Logs</ins>
 
 ### <ins>20.04.2025</ins>
+
 - Created ft_substr function
 	> *Allocates memory (using malloc(3)) and returns a
 	substring from the string ’s’.
