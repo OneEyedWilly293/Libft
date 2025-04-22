@@ -3,6 +3,11 @@
 ## <ins>Logs</ins>
 
 ### <ins>22.04.2025</ins>
+- Created ft_itoa function
+	> *Allocates memory (using malloc(3)) and returns
+a string representing the integer received as an
+argument. Negative numbers must be handled.*
+
 - Changed ft_split function according to prototype in exercise
 	> *Allocates memory (using malloc(3)) and returns an
 array of strings obtained by splitting ’s’ using
