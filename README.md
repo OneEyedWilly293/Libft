@@ -3,6 +3,22 @@
 ## <ins>Logs</ins>
 
 ### <ins>22.04.2025</ins>
+- Created ft_putnbr_fd
+	> *Outputs the integer ’n’ to the specified file
+descriptor.*
+
+- Created ft_putendl_fd
+	> *Outputs the string ’s’ to the specified file
+descriptor followed by a newline.*
+
+- Created ft_putstr_fd function
+	> *Outputs the string ’s’ to the specified file
+descriptor.*
+
+- Created ft_putchar_fd function
+	> *Outputs the character ’c’ to the specified file
+descriptor.*
+
 - Created ft_striteri function
 	> *Applies the function ’f’ to each character of the
 string passed as argument, passing its index as
