@@ -3,6 +3,19 @@
 ## <ins>Logs</ins>
 
 ### <ins>22.04.2025</ins>
+- Created ft_striteri function
+	> *Applies the function ’f’ to each character of the
+string passed as argument, passing its index as
+the first argument. Each character is passed by
+address to ’f’ so it can be modified if necessary.*
+
+- Created ft_strmapi function
+	> *Applies the function f to each character of the
+string s, passing its index as the first argument
+and the character itself as the second. A new
+string is created (using malloc(3)) to store the
+results from the successive applications of f.*
+
 - Created ft_itoa function
 	> *Allocates memory (using malloc(3)) and returns
 a string representing the integer received as an
