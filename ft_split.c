@@ -6,100 +6,101 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 17:42:03 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/17 18:12:49 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/22 16:10:34 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	is_delim(char c)
-{
-	return (c == ' ' || c == '\t' || c == '\n');
-}
-
-int	count_words(char *str)
+static int	count_words(char const)
 {
 	int	count;
-	int in_word;
+	int	i;
 
 	count = 0;
-	in_word = 1;
-	while(*str)
+	i = 0;
+	while (s1[i] && s[i] == c)
+		i++;
+	while (s[i])
 	{
-		if(!is_delim(*str) && !in_word)
-		{
-			count++;
-			in_word = 1;
-		}
-		else if(is_delim(*str))
-		{
-			in_word = 0;
-		}
-		str++;
+		count++;
+		while (s1[i] && s[i] != c)
+			i++;
+		while (s[i] && s[i] == c)
+			i++;
 	}
 	return (count);
 }
 
-char *get_word(char *str)
+static int	word_length(char const *s, char c, int start)
 {
-	char	*word;
-	int	i;
 	int len;
 
 	len = 0;
-	while(str[len] && !is_delim(str[len]))
-	{
+	while (s[start + len] && s[start + len] != c)
 		len++;
-	}
-	word = (char *)malloc((len + 1) * sizeof(char));
+	return (len);
+}
+
+static char	*create_word(char const	*s, char c, int *start)
+{
+	int	len;
+	char	*word;
+	int	i;
+
+	while (s[*start] && s[*start] == c)
+		(*start)++;
+	len = word_length(s, c, *start);
+	word = (char *)malloc(sizeof(char) * (len + 1));
 	if (!word)
 		return (NULL);
 	i = 0;
-	while(i < len)
+	while (i < len)
 	{
-		word[i] = str[i];
+		word[i] = s[*start + i];
 		i++;
 	}
-	word[len] = '\0';
-	return (word);
+	word[i] = '\0';
 }
 
-char **ft_split(char *str)
+static void	free-array(char **array, int size)
 {
-	int count;
 	int	i;
-	int	index;
-	char **result;
 
-	count = word_count(str);
-	result = (char **)malloc((count + 1) * sizeof(char *));
-	if(!result)
-		return (NULL);
-	index = 0;
-	while(*str)
+	i = 0;
+	while (i < size)
 	{
-		while (is_delim(*str))
-			str++;
-
-		if(*str)
-		{
-			result[index] = get_word(str);
-			if(!result[index])
-			{
-				i = 0;
-				while(i < index)
-				{
-					free(result[i]);
-					i++;
-				}
-				free(result);
-				return (NULL);
-			}
-			index++;
-			while(*str && !is_delim(*str))
-				str++;
-		}
+		free(array[i]);
+		i++;
 	}
-	result[index] = NULL;
+	free(array);
+}
+
+char **ft_split(char const *s, char c)
+{
+	char	**result;
+	int	word_count;
+	int	i;
+	int start;
+
+	if (!s)
+		return (NULL);
+	word_count = count_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!result)
+		return (NULL);
+	i = 0;
+	start = 0;
+	while (i < word_count)
+	{
+		result[i] = create_word(s, c, &start);
+		if (!result)
+		{
+			free_array(result, i);
+			return (NULL);
+		}
+		i++;
+	}
+	result[word_count] = NULL;
 	return (result);
 }
