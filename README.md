@@ -2,6 +2,12 @@
 
 ## <ins>Logs</ins>
 
+### <ins>22.04.2025</ins>
+- Created ft_strtrim function
+	> *Allocates memory (using malloc(3)) and returns a
+copy of ’s1’ with characters from ’set’ removed
+from the beginning and the end.*
+
 ### <ins>20.04.2025</ins>
 - Created ft_strjoin function
 	> *Allocates memory (using malloc(3)) and returns a
@@ -54,7 +60,7 @@
 
 - Created ft_tolower function
 	> *tolower() converts the letter c to lower case, if possible.*
-	
+
 - Created ft_toupper function
 	> *toupper() converts the letter c to upper case, if possible.*
 
