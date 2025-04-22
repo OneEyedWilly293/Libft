@@ -3,6 +3,12 @@
 ## <ins>Logs</ins>
 
 ### <ins>22.04.2025</ins>
+- Changed ft_split function according to prototype in exercise
+	> *Allocates memory (using malloc(3)) and returns an
+array of strings obtained by splitting ’s’ using
+the character ’c’ as a delimiter. The array must
+end with a NULL pointer.*
+
 - Created ft_strtrim function
 	> *Allocates memory (using malloc(3)) and returns a
 copy of ’s1’ with characters from ’set’ removed
