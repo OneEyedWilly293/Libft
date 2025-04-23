@@ -2,12 +2,12 @@
 
 ## <ins>Logs</ins>
 
-###<ins>23.04.2025</ins>
+### <ins>23.04.2025</ins>
 - Created test file for ft_isalpha function.
 - Modified ft_isalpha.
 - Created libft header file.
 - Constructed a plan to implement tests for all functions created into one file.
-	> *Thank you Boris!.*
+	> *Thank you Boris!*
 
 ### <ins>22.04.2025</ins>
 - Created ft_putnbr_fd
