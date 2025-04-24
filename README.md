@@ -2,7 +2,11 @@
 
 ## <ins>Logs</ins>
 
-###<ins>23.04.2025</ins>
+### <ins>24.04.2025</ins>
+- Created test file for ft_isdigit function
+- 
+
+### <ins>23.04.2025</ins>
 - Created test file for ft_isalpha function.
 - Modified ft_isalpha.
 - Created libft header file.
