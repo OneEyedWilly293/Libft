@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/15 19:43:08 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/15 19:43:12 by jgueon           ###   ########.fr       */
+/*   Created: 2025/04/24 14:29:19 by jgueon            #+#    #+#             */
+/*   Updated: 2025/04/24 14:30:30 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	isalnum(int c)
+int	ft_isdigit(int c)
 {
-	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90))
+	if (c >= '0' && c <= '9')
 		return (1);
 	return (0);
 }
