@@ -6,23 +6,25 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/24 19:39:53 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/24 20:16:12 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
+#include "libft.h"
 
 /* Include the header file that contains ft_isalpha prototype soon*/
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
+//int	ft_isalpha(int c);
+//int	ft_isdigit(int c);
+//int ft_isalnum(int c);
 
 
-/**
- * This test file compares your replica "ft" function implementation with the standard
- * isalpha function from the C library to ensure it behaves correctly.
- *
+/* *****************************************************************************************************
+ * This test file compares your replica "ft" function implementation with the standard                 *
+ * isalpha function from the C library to ensure it behaves correctly.                                 *
+ *                                                                                                     *
  * *****************************************************************************************************
  *                                     TEST FOR FT_ISALPHA FUNCTION                                    *
  * It tests:                                                                                           *
@@ -36,6 +38,8 @@ int	main(void)
 	int	i;
 	int	passed;
 	int	total;
+    int std_result;
+    int ft_result;
 
 	/* Test all ASCII characters */
 	passed = 0;
@@ -47,8 +51,8 @@ int	main(void)
 	i = 0;
 	while (i <= 127)
 	{
-		int	std_result;
-		int	ft_result;
+		//int	std_result;
+		//int	ft_result;
 
 		std_result = isalpha(i);
 		ft_result = ft_isalpha(i);
@@ -88,9 +92,9 @@ int	main(void)
 		passed, total, (passed * 100) / total);
 
 	if (passed == total)
-		printf("\nCongratulations! Your ft_isalpha function works correctly!\n");
+		printf("\nCongratulations! Your ft_isalpha function works correctly!\n\n\n");
 	else
-		printf("\nYour ft_isalpha function needs some fixes.\n");
+		printf("\nYour ft_isalpha function needs some fixes.\n\n\n");
 
 	// return (0);
 
@@ -171,9 +175,110 @@ int	main(void)
         passed, total, (float)passed / total * 100);
 
     if (passed == total)
-        printf("All tests passed! ft_isdigit works correctly.\n");
+        printf("All tests passed! ft_isdigit works correctly.\n\n\n");
     else
-        printf("Some tests failed. Please check your implementation.\n");
+        printf("Some tests failed. Please check your implementation.\n\n\n");
 
-    return (0);
-}
+
+    /* ************************************************************************************
+     *                          TEST FOR FT_ISALNUM FUNCTION                              *
+     *                                                                                    *
+     * This test file checks the ft_isalnum function by:                                  *
+     * 1. Testing all ASCII characters (0-127)                                            *
+     * 2. Comparing results with the standard isalnum function                            *
+     * 3. Testing specific categories: digits, uppercase letters, lowercase letters       *
+     * 4. Testing non-alphanumeric characters                                             *
+     * ***********************************************************************************/
+      /* Initialize counters */
+      passed = 0;
+      total = 0;
+
+      /* Print header for the test */
+      printf("\n===== TESTING FT_ISALNUM =====\n\n");
+      printf("Testing all ASCII characters (0-127):\n");
+
+      /* Test all standard ASCII characters */
+      for (i = 0; i <= 127; i++)
+      {
+          /* Normalize the return values to 0 or 1 */
+          int expected = isalnum(i) ? 1 : 0;
+          int result = ft_isalnum(i) ? 1 : 0;
+
+          total++;
+
+          /* Check if our function matches the standard library function */
+          if (expected == result)
+          {
+              passed++;
+              printf("✓ ");
+          }
+          else
+          {
+              printf("✗ ");
+          }
+
+          /* Print the character and test results */
+          if (i >= 32 && i <= 126) /* Printable characters */
+              printf("Char: '%c' (ASCII: %3d) | Expected: %d | Result: %d\n",
+                  i, i, expected, result);
+          else /* Non-printable characters */
+              printf("Char: '\\%3d' (ASCII: %3d) | Expected: %d | Result: %d\n",
+                  i, i, expected, result);
+      }
+
+      /* Print specific test cases for clarity */
+      printf("\n===== SPECIFIC TEST CASES FOR FT_ISALNUM =====\n\n");
+
+      /* Test digits */
+      printf("Testing digits (0-9):\n");
+      for (i = '0'; i <= '9'; i++)
+      {
+          printf("ft_isalnum('%c'): %d (Expected: %d)\n",
+              i, ft_isalnum(i) ? 1 : 0, isalnum(i) ? 1 : 0);
+      }
+
+      /* Test uppercase letters */
+      printf("\nTesting uppercase letters (A-Z):\n");
+      for (i = 'A'; i <= 'Z'; i++)
+      {
+          printf("ft_isalnum('%c'): %d (Expected: %d)\n",
+              i, ft_isalnum(i) ? 1 : 0, isalnum(i) ? 1 : 0);
+      }
+
+      /* Test lowercase letters */
+      printf("\nTesting lowercase letters (a-z):\n");
+      for (i = 'a'; i <= 'z'; i++)
+      {
+          printf("ft_isalnum('%c'): %d (Expected: %d)\n",
+              i, ft_isalnum(i) ? 1 : 0, isalnum(i) ? 1 : 0);
+      }
+
+      /* Test some non-alphanumeric characters */
+      printf("\nTesting some non-alphanumeric characters:\n");
+      char non_alnum[] = " \t\n!@#$%^&*()-_=+[]{}|;:'\",.<>/?\\";
+      for (i = 0; non_alnum[i] != '\0'; i++)
+      {
+          printf("ft_isalnum('%c'): %d (Expected: %d)\n",
+              non_alnum[i], ft_isalnum(non_alnum[i]) ? 1 : 0,
+              isalnum(non_alnum[i]) ? 1 : 0);
+      }
+
+      /* Test edge cases */
+      printf("\nTesting edge cases:\n");
+      printf("ft_isalnum(-1): %d (Expected: %d)\n",
+          ft_isalnum(-1) ? 1 : 0, isalnum(-1) ? 1 : 0);
+      printf("ft_isalnum(128): %d (Expected: %d)\n",
+          ft_isalnum(128) ? 1 : 0, isalnum(128) ? 1 : 0);
+
+      /* Print test summary */
+      printf("\n===== FT_ISALNUM TEST SUMMARY =====\n");
+      printf("Tests passed: %d/%d (%.2f%%)\n",
+          passed, total, (float)passed / total * 100);
+
+      if (passed == total)
+          printf("All tests passed! ft_isalnum works correctly.\n\n\n");
+      else
+          printf("Some tests failed. Please check your implementation.\n\n\n");
+
+      return (0);
+  }

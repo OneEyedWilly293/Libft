@@ -3,6 +3,8 @@
 ## <ins>Logs</ins>
 
 ### <ins>24.04.2025</ins>
+- Added test file for ft_isalnum function.
+- Modified ft_isalnum function to check smaller alphabets as well.
 - Created test file for ft_isdigit function.
 - Minor fix on syntax error in libft.h
 - Created ft_isdigit function.
