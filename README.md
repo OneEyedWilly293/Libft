@@ -3,6 +3,10 @@
 ## <ins>Logs</ins>
 
 ### <ins>24.04.2025</ins>
+- Minor fix in ft_isprint function located via test.
+- Added test file for ft_isprint function.
+- Added test file for ft_isascii function.
+- Updated ft_isascii.c function in file(from "isascii).
 - Added test file for ft_isalnum function.
 - Modified ft_isalnum function to check smaller alphabets as well.
 - Created test file for ft_isdigit function.
