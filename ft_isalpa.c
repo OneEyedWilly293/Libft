@@ -6,12 +6,11 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:43:35 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/24 14:23:49 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/24 19:43:30 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "libft.h"
-#include <unistd.h>
+#include "libft.h"
 
 int	ft_isalpha(int c)
 {
