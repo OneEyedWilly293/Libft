@@ -3,6 +3,8 @@
 ## <ins>Logs</ins>
 
 ### <ins>24.04.2025</ins>
+- Quick fixes on ft_atoi & ft_itoa detected via Norm check
+	> *Need to revisit ft_itoa in the future(over 25 line limit). *
 - Minor fix in ft_isprint function located via test.
 - Added test file for ft_isprint function.
 - Added test file for ft_isascii function.
