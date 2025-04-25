@@ -3,7 +3,10 @@
 ## <ins>Logs</ins>
 
 ### <ins>25.04.2025</ins>
-- 
+- Added test for ft_memset function.
+- Updated ft_memset functiont prototype.
+- Added test for ft_tolower function.
+- Updated ft_tolower function prototype.
 - Added test for ft_toupper function.
 - Updated ft_toupper function prototype identified by test file.
 - Created test for ft_strlen.

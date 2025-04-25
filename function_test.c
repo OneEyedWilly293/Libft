@@ -6,13 +6,14 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/25 12:47:12 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/25 14:56:32 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
 #include <string.h>
+#include <stddef.h>
 #include "libft.h"
 
 
@@ -37,7 +38,8 @@
  * ****************************************************************************************************/
 int	main(void)
 {
-	int	i;
+    int i;
+	size_t	j;
 	int	passed;
 	int	total;
     size_t std_result;
@@ -747,6 +749,317 @@ int	main(void)
         printf("All tests passed! ft_toupper works correctly.\n\n\n");
     else
         printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
+    /* ******************************************************************************** */
+    /*                                                                                  */
+    /*                        TEST FOR FT_TOLOWER FUNCTION                              */
+    /*                                                                                  */
+    /* This program tests the ft_tolower function by comparing its results              */
+    /* with the standard tolower function from the C library.                           */
+    /* It tests all ASCII characters (0-127) and some extended values to ensure         */
+    /* proper handling of uppercase-to-lowercase conversion.                            */
+    /* ******************************************************************************** */
+
+    /* Initialize counters */
+    passed = 0;
+    total = 0;
+
+    /* Print header for the test */
+    printf("\n===== TESTING FT_TOLOWER =====\n\n");
+    printf("Testing all ASCII characters (0-127):\n");
+
+    /* Test all standard ASCII characters */
+    for (i = 0; i <= 127; i++)
+    {
+        /* Get results from both functions */
+        int expected = tolower(i);
+        int result = ft_tolower(i);
+
+        total++;
+
+        /* Check if our function matches the standard library function */
+        if (expected == result)
+        {
+            passed++;
+            printf("✓ ");
+        }
+        else
+        {
+            printf("✗ ");
+        }
+
+        /* Print the character and test results */
+        if (i >= 32 && i <= 126) /* Printable characters */
+            printf("Char: '%c' (ASCII: %3d) | Expected: '%c' | Result: '%c'\n",
+                i, i, expected, result);
+        else /* Non-printable characters */
+            printf("Char: (ASCII: %3d) | Expected: %3d | Result: %3d\n",
+                i, expected, result);
+    }
+
+    /* Print specific test cases for clarity */
+    printf("\n===== SPECIFIC TEST CASES FOR FT_TOLOWER =====\n\n");
+
+    /* Test uppercase letters */
+    printf("Testing uppercase letters (A-Z):\n");
+    for (i = 'A'; i <= 'Z'; i++)
+    {
+        printf("ft_tolower('%c'): '%c' (Expected: '%c')\n",
+            i, ft_tolower(i), tolower(i));
+    }
+
+    /* Test lowercase letters (should remain unchanged) */
+    printf("\nTesting lowercase letters (a-z):\n");
+    for (i = 'a'; i <= 'z'; i++)
+    {
+        printf("ft_tolower('%c'): '%c' (Expected: '%c')\n",
+            i, ft_tolower(i), tolower(i));
+    }
+
+    /* Test digits (should remain unchanged) */
+    printf("\nTesting digits (0-9):\n");
+    for (i = '0'; i <= '9'; i++)
+    {
+        printf("ft_tolower('%c'): '%c' (Expected: '%c')\n",
+            i, ft_tolower(i), tolower(i));
+    }
+
+    /* Test some special characters (should remain unchanged) */
+    printf("\nTesting some special characters:\n");
+    //char special_chars[] = " !@#$%^&*()-_=+[]{}|;:'\",.<>/?\\"; [Already specified in LINE 727]
+    for (i = 0; special_chars[i] != '\0'; i++)
+    {
+        printf("ft_tolower('%c'): '%c' (Expected: '%c')\n",
+            special_chars[i], ft_tolower(special_chars[i]), tolower(special_chars[i]));
+    }
+
+    /* Test edge cases */
+    printf("\nTesting edge cases:\n");
+    printf("ft_tolower(-1): %d (Expected: %d)\n",
+        ft_tolower(-1), tolower(-1));
+    printf("ft_tolower(128): %d (Expected: %d)\n",
+        ft_tolower(128), tolower(128));
+
+    /* Print test summary */
+    printf("\n===== FT_TOLOWER TEST SUMMARY =====\n");
+    printf("Tests passed: %d/%d (%.2f%%)\n",
+        passed, total, (float)passed / total * 100);
+
+    if (passed == total)
+        printf("All tests passed! ft_tolower works correctly.\n\n\n");
+    else
+        printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
+
+       /* ******************************************************************************** */
+       /*                                                                                  */
+       /*                        TEST FOR FT_MEMSET FUNCTION                               */
+       /*                                                                                  */
+       /* This program tests the ft_memset function by comparing its results               */
+       /* with the standard memset function from the C library.                            */
+       /* It tests various buffer sizes, different fill values, and edge cases to ensure   */
+       /* proper memory filling behavior.                                                  */
+       /* ******************************************************************************** */
+
+       /* Initialize counters */
+       passed = 0;
+       total = 0;
+
+       /* Print header for the test */
+       printf("\n===== TESTING FT_MEMSET =====\n\n");
+
+       /* Test case 1: Basic functionality with a char array */
+       char str1[] = "Hello, world!";
+       char str2[] = "Hello, world!";
+       size_t len1 = 5;
+       int c1 = 'A';
+
+       memset(str1, c1, len1);
+       ft_memset(str2, c1, len1);
+       total++;
+
+       printf("Test 1: Basic functionality (fill first 5 bytes with 'A')\n");
+       printf("Original: \"Hello, world!\"\n");
+       printf("Standard memset: \"%s\"\n", str1);
+       printf("Your ft_memset: \"%s\"\n", str2);
+
+       if (memcmp(str1, str2, strlen(str1) + 1) == 0)
+       {
+           passed++;
+           printf("✓ Test passed!\n\n");
+       }
+       else
+           printf("✗ Test failed!\n\n");
+
+       /* Test case 2: Fill with zero */
+       char str3[] = "Hello, world!";
+       char str4[] = "Hello, world!";
+       size_t len2 = 5;
+       int c2 = 0;
+
+       memset(str3, c2, len2);
+       ft_memset(str4, c2, len2);
+       total++;
+
+       printf("Test 2: Fill with zero (fill first 5 bytes with '\\0')\n");
+       printf("Original: \"Hello, world!\"\n");
+       printf("Standard memset: \"");
+       for (j = 0; j < strlen(str3) + 5; j++)
+           printf(str3[j] ? "%c" : "\\0", str3[j]);
+       printf("\"\n");
+
+       printf("Your ft_memset: \"");
+       for (j = 0; j < strlen(str4) + 5; j++)
+           printf(str4[j] ? "%c" : "\\0", str4[j]);
+       printf("\"\n");
+
+       if (memcmp(str3, str4, strlen(str3) + 1) == 0)
+       {
+           passed++;
+           printf("✓ Test passed!\n\n");
+       }
+       else
+           printf("✗ Test failed!\n\n");
+
+       /* Test case 3: Fill entire buffer */
+       char str5[] = "Hello, world!";
+       char str6[] = "Hello, world!";
+       size_t len3 = strlen(str5);
+       int c3 = 'X';
+
+       memset(str5, c3, len3);
+       ft_memset(str6, c3, len3);
+       total++;
+
+       printf("Test 3: Fill entire buffer with 'X'\n");
+       printf("Original: \"Hello, world!\"\n");
+       printf("Standard memset: \"%s\"\n", str5);
+       printf("Your ft_memset: \"%s\"\n", str6);
+
+       if (memcmp(str5, str6, strlen(str5) + 1) == 0)
+       {
+           passed++;
+           printf("✓ Test passed!\n\n");
+       }
+       else
+           printf("✗ Test failed!\n\n");
+
+       /* Test case 4: Fill with non-character value */
+       unsigned char buffer1[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+       unsigned char buffer2[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+       size_t len4 = 10;
+       int c4 = 0xFF; /* 255 or hexadecimal(base 16) 11111111*/
+
+       memset(buffer1, c4, len4);
+       ft_memset(buffer2, c4, len4);
+       total++;
+
+       printf("Test 4: Fill with non-character value (0xFF)\n");
+       printf("Original: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n");
+
+       printf("Standard memset: [");
+       for (j = 0; j < len4; j++)
+       {
+           printf("%d", buffer1[i]);
+           if (j < len4 - 1)
+               printf(", ");
+       }
+       printf("]\n");
+
+       printf("Your ft_memset: [");
+       for (j = 0; j < len4; j++)
+       {
+           printf("%d", buffer2[i]);
+           if (j < len4 - 1)
+               printf(", ");
+       }
+       printf("]\n");
+
+       if (memcmp(buffer1, buffer2, len4) == 0)
+       {
+           passed++;
+           printf("✓ Test passed!\n\n");
+       }
+       else
+           printf("✗ Test failed!\n\n");
+
+       /* Test case 5: Zero-length operation */
+       char str7[] = "Hello, world!";
+       char str8[] = "Hello, world!";
+       size_t len5 = 0;
+       int c5 = 'Z';
+
+       memset(str7, c5, len5);
+       ft_memset(str8, c5, len5);
+       total++;
+
+       printf("Test 5: Zero-length operation\n");
+       printf("Original: \"Hello, world!\"\n");
+       printf("Standard memset: \"%s\"\n", str7);
+       printf("Your ft_memset: \"%s\"\n", str8);
+
+       if (memcmp(str7, str8, strlen(str7) + 1) == 0)
+       {
+           passed++;
+           printf("✓ Test passed!\n\n");
+       }
+       else
+           printf("✗ Test failed!\n\n");
+
+       /* Test case 6: Large buffer */
+       #define LARGE_SIZE 1000
+       unsigned char large_buffer1[LARGE_SIZE];
+       unsigned char large_buffer2[LARGE_SIZE];
+       int c6 = 42;
+
+       /* Initialize buffers with different values */
+       for (j = 0; j < LARGE_SIZE; j++)
+       {
+           large_buffer1[j] = j % 256;
+           large_buffer2[j] = j % 256;
+       }
+
+       memset(large_buffer1, c6, LARGE_SIZE);
+       ft_memset(large_buffer2, c6, LARGE_SIZE);
+       total++;
+
+       printf("Test 6: Large buffer (1000 bytes)\n");
+       printf("Filling 1000 bytes with value 42\n");
+
+       /* Check if all bytes are set correctly */
+       int large_buffer_match = 1;
+       for (j = 0; j < LARGE_SIZE; j++)
+       {
+           if (large_buffer1[j] != large_buffer2[j])
+           {
+               large_buffer_match = 0;
+               printf("Mismatch at index %d: Expected %d, Got %d\n", 
+                      i, large_buffer1[j], large_buffer2[j]);
+               break;
+           }
+       }
+
+       if (large_buffer_match)
+       {
+           passed++;
+           printf("✓ Test passed!\n\n");
+       }
+       else
+           printf("✗ Test failed!\n\n");
+
+       /* Print test summary */
+       printf("\n===== FT_MEMSET TEST SUMMARY =====\n");
+       printf("Tests passed: %d/%d (%.2f%%)\n",
+           passed, total, (float)passed / total * 100);
+
+       if (passed == total)
+           printf("All tests passed! Your ft_memset function works correctly.\n\n\n");
+       else
+           printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
 
     return (0);
 }
