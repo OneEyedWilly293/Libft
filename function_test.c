@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/25 17:11:19 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/25 17:52:15 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,8 @@
 #include <ctype.h>
 #include <string.h>
 #include <stddef.h>
+#include <bsd/string.h>     // for strlcpy function[COMPILE with -lbsd]
 #include "libft.h"
-
- /* Temporary implementation of strlcpy for testing purposes */
- size_t  strlcpy(char *dst, const char *src, size_t size)
- {
-     size_t src_len = 0;
-     size_t i;
-
-     /* Get source length */
-     while (src[src_len])
-         src_len++;
-
-     /* If size is 0, just return source length */
-     if (size == 0)
-         return src_len;
-
-     /* Copy up to size-1 characters */
-     i = 0;
-     while (i < size - 1 && src[i])
-     {
-         dst[i] = src[i];
-         i++;
-     }
-     dst[i] = '\0';
-
-     return (src_len);
- }
-
- /* Understanding the Issue
-    The strlcpy function is a BSD extension that's available in some Unix-like operating systems (like macOS and FreeBSD),
-    but it's not part of the standard C library on Linux and many other systems.
-    When you try to use it without proper declaration, the compiler gives you an "implicit declaration" error. */
-
-/* ******************************************************************************************************************************/
 
 
 /* *****************************************************************************************************
