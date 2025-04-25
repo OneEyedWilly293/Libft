@@ -2,6 +2,14 @@
 
 ## <ins>Logs</ins>
 
+### <ins>25.04.2025</ins>
+- 
+- Added test for ft_toupper function.
+- Updated ft_toupper function prototype identified by test file.
+- Created test for ft_strlen.
+- Updated ft_strlen function prototype.
+
+
 ### <ins>24.04.2025</ins>
 - Quick fixes on ft_atoi & ft_itoa detected via Norm check
 	> *Need to revisit ft_itoa in the future(over 25 line limit). *

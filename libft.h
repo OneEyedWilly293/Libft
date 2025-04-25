@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 16:52:30 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/24 19:41:48 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/25 12:28:13 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	ft_isdigit(int c);
 int	ft_isalnum(int c);
 int	ft_isascii(int c);
 int ft_isprint(int c);
-int ft_strlen(const char *s);
+size_t ft_strlen(const char *s);
 int	ft_toupper(int c);
 int	ft_tolower(int c);
 

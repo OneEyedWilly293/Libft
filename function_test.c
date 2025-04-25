@@ -6,13 +6,15 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/24 20:51:43 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/25 12:47:12 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 #include "libft.h"
+
 
 /* Include the header file that contains ft_isalpha prototype soon*/
 
@@ -38,8 +40,8 @@ int	main(void)
 	int	i;
 	int	passed;
 	int	total;
-    int std_result;
-    int ft_result;
+    size_t std_result;
+    size_t ft_result;
 
 	/* Test all ASCII characters */
 	passed = 0;
@@ -77,7 +79,7 @@ int	main(void)
 		else
 			printf("(ASCII %d)", i);
 
-		printf(" | Standard: %d | Yours: %d", std_result, ft_result);
+		printf(" | Standard: %zu | Yours: %zu", std_result, ft_result);
 
 		if (std_result != ft_result)
 			printf(" <- MISMATCH!");
@@ -482,6 +484,269 @@ int	main(void)
         printf("Some tests failed. Please check your implementation.\n\n\n");
 
 
+
+
+    /* *************************************************************************************
+    *                            TEST FOR FT_STRLEN FUNCTION                               *
+    *                                                                                      *
+    * This test file compares your ft_strlen function with the standard strlen function    *
+    * from the C library to ensure it behaves correctly.                                   *
+    *                                                                                      *
+    * It tests:                                                                            *
+    * 1. Empty strings                                                                     *
+    * 2. Short strings                                                                     *
+    * 3. Long strings                                                                      *
+    * 4. Strings with special characters                                                   *
+    * 5. Strings with null characters in the middle (which should be handled correctly)    *
+    * *************************************************************************************/
+
+    /* Initialize counters */
+    passed = 0;
+	total = 0;
+
+	/* Print header for the test */
+	printf("\n===== TESTING FT_STRLEN =====\n\n");
+
+	/* Test case 1: Empty string */
+	const char *test1 = "";
+	std_result = strlen(test1);
+	ft_result = ft_strlen(test1);
+	total++;
+
+	printf("Test 1: Empty string\n");
+	printf("String: \"\"\n");
+	printf("Standard strlen: %zu | Your ft_strlen: %zu\n", std_result, ft_result);
+
+	if (std_result == ft_result)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: %zu, Got: %zu\n\n", std_result, ft_result);
+
+	/* Test case 2: Short string */
+	const char *test2 = "Hello";
+	std_result = strlen(test2);
+	ft_result = ft_strlen(test2);
+	total++;
+
+	printf("Test 2: Short string\n");
+	printf("String: \"%s\"\n", test2);
+	printf("Standard strlen: %zu | Your ft_strlen: %zu\n", std_result, ft_result);
+
+	if (std_result == ft_result)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: %zu, Got: %zu\n\n", std_result, ft_result);
+
+	/* Test case 3: String with spaces */
+	const char *test3 = "Hello, world! How are you?";
+	std_result = strlen(test3);
+	ft_result = ft_strlen(test3);
+	total++;
+
+	printf("Test 3: String with spaces\n");
+	printf("String: \"%s\"\n", test3);
+	printf("Standard strlen: %zu | Your ft_strlen: %zu\n", std_result, ft_result);
+
+	if (std_result == ft_result)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: %zu, Got: %zu\n\n", std_result, ft_result);
+
+	/* Test case 4: String with special characters */
+	const char *test4 = "!@#$%^&*()_+{}[]|\\:;\"'<>,.?/~`";
+	std_result = strlen(test4);
+	ft_result = ft_strlen(test4);
+	total++;
+
+	printf("Test 4: String with special characters\n");
+	printf("String: \"%s\"\n", test4);
+	printf("Standard strlen: %zu | Your ft_strlen: %zu\n", std_result, ft_result);
+
+	if (std_result == ft_result)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: %zu, Got: %zu\n\n", std_result, ft_result);
+
+	/* Test case 5: Long string */
+	const char *test5 = "This is a much longer string that we're using to test the ft_strlen function. "
+						"It contains multiple sentences and should be long enough to test the function's "
+						"ability to handle longer strings correctly. The function should count all characters "
+						"until it reaches the null terminator at the end of this string.";
+	std_result = strlen(test5);
+	ft_result = ft_strlen(test5);
+	total++;
+
+	printf("Test 5: Long string\n");
+	printf("String length: %zu characters\n", std_result);
+	printf("Standard strlen: %zu | Your ft_strlen: %zu\n", std_result, ft_result);
+
+	if (std_result == ft_result)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: %zu, Got: %zu\n\n", std_result, ft_result);
+
+	/* Test case 6: String with non-ASCII characters */
+	const char *test6 = "Hello, 你好, 안녕하세요, こんにちは";
+	std_result = strlen(test6);
+	ft_result = ft_strlen(test6);
+	total++;
+
+	printf("Test 6: String with non-ASCII characters\n");
+	printf("String: \"%s\"\n", test6);
+	printf("Standard strlen: %zu | Your ft_strlen: %zu\n", std_result, ft_result);
+	printf("Note: Non-ASCII characters are multi-byte in UTF-8 encoding\n");
+
+	if (std_result == ft_result)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: %zu, Got: %zu\n\n", std_result, ft_result);
+
+	/* Test case 7: String with escaped characters */
+	const char *test7 = "Line1\nLine2\tTabbed\rReturn";
+	std_result = strlen(test7);
+	ft_result = ft_strlen(test7);
+	total++;
+
+	printf("Test 7: String with escaped characters\n");
+	printf("String contains newlines, tabs, and carriage returns\n");
+	printf("Standard strlen: %zu | Your ft_strlen: %zu\n", std_result, ft_result);
+
+	if (std_result == ft_result)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: %zu, Got: %zu\n\n", std_result, ft_result);
+
+	/* Print test summary */
+	printf("\n===== FT_STRLEN TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_strlen function works correctly.\n\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
+    /* ******************************************************************************** */
+    /*                                                                                  */
+    /*                        TEST FOR FT_TOUPPER FUNCTION                              */
+    /*                                                                                  */
+    /* This program tests the ft_toupper function by comparing its results              */
+    /* with the standard toupper function from the C library.                           */
+    /* It tests all ASCII characters (0-127) and some extended values to ensure         */
+    /* proper handling of lowercase-to-uppercase conversion.                            */
+    /* ******************************************************************************** */
+
+    /* Initialize counters */
+    passed = 0;
+    total = 0;
+
+    /* Print header for the test */
+    printf("\n===== TESTING FT_TOUPPER =====\n\n");
+    printf("Testing all ASCII characters (0-127):\n");
+
+    /* Test all standard ASCII characters */
+    for (i = 0; i <= 127; i++)
+    {
+        /* Get results from both functions */
+        int expected = toupper(i);
+        int result = ft_toupper(i);
+
+        total++;
+
+        /* Check if our function matches the standard library function */
+        if (expected == result)
+        {
+            passed++;
+            printf("✓ ");
+        }
+        else
+        {
+            printf("✗ ");
+        }
+
+        /* Print the character and test results */
+        if (i >= 32 && i <= 126) /* Printable characters */
+            printf("Char: '%c' (ASCII: %3d) | Expected: '%c' | Result: '%c'\n",
+                i, i, expected, result);
+        else /* Non-printable characters */
+            printf("Char: (ASCII: %3d) | Expected: %3d | Result: %3d\n",
+                i, expected, result);
+    }
+
+    /* Print specific test cases for clarity */
+    printf("\n===== SPECIFIC TEST CASES FOR FT_TOUPPER =====\n\n");
+
+    /* Test lowercase letters */
+    printf("Testing lowercase letters (a-z):\n");
+    for (i = 'a'; i <= 'z'; i++)
+    {
+        printf("ft_toupper('%c'): '%c' (Expected: '%c')\n",
+            i, ft_toupper(i), toupper(i));
+    }
+
+    /* Test uppercase letters (should remain unchanged) */
+    printf("\nTesting uppercase letters (A-Z):\n");
+    for (i = 'A'; i <= 'Z'; i++)
+    {
+        printf("ft_toupper('%c'): '%c' (Expected: '%c')\n",
+            i, ft_toupper(i), toupper(i));
+    }
+
+    /* Test digits (should remain unchanged) */
+    printf("\nTesting digits (0-9):\n");
+    for (i = '0'; i <= '9'; i++)
+    {
+        printf("ft_toupper('%c'): '%c' (Expected: '%c')\n",
+            i, ft_toupper(i), toupper(i));
+    }
+
+    /* Test some special characters (should remain unchanged) */
+    printf("\nTesting some special characters:\n");
+    char special_chars[] = " !@#$%^&*()-_=+[]{}|;:'\",.<>/?\\";
+    for (i = 0; special_chars[i] != '\0'; i++)
+    {
+        printf("ft_toupper('%c'): '%c' (Expected: '%c')\n",
+            special_chars[i], ft_toupper(special_chars[i]), toupper(special_chars[i]));
+    }
+
+    /* Test edge cases */
+    printf("\nTesting edge cases:\n");
+    printf("ft_toupper(-1): %d (Expected: %d)\n",
+        ft_toupper(-1), toupper(-1));
+    printf("ft_toupper(128): %d (Expected: %d)\n",
+        ft_toupper(128), toupper(128));
+
+    /* Print test summary */
+    printf("\n===== FT_TOUPPER TEST SUMMARY =====\n");
+    printf("Tests passed: %d/%d (%.2f%%)\n",
+        passed, total, (float)passed / total * 100);
+
+    if (passed == total)
+        printf("All tests passed! ft_toupper works correctly.\n\n\n");
+    else
+        printf("Some tests failed. Please check your implementation.\n\n\n");
 
     return (0);
 }
