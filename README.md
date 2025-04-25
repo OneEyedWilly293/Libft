@@ -3,6 +3,10 @@
 ## <ins>Logs</ins>
 
 ### <ins>25.04.2025</ins>
+- Added test for ft_bzero function.
+- Updated ft_memcpy prototype.
+- Updated ft_bzero prototype.
+- Added test for ft_bzer function.
 - Added test for ft_memset function.
 - Updated ft_memset functiont prototype.
 - Added test for ft_tolower function.

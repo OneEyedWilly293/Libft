@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/25 14:56:32 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/25 16:45:13 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -962,7 +962,7 @@ int	main(void)
        printf("Standard memset: [");
        for (j = 0; j < len4; j++)
        {
-           printf("%d", buffer1[i]);
+           printf("%d", buffer1[j]);
            if (j < len4 - 1)
                printf(", ");
        }
@@ -971,7 +971,7 @@ int	main(void)
        printf("Your ft_memset: [");
        for (j = 0; j < len4; j++)
        {
-           printf("%d", buffer2[i]);
+           printf("%d", buffer2[j]);
            if (j < len4 - 1)
                printf(", ");
        }
@@ -1058,6 +1058,503 @@ int	main(void)
            printf("All tests passed! Your ft_memset function works correctly.\n\n\n");
        else
            printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
+
+
+    /* ******************************************************************************** */
+    /*                                                                                  */
+    /*                        TEST FOR FT_BZERO FUNCTION                                */
+    /*                                                                                  */
+    /* This program tests the ft_bzero function by comparing its results                */
+    /* with the standard bzero function from the C library.                             */
+    /* It tests various buffer sizes and edge cases to ensure proper memory zeroing.    */
+    /* ******************************************************************************** */
+    {
+    /* Initialize counters */
+    passed = 0;
+    total = 0;
+
+    /* Print header for the test */
+    printf("\n===== TESTING FT_BZERO =====\n\n");
+
+    /* Test case 1: Basic functionality with a char array */
+    char str1[] = "Hello, world!";
+    char str2[] = "Hello, world!";
+    size_t len1 = 5;
+
+    bzero(str1, len1);
+    ft_bzero(str2, len1);
+    total++;
+
+    printf("Test 1: Basic functionality (zero first 5 bytes)\n");
+    printf("Original: \"Hello, world!\"\n");
+    printf("Standard bzero: \"");
+    for (j = 0; j < strlen("Hello, world!"); j++)
+        printf(str1[j] ? "%c" : "\\0", str1[j]);
+    printf("\"\n");
+
+    printf("Your ft_bzero: \"");
+    for (j = 0; j < strlen("Hello, world!"); j++)
+        printf(str2[j] ? "%c" : "\\0", str2[j]);
+    printf("\"\n");
+
+    if (memcmp(str1, str2, strlen("Hello, world!") + 1) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 2: Zero entire buffer */
+    char str3[] = "Hello, world!";
+    char str4[] = "Hello, world!";
+    size_t len2 = strlen(str3);
+
+    bzero(str3, len2);
+    ft_bzero(str4, len2);
+    total++;
+
+    printf("Test 2: Zero entire buffer\n");
+    printf("Original: \"Hello, world!\"\n");
+    printf("Standard bzero: \"");
+    for (j = 0; j < len2; j++)
+        printf(str3[j] ? "%c" : "\\0", str3[j]);
+    printf("\"\n");
+
+    printf("Your ft_bzero: \"");
+    for (j = 0; j < len2; j++)
+        printf(str4[j] ? "%c" : "\\0", str4[j]);
+    printf("\"\n");
+
+    if (memcmp(str3, str4, len2) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 3: Zero-length operation */
+    char str5[] = "Hello, world!";
+    char str6[] = "Hello, world!";
+    size_t len3 = 0;
+
+    bzero(str5, len3);
+    ft_bzero(str6, len3);
+    total++;
+
+    printf("Test 3: Zero-length operation\n");
+    printf("Original: \"Hello, world!\"\n");
+    printf("Standard bzero: \"%s\"\n", str5);
+    printf("Your ft_bzero: \"%s\"\n", str6);
+
+    if (memcmp(str5, str6, strlen(str5) + 1) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 4: Numeric array */
+    int nums1[5] = {1, 2, 3, 4, 5};
+    int nums2[5] = {1, 2, 3, 4, 5};
+    size_t len4 = 3 * sizeof(int); /* Zero first 3 integers */
+
+    bzero(nums1, len4);
+    ft_bzero(nums2, len4);
+    total++;
+
+    printf("Test 4: Numeric array (zero first 3 integers)\n");
+    printf("Original: [1, 2, 3, 4, 5]\n");
+
+    printf("Standard bzero: [");
+    for (j = 0; j < 5; j++)
+    {
+        printf("%d", nums1[j]);
+        if (j < 4)
+            printf(", ");
+    }
+    printf("]\n");
+
+    printf("Your ft_bzero: [");
+    for (j = 0; j < 5; j++)
+    {
+        printf("%d", nums2[j]);
+        if (j < 4)
+            printf(", ");
+    }
+    printf("]\n");
+
+    if (memcmp(nums1, nums2, 5 * sizeof(int)) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 5: Large buffer */
+    #define BZERO_LARGE_SIZE 1000
+    unsigned char large_buffer1[BZERO_LARGE_SIZE];
+    unsigned char large_buffer2[BZERO_LARGE_SIZE];
+
+    /* Initialize buffers with non-zero values */
+    for (j = 0; j < BZERO_LARGE_SIZE; j++)
+    {
+        large_buffer1[j] = j % 256;
+        large_buffer2[j] = j % 256;
+    }
+
+    bzero(large_buffer1, BZERO_LARGE_SIZE);
+    ft_bzero(large_buffer2, BZERO_LARGE_SIZE);
+    total++;
+
+    printf("Test 5: Large buffer (1000 bytes)\n");
+    printf("Zeroing 1000 bytes\n");
+
+    /* Check if all bytes are zeroed correctly */
+    int bzero_large_buffer_match = 1;
+    for (j = 0; j < BZERO_LARGE_SIZE; j++)
+    {
+        if (large_buffer1[j] != large_buffer2[j])
+        {
+            bzero_large_buffer_match = 0;
+            printf("Mismatch at index %zu: Expected %d, Got %d\n", 
+                    j, large_buffer1[j], large_buffer2[j]);
+            break;
+        }
+    }
+
+    if (bzero_large_buffer_match)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 6: Struct zeroing */
+    struct test_struct {
+        int a;
+        char b;
+        double c;
+        char str[10];
+    } test1, test2;
+
+    /* Initialize structs with values */
+    test1.a = 42;
+    test1.b = 'X';
+    test1.c = 3.14159;
+    strcpy(test1.str, "Hello");
+
+    test2.a = 42;
+    test2.b = 'X';
+    test2.c = 3.14159;
+    strcpy(test2.str, "Hello");
+
+    bzero(&test1, sizeof(struct test_struct));
+    ft_bzero(&test2, sizeof(struct test_struct));
+    total++;
+
+    printf("Test 6: Struct zeroing\n");
+    printf("Zeroing a struct with mixed data types\n");
+
+    if (memcmp(&test1, &test2, sizeof(struct test_struct)) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Print test summary */
+    printf("\n===== FT_BZERO TEST SUMMARY =====\n");
+    printf("Tests passed: %d/%d (%.2f%%)\n",
+        passed, total, (float)passed / total * 100);
+
+    if (passed == total)
+        printf("All tests passed! Your ft_bzero function works correctly.\n\n\n");
+    else
+        printf("Some tests failed. Please check your implementation.\n\n\n");
+
+    }
+
+
+
+
+    /* ******************************************************************************** */
+    /*                                                                                  */
+    /*                        TEST FOR FT_MEMCPY FUNCTION                               */
+    /*                                                                                  */
+    /* This program tests the ft_memcpy function by comparing its results               */
+    /* with the standard memcpy function from the C library.                            */
+    /* It tests various buffer sizes, different data types, and edge cases to ensure    */
+    /* proper memory copying behavior.                                                  */
+    /* ******************************************************************************** */
+
+    {
+    /* Initialize counters */
+    passed = 0;
+    total = 0;
+
+    /* Print header for the test */
+    printf("\n===== TESTING FT_MEMCPY =====\n\n");
+
+    /* Test case 1: Basic functionality with a char array */
+    char src1[] = "Hello, world!";
+    char dest1[20] = {0};
+    char dest2[20] = {0};
+    size_t len1 = strlen(src1) + 1; /* Include null terminator */
+
+    memcpy(dest1, src1, len1);
+    ft_memcpy(dest2, src1, len1);
+    total++;
+
+    printf("Test 1: Basic string copy\n");
+    printf("Source: \"%s\"\n", src1);
+    printf("Standard memcpy: \"%s\"\n", dest1);
+    printf("Your ft_memcpy: \"%s\"\n", dest2);
+
+    if (memcmp(dest1, dest2, len1) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 2: Partial copy */
+    char src2[] = "Hello, world!";
+    char dest3[20] = "XXXXXXXXXXXXXXX";
+    char dest4[20] = "XXXXXXXXXXXXXXX";
+    size_t len2 = 5; /* Copy only "Hello" */
+
+    memcpy(dest3, src2, len2);
+    ft_memcpy(dest4, src2, len2);
+    total++;
+
+    printf("Test 2: Partial copy (first 5 bytes)\n");
+    printf("Source: \"%s\"\n", src2);
+    printf("Destination before: \"XXXXXXXXXXXXXXX\"\n");
+    printf("Standard memcpy: \"%s\"\n", dest3);
+    printf("Your ft_memcpy: \"%s\"\n", dest4);
+
+    if (memcmp(dest3, dest4, 20) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 3: Copy integers */
+    int src_int1[] = {1, 2, 3, 4, 5};
+    int dest_int1[5] = {0};
+    int dest_int2[5] = {0};
+    size_t len3 = sizeof(src_int1);
+
+    memcpy(dest_int1, src_int1, len3);
+    ft_memcpy(dest_int2, src_int1, len3);
+    total++;
+
+    printf("Test 3: Copy integers\n");
+    printf("Source: [1, 2, 3, 4, 5]\n");
+
+    printf("Standard memcpy: [");
+    for (j = 0; j < 5; j++)
+    {
+        printf("%d", dest_int1[j]);
+        if (j < 4)
+            printf(", ");
+    }
+    printf("]\n");
+
+    printf("Your ft_memcpy: [");
+    for (j = 0; j < 5; j++)
+    {
+        printf("%d", dest_int2[j]);
+        if (j < 4)
+            printf(", ");
+    }
+    printf("]\n");
+
+    if (memcmp(dest_int1, dest_int2, len3) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 4: Zero-length operation */
+    char src3[] = "Hello, world!";
+    char dest5[20] = "XXXXXXXXXXXXXXX";
+    char dest6[20] = "XXXXXXXXXXXXXXX";
+    size_t len4 = 0;
+
+    memcpy(dest5, src3, len4);
+    ft_memcpy(dest6, src3, len4);
+    total++;
+
+    printf("Test 4: Zero-length operation\n");
+    printf("Source: \"%s\"\n", src3);
+    printf("Destination before: \"XXXXXXXXXXXXXXX\"\n");
+    printf("Standard memcpy: \"%s\"\n", dest5);
+    printf("Your ft_memcpy: \"%s\"\n", dest6);
+
+    if (memcmp(dest5, dest6, 20) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 5: Copy with non-aligned addresses */
+    char src4[] = "Hello, world!";
+    char dest7[20] = "XXXXXXXXXXXXXXX";
+    char dest8[20] = "XXXXXXXXXXXXXXX";
+    size_t len5 = 10;
+
+    memcpy(dest7 + 3, src4 + 2, len5);
+    ft_memcpy(dest8 + 3, src4 + 2, len5);
+    total++;
+
+    printf("Test 5: Copy with non-aligned addresses\n");
+    printf("Source: \"%s\" (starting from index 2)\n", src4);
+    printf("Destination before: \"XXXXXXXXXXXXXXX\" (starting at index 3)\n");
+    printf("Standard memcpy: \"%s\"\n", dest7);
+    printf("Your ft_memcpy: \"%s\"\n", dest8);
+
+    if (memcmp(dest7, dest8, 20) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 6: Large buffer */
+    #define MEMCPY_LARGE_SIZE 1000
+    unsigned char large_src[MEMCPY_LARGE_SIZE];
+    unsigned char large_dest1[MEMCPY_LARGE_SIZE];
+    unsigned char large_dest2[MEMCPY_LARGE_SIZE];
+
+    /* Initialize buffers with values */
+    for (j = 0; j < MEMCPY_LARGE_SIZE; j++)
+    {
+        large_src[j] = j % 256;
+        large_dest1[j] = 0;
+        large_dest2[j] = 0;
+    }
+
+    memcpy(large_dest1, large_src, MEMCPY_LARGE_SIZE);
+    ft_memcpy(large_dest2, large_src, MEMCPY_LARGE_SIZE);
+    total++;
+
+    printf("Test 6: Large buffer (1000 bytes)\n");
+    printf("Copying 1000 bytes from source to destination\n");
+
+    /* Check if all bytes are copied correctly */
+    int memcpy_large_buffer_match = 1;
+    for (j = 0; j < MEMCPY_LARGE_SIZE; j++)
+    {
+        if (large_dest1[j] != large_dest2[j])
+        {
+            memcpy_large_buffer_match = 0;
+            printf("Mismatch at index %zu: Expected %d, Got %d\n",
+                    j, large_dest1[j], large_dest2[j]);
+            break;
+        }
+    }
+
+    if (memcpy_large_buffer_match)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 7: Struct copying */
+    struct test_struct_memcpy {
+        int a;
+        char b;
+        double c;
+        char str[10];
+    } src_struct, dest_struct1, dest_struct2;
+
+    /* Initialize source struct with values */
+    src_struct.a = 42;
+    src_struct.b = 'X';
+    src_struct.c = 3.14159;
+    strcpy(src_struct.str, "Hello");
+
+    /* Clear destination structs */
+    memset(&dest_struct1, 0, sizeof(struct test_struct_memcpy));
+    memset(&dest_struct2, 0, sizeof(struct test_struct_memcpy));
+
+    memcpy(&dest_struct1, &src_struct, sizeof(struct test_struct_memcpy));
+    ft_memcpy(&dest_struct2, &src_struct, sizeof(struct test_struct_memcpy));
+    total++;
+
+    printf("Test 7: Struct copying\n");
+    printf("Copying a struct with mixed data types\n");
+    printf("Source struct: {a: %d, b: '%c', c: %f, str: \"%s\"}\n",
+        src_struct.a, src_struct.b, src_struct.c, src_struct.str);
+    printf("Standard memcpy: {a: %d, b: '%c', c: %f, str: \"%s\"}\n",
+        dest_struct1.a, dest_struct1.b, dest_struct1.c, dest_struct1.str);
+    printf("Your ft_memcpy: {a: %d, b: '%c', c: %f, str: \"%s\"}\n",
+        dest_struct2.a, dest_struct2.b, dest_struct2.c, dest_struct2.str);
+
+    if (memcmp(&dest_struct1, &dest_struct2, sizeof(struct test_struct_memcpy)) == 0)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 8: NULL pointers with zero length */
+    char dummy_src[1] = {0};
+    char dummy_dest[1] = {0};
+    void *result1 = memcpy(dummy_dest, dummy_src, 0);
+    void *result2 = ft_memcpy(dummy_dest, dummy_src, 0);
+    total++;
+
+    printf("Test 8: NULL pointers with zero length\n");
+    printf("Testing behavior with NULL source and destination but zero length\n");
+
+    /* This test is a bit tricky since the standard says this is undefined behavior,
+    but many implementations handle it by just returning the destination pointer.
+    We'll check if your implementation behaves the same as the system's memcpy. */
+
+    if ((result1 == NULL && result2 == NULL) || (result1 != NULL && result2 != NULL))
+    {
+        passed++;
+        printf("✓ Test passed! Both functions returned %s\n\n",
+            result1 == NULL ? "NULL" : "non-NULL");
+    }
+    else
+        printf("✗ Test failed! Standard memcpy returned %s but your ft_memcpy returned %s\n\n",
+            result1 == NULL ? "NULL" : "non-NULL",
+            result2 == NULL ? "NULL" : "non-NULL");
+
+    /* Print test summary */
+    printf("\n===== FT_MEMCPY TEST SUMMARY =====\n");
+    printf("Tests passed: %d/%d (%.2f%%)\n",
+        passed, total, (float)passed / total * 100);
+
+    if (passed == total)
+        printf("All tests passed! Your ft_memcpy function works correctly.\n\n\n");
+    else
+        printf("Some tests failed. Please check your implementation.\n\n\n");
+
+    }
+
 
 
 
