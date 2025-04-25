@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/25 16:45:13 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/25 17:11:19 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,38 @@
 #include <stddef.h>
 #include "libft.h"
 
+ /* Temporary implementation of strlcpy for testing purposes */
+ size_t  strlcpy(char *dst, const char *src, size_t size)
+ {
+     size_t src_len = 0;
+     size_t i;
 
-/* Include the header file that contains ft_isalpha prototype soon*/
+     /* Get source length */
+     while (src[src_len])
+         src_len++;
 
-//int	ft_isalpha(int c);
-//int	ft_isdigit(int c);
-//int ft_isalnum(int c);
+     /* If size is 0, just return source length */
+     if (size == 0)
+         return src_len;
+
+     /* Copy up to size-1 characters */
+     i = 0;
+     while (i < size - 1 && src[i])
+     {
+         dst[i] = src[i];
+         i++;
+     }
+     dst[i] = '\0';
+
+     return (src_len);
+ }
+
+ /* Understanding the Issue
+    The strlcpy function is a BSD extension that's available in some Unix-like operating systems (like macOS and FreeBSD),
+    but it's not part of the standard C library on Linux and many other systems.
+    When you try to use it without proper declaration, the compiler gives you an "implicit declaration" error. */
+
+/* ******************************************************************************************************************************/
 
 
 /* *****************************************************************************************************
@@ -1550,6 +1576,297 @@ int	main(void)
 
     if (passed == total)
         printf("All tests passed! Your ft_memcpy function works correctly.\n\n\n");
+    else
+        printf("Some tests failed. Please check your implementation.\n\n\n");
+
+    }
+
+
+
+
+    /* ******************************************************************************** */
+    /*                                                                                  */
+    /*                        TEST FOR FT_STRLCPY FUNCTION                              */
+    /*                                                                                  */
+    /* This program tests the ft_strlcpy function by comparing its results              */
+    /* with the standard strlcpy function from the C library.                           */
+    /* It tests various buffer sizes, edge cases, and different string types to ensure  */
+    /* proper string copying behavior with size limitations.                            */
+    /* ******************************************************************************** */
+    {
+    /* Initialize counters */
+    passed = 0;
+    total = 0;
+
+    /* Print header for the test */
+    printf("\n===== TESTING FT_STRLCPY =====\n\n");
+
+    /* Test case 1: Basic functionality with sufficient buffer */
+    char src1[] = "Hello, world!";
+    char dest1[20] = {0};
+    char dest2[20] = {0};
+    size_t len1 = sizeof(dest1);
+    size_t ret1, ret2;
+
+    ret1 = strlcpy(dest1, src1, len1);
+    ret2 = ft_strlcpy(dest2, src1, len1);
+    total++;
+
+    printf("Test 1: Basic string copy (sufficient buffer)\n");
+    printf("Source: \"%s\" (length: %zu)\n", src1, strlen(src1));
+    printf("Buffer size: %zu\n", len1);
+    printf("Standard strlcpy: \"%s\" (return: %zu)\n", dest1, ret1);
+    printf("Your ft_strlcpy: \"%s\" (return: %zu)\n", dest2, ret2);
+
+    if (strcmp(dest1, dest2) == 0 && ret1 == ret2)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 2: Truncation (buffer smaller than source) */
+    char src2[] = "Hello, world!";
+    char dest3[7] = {0};  /* Only enough for "Hello," + null */
+    char dest4[7] = {0};
+    size_t len2 = sizeof(dest3);
+    size_t ret3, ret4;
+
+    ret3 = strlcpy(dest3, src2, len2);
+    ret4 = ft_strlcpy(dest4, src2, len2);
+    total++;
+
+    printf("Test 2: Truncation (buffer smaller than source)\n");
+    printf("Source: \"%s\" (length: %zu)\n", src2, strlen(src2));
+    printf("Buffer size: %zu\n", len2);
+    printf("Standard strlcpy: \"%s\" (return: %zu)\n", dest3, ret3);
+    printf("Your ft_strlcpy: \"%s\" (return: %zu)\n", dest4, ret4);
+
+    if (strcmp(dest3, dest4) == 0 && ret3 == ret4)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 3: Exact buffer size (buffer size = source length + 1) */
+    char src3[] = "Hello";
+    char dest5[6] = {0};  /* Exactly enough for "Hello" + null */
+    char dest6[6] = {0};
+    size_t len3 = sizeof(dest5);
+    size_t ret5, ret6;
+
+    ret5 = strlcpy(dest5, src3, len3);
+    ret6 = ft_strlcpy(dest6, src3, len3);
+    total++;
+
+    printf("Test 3: Exact buffer size (buffer = source length + 1)\n");
+    printf("Source: \"%s\" (length: %zu)\n", src3, strlen(src3));
+    printf("Buffer size: %zu\n", len3);
+    printf("Standard strlcpy: \"%s\" (return: %zu)\n", dest5, ret5);
+    printf("Your ft_strlcpy: \"%s\" (return: %zu)\n", dest6, ret6);
+
+    if (strcmp(dest5, dest6) == 0 && ret5 == ret6)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 4: Zero-size buffer */
+    char src4[] = "Hello, world!";
+    char dest7[10] = "XXXXXXXXX";
+    char dest8[10] = "XXXXXXXXX";
+    size_t len4 = 0;
+    size_t ret7, ret8;
+
+    ret7 = strlcpy(dest7, src4, len4);
+    ret8 = ft_strlcpy(dest8, src4, len4);
+    total++;
+
+    printf("Test 4: Zero-size buffer\n");
+    printf("Source: \"%s\" (length: %zu)\n", src4, strlen(src4));
+    printf("Buffer size: %zu\n", len4);
+    printf("Destination before: \"XXXXXXXXX\"\n");
+    printf("Standard strlcpy return: %zu\n", ret7);
+    printf("Your ft_strlcpy return: %zu\n", ret8);
+    printf("Standard strlcpy result: \"%s\"\n", dest7);
+    printf("Your ft_strlcpy result: \"%s\"\n", dest8);
+
+    if (strcmp(dest7, dest8) == 0 && ret7 == ret8)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 5: Empty source string */
+    char src5[] = "";
+    char dest9[10] = "XXXXXXXXX";
+    char dest10[10] = "XXXXXXXXX";
+    size_t len5 = sizeof(dest9);
+    size_t ret9, ret10;
+
+    ret9 = strlcpy(dest9, src5, len5);
+    ret10 = ft_strlcpy(dest10, src5, len5);
+    total++;
+
+    printf("Test 5: Empty source string\n");
+    printf("Source: \"\" (empty string)\n");
+    printf("Buffer size: %zu\n", len5);
+    printf("Destination before: \"XXXXXXXXX\"\n");
+    printf("Standard strlcpy: \"%s\" (return: %zu)\n", dest9, ret9);
+    printf("Your ft_strlcpy: \"%s\" (return: %zu)\n", dest10, ret10);
+
+    if (strcmp(dest9, dest10) == 0 && ret9 == ret10)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 6: Size exactly 1 (only null terminator) */
+    char src6[] = "Hello, world!";
+    char dest11[10] = "XXXXXXXXX";
+    char dest12[10] = "XXXXXXXXX";
+    size_t len6 = 1;
+    size_t ret11, ret12;
+
+    ret11 = strlcpy(dest11, src6, len6);
+    ret12 = ft_strlcpy(dest12, src6, len6);
+    total++;
+
+    printf("Test 6: Size exactly 1 (only null terminator)\n");
+    printf("Source: \"%s\" (length: %zu)\n", src6, strlen(src6));
+    printf("Buffer size: %zu\n", len6);
+    printf("Destination before: \"XXXXXXXXX\"\n");
+    printf("Standard strlcpy: \"");
+    for (j = 0; j < 9; j++)
+        printf(dest11[j] ? "%c" : "\\0", dest11[j]);
+    printf("\" (return: %zu)\n", ret11);
+
+    printf("Your ft_strlcpy: \"");
+    for (j = 0; j < 9; j++)
+        printf(dest12[j] ? "%c" : "\\0", dest12[j]);
+    printf("\" (return: %zu)\n", ret12);
+
+    if (memcmp(dest11, dest12, 10) == 0 && ret11 == ret12)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 7: String with special characters */
+    char src7[] = "Hello\t\n\r\0World";  /* Note: strlen will stop at \0 */
+    char dest13[20] = {0};
+    char dest14[20] = {0};
+    size_t len7 = sizeof(dest13);
+    size_t src7_len = 7;  /* Length up to the \0 */
+    size_t ret13, ret14;
+
+    ret13 = strlcpy(dest13, src7, len7);
+    ret14 = ft_strlcpy(dest14, src7, len7);
+    total++;
+
+    printf("Test 7: String with special characters\n");
+    printf("Source contains: \"Hello\" followed by tab, newline, carriage return, and null\n");
+    printf("Buffer size: %zu\n", len7);
+    printf("Standard strlcpy return: %zu\n", ret13);
+    printf("Your ft_strlcpy return: %zu\n", ret14);
+
+    /* Display the content character by character */
+    printf("Standard strlcpy result: \"");
+    for (j = 0; j < src7_len; j++)
+    {
+        if (dest13[j] == '\t') printf("\\t");
+        else if (dest13[j] == '\n') printf("\\n");
+        else if (dest13[j] == '\r') printf("\\r");
+        else if (dest13[j] == '\0') printf("\\0");
+        else printf("%c", dest13[j]);
+    }
+    printf("\"\n");
+
+    printf("Your ft_strlcpy result: \"");
+    for (j = 0; j < src7_len; j++)
+    {
+        if (dest14[j] == '\t') printf("\\t");
+        else if (dest14[j] == '\n') printf("\\n");
+        else if (dest14[j] == '\r') printf("\\r");
+        else if (dest14[j] == '\0') printf("\\0");
+        else printf("%c", dest14[j]);
+    }
+    printf("\"\n");
+
+    if (memcmp(dest13, dest14, len7) == 0 && ret13 == ret14)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+        printf("✗ Test failed!\n\n");
+
+    /* Test case 8: Large string */
+    #define LARGE_STR_SIZE 1000
+    char large_src[LARGE_STR_SIZE + 1];
+    char large_dest1[LARGE_STR_SIZE + 100] = {0};
+    char large_dest2[LARGE_STR_SIZE + 100] = {0};
+    size_t large_len = sizeof(large_dest1);
+    size_t ret_large1, ret_large2;
+
+    /* Fill the large source string with repeating pattern */
+    for (j = 0; j < LARGE_STR_SIZE; j++)
+    {
+        large_src[j] = 'A' + (j % 26);
+    }
+    large_src[LARGE_STR_SIZE] = '\0';
+
+    ret_large1 = strlcpy(large_dest1, large_src, large_len);
+    ret_large2 = ft_strlcpy(large_dest2, large_src, large_len);
+    total++;
+
+    printf("Test 8: Large string (1000 characters)\n");
+    printf("Source: [1000-character string with pattern A-Z]\n");
+    printf("Buffer size: %zu\n", large_len);
+    printf("Standard strlcpy return: %zu\n", ret_large1);
+    printf("Your ft_strlcpy return: %zu\n", ret_large2);
+    printf("First 20 chars - Standard: %.20s\n", large_dest1);
+    printf("First 20 chars - Yours: %.20s\n", large_dest2);
+
+    /* Check if strings match */
+    int large_match = (strcmp(large_dest1, large_dest2) == 0);
+    /* Check if return values match */
+    int return_match = (ret_large1 == ret_large2);
+
+    if (large_match && return_match)
+    {
+        passed++;
+        printf("✓ Test passed!\n\n");
+    }
+    else
+    {
+        printf("✗ Test failed!\n");
+        if (!large_match)
+            printf("  - Strings don't match\n");
+        if (!return_match)
+            printf("  - Return values don't match (expected %zu, got %zu)\n", 
+                ret_large1, ret_large2);
+        printf("\n");
+    }
+
+    /* Print test summary */
+    printf("\n===== FT_STRLCPY TEST SUMMARY =====\n");
+    printf("Tests passed: %d/%d (%.2f%%)\n",
+        passed, total, (float)passed / total * 100);
+
+    if (passed == total)
+        printf("All tests passed! Your ft_strlcpy function works correctly.\n\n\n");
     else
         printf("Some tests failed. Please check your implementation.\n\n\n");
 
