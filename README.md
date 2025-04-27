@@ -2,6 +2,12 @@
 
 ## <ins>Logs</ins>
 
+### <ins>27.04.2025</ins>
+- Changed ft_isalpha file name.
+	> *from ft_isalpa*
+- Added test for ft_strlcat function.
+- Modified syntax and prototype of ft_strlcat function.
+
 ### <ins>25.04.2025</ins>
 - Added test for ft_strlcpy function.
 - Modified Syntax and prototype of ft_strlcpy function.
