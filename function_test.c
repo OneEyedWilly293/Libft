@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/27 23:34:43 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/27 23:43:35 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2291,7 +2291,165 @@ int	main(void)
 
 
 
-	
+	/* **************************************************************************************
+	*                               TEST FOR FT_STRRCHR FUNCTION                            *
+	*                                                                                      *
+	* This test compares your ft_strrchr function with the standard strrchr function       *
+	* from the C library to ensure it behaves correctly.                                   *
+	*                                                                                      *
+	* It tests:                                                                            *
+	* 1. Character present once in the string                                              *
+	* 2. Character present multiple times                                                  *
+	* 3. Character not present                                                             *
+	* 4. Searching for null terminator                                                     *
+	* 5. Empty string cases                                                                *
+	* 6. Non-ASCII characters                                                              *
+	* 7. Edge cases (first/last character)                                                 *
+	* *************************************************************************************/
+
+	/* Initialize counters */
+	passed = 0;
+	total = 0;
+
+	/* Print header for the test */
+	printf("\n===== TESTING FT_STRRCHR =====\n\n");
+
+	/* Test case 1: Character present once */
+	const char *str1 = "Hello, world!";
+	int ch1 = 'o';
+	const char *std_ptr1 = strrchr(str1, ch1);
+	const char *ft_ptr1 = ft_strrchr(str1, ch1);
+	total++;
+	printf("Test 1: Single occurrence\n");
+	printf("String: \"%s\", Char: '%c'\n", str1, ch1);
+	printf("Standard strrchr: %s\n", std_ptr1 ? std_ptr1 : "NULL");
+	printf("Your ft_strrchr: %s\n", ft_ptr1 ? ft_ptr1 : "NULL");
+	if (std_ptr1 == ft_ptr1 || (std_ptr1 && ft_ptr1 && *std_ptr1 == *ft_ptr1))
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test case 2: Multiple occurrences */
+	const char *str2 = "banana";
+	int ch2 = 'a';
+	const char *std_ptr2 = strrchr(str2, ch2);
+	const char *ft_ptr2 = ft_strrchr(str2, ch2);
+	total++;
+	printf("Test 2: Multiple occurrences\n");
+	printf("String: \"%s\", Char: '%c'\n", str2, ch2);
+	printf("Standard strrchr: %s\n", std_ptr2 ? std_ptr2 : "NULL");
+	printf("Your ft_strrchr: %s\n", ft_ptr2 ? ft_ptr2 : "NULL");
+	if (std_ptr2 == ft_ptr2 || (std_ptr2 && ft_ptr2 && *std_ptr2 == *ft_ptr2))
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test case 3: Character not present */
+	const char *str3 = "abcdef";
+	int ch3 = 'z';
+	const char *std_ptr3 = strrchr(str3, ch3);
+	const char *ft_ptr3 = ft_strrchr(str3, ch3);
+	total++;
+	printf("Test 3: Character not found\n");
+	printf("String: \"%s\", Char: '%c'\n", str3, ch3);
+	printf("Standard strrchr: %s\n", std_ptr3 ? std_ptr3 : "NULL");
+	printf("Your ft_strrchr: %s\n", ft_ptr3 ? ft_ptr3 : "NULL");
+	if (std_ptr3 == ft_ptr3)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test case 4: Search for null terminator */
+	const char *str4 = "test";
+	int ch4 = '\0';
+	const char *std_ptr4 = strrchr(str4, ch4);
+	const char *ft_ptr4 = ft_strrchr(str4, ch4);
+	total++;
+	printf("Test 4: Search for null terminator\n");
+	printf("String: \"%s\", Char: '\\0'\n", str4);
+	printf("Standard strrchr: %p\n", (void*)std_ptr4);
+	printf("Your ft_strrchr: %p\n", (void*)ft_ptr4);
+	if (std_ptr4 == ft_ptr4)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test case 5: Empty string */
+	const char *str5 = "";
+	int ch5 = 'a';
+	const char *std_ptr5 = strrchr(str5, ch5);
+	const char *ft_ptr5 = ft_strrchr(str5, ch5);
+	total++;
+	printf("Test 5: Empty string\n");
+	printf("String: \"\", Char: '%c'\n", ch5);
+	printf("Standard strrchr: %s\n", std_ptr5 ? std_ptr5 : "NULL");
+	printf("Your ft_strrchr: %s\n", ft_ptr5 ? ft_ptr5 : "NULL");
+	if (std_ptr5 == ft_ptr5)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test case 6: First character match */
+	const char *str6 = "first";
+	int ch6 = 'f';
+	const char *std_ptr6 = strrchr(str6, ch6);
+	const char *ft_ptr6 = ft_strrchr(str6, ch6);
+	total++;
+	printf("Test 6: First character match\n");
+	printf("String: \"%s\", Char: '%c'\n", str6, ch6);
+	printf("Standard strrchr: %s\n", std_ptr6 ? std_ptr6 : "NULL");
+	printf("Your ft_strrchr: %s\n", ft_ptr6 ? ft_ptr6 : "NULL");
+	if (std_ptr6 == ft_ptr6 || (std_ptr6 && ft_ptr6 && *std_ptr6 == *ft_ptr6))
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test case 7: Non-ASCII character */
+	const char *str7 = "café";
+	int ch7 = 0xE9; /* é in Latin-1 */
+	const char *std_ptr7 = strrchr(str7, ch7);
+	const char *ft_ptr7 = ft_strrchr(str7, ch7);
+	total++;
+	printf("Test 7: Non-ASCII character\n");
+	printf("String: \"%s\", Char: 0x%x\n", str7, ch7);
+	printf("Standard strrchr: %s\n", std_ptr7 ? std_ptr7 : "NULL");
+	printf("Your ft_strrchr: %s\n", ft_ptr7 ? ft_ptr7 : "NULL");
+	if (std_ptr7 == ft_ptr7 || (std_ptr7 && ft_ptr7 && *std_ptr7 == *ft_ptr7))
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Print test summary */
+	printf("\n===== FT_STRRCHR TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_strrchr function works correctly.\n\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n\n");
+
 
 	return (0);
 }
