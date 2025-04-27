@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/27 23:43:35 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/27 23:57:18 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2447,6 +2447,118 @@ int	main(void)
 
 	if (passed == total)
 		printf("All tests passed! Your ft_strrchr function works correctly.\n\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
+
+	/* ******************************************************************************** */
+	/*                                                                                  */
+	/*                        TEST FOR FT_STRNCMP FUNCTION                              */
+	/*                                                                                  */
+	/* This program tests the ft_strncmp function by comparing its results              */
+	/* with the standard strncmp function from the C library.                           */
+	/* It tests various string combinations and edge cases to ensure proper comparison  */
+	/* behavior up to n characters.                                                     */
+	/* ******************************************************************************** */
+
+	/* Initialize counters */
+	passed = 0;
+	total = 0;
+
+	/* Print header for the test */
+	printf("\n===== TESTING FT_STRNCMP =====\n\n");
+
+	/* Test case array */
+	struct test_case {
+		const char *s1;
+		const char *s2;
+		size_t n;
+		int expected;
+	} tests[] = {
+		/* Basic comparisons */
+		{"apple", "apple", 5, 0},
+		{"apple", "apples", 5, 0},
+		{"apple", "apples", 6, -'s'},
+		{"apple", "banana", 5, 'a' - 'b'},
+		{"banana", "apple", 5, 'b' - 'a'},
+		{"", "", 0, 0},
+
+		/* Case sensitivity */
+		{"HELLO", "hello", 5, 'H' - 'h'},
+		{"hello", "HELLO", 5, 'h' - 'H'},
+
+		/* Different lengths */
+		{"short", "shorter", 5, 0},
+		{"shorter", "short", 5, 0},
+		{"shorter", "short", 6, 'e' - '\0'},
+
+		/* Special characters */
+		{"test\200", "test\0", 5, 128},
+		{"\255", "\255", 1, 0},
+		{"\0abc", "\0xyz", 4, 0},
+
+		/* Edge cases */
+		{"", "non-empty", 0, 0},
+		{"abc", "abc", 0, 0},
+		{"abc", "abd", 2, 0},
+		{"abc", "abd", 3, 'c' - 'd'}
+	};
+
+	size_t num_tests = sizeof(tests) / sizeof(tests[0]);
+
+	for (size_t t = 0; t < num_tests; t++) {
+		int result = ft_strncmp(tests[t].s1, tests[t].s2, tests[t].n);
+		int actual = result < 0 ? -1 : result > 0 ? 1 : 0;
+		int expected = tests[t].expected < 0 ? -1 : tests[t].expected > 0 ? 1 : 0;
+
+		total++;
+
+		if (actual == expected) {
+			passed++;
+			printf("✓ ");
+		} else {
+			printf("✗ ");
+		}
+
+		printf("Test %zu: s1=\"%s\", s2=\"%s\", n=%zu\n", t+1,
+			tests[t].s1, tests[t].s2, tests[t].n);
+		printf("Expected: %d | Actual: %d\n", expected, actual);
+
+		if (actual != expected) {
+			printf("MISMATCH! (Standard: %d, Yours: %d)\n",
+				strncmp(tests[t].s1, tests[t].s2, tests[t].n), result);
+		}
+	}
+
+	/* Additional comprehensive test */
+	printf("\n===== COMPREHENSIVE ASCII TEST =====\n\n");
+	for (int i = 0; i <= 127; i++) {
+		for (int j = 0; j <= 127; j++) {
+			char s1[2] = {i, '\0'};
+			char s2[2] = {j, '\0'};
+			int expected = strncmp(s1, s2, 1);
+			int result = ft_strncmp(s1, s2, 1);
+			int norm_expected = expected < 0 ? -1 : expected > 0 ? 1 : 0;
+			int norm_result = result < 0 ? -1 : result > 0 ? 1 : 0;
+
+			total++;
+			if (norm_expected == norm_result) {
+				passed++;
+			} else {
+				printf("✗ Char %d vs %d: Expected %d, Got %d\n",
+					i, j, norm_expected, norm_result);
+			}
+		}
+	}
+
+	/* Print test summary */
+	printf("\n===== FT_STRNCMP TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_strncmp works correctly.\n\n\n");
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
