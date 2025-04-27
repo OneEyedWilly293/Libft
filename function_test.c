@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 00:05:29 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 00:13:56 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2735,5 +2735,128 @@ int	main(void)
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
 
+
+	/* **************************************************************************** */
+	/*                                                                              */
+	/*                        TEST FOR FT_MEMCMP FUNCTION                           */
+	/*                                                                              */
+	/* This program tests the ft_memcmp function by comparing its results           */
+	/* with the standard memcmp function from the C library.                        */
+	/* It tests various memory comparison scenarios including edge cases.           */
+	/* **************************************************************************** */
+
+	/* Initialize counters */
+	passed = 0;
+	total = 0;
+
+	/* Print header for the test */
+	printf("\n===== TESTING FT_MEMCMP =====\n\n");
+
+	/* Test case array */
+	struct memcmp_test_case {
+		const char *s1;
+		const char *s2;
+		size_t n;
+		int expected;
+	} memcmp_tests[] = {
+		/* Basic comparisons */
+		{"apple", "apple", 5, 0},
+		{"apple", "apples", 5, 0},
+		{"apple", "apples", 6, -'s'},
+		{"apple", "banana", 5, 'a' - 'b'},
+		{"banana", "apple", 5, 'b' - 'a'},
+
+		/* Edge cases */
+		{"", "", 0, 0},
+		{"short", "shorter", 5, 0},
+		{"shorter", "short", 5, 0},
+		{"shorter", "short", 6, 'e' - '\0'},
+
+		/* Binary data */
+		{"test\x80", "test\0", 5, 128},
+		{"\xFF\xFE", "\xFF\xFF", 2, -1},
+		{"\x00\x01", "\x00\x02", 2, -1},
+
+		/* Partial comparisons */
+		{"abcdef", "abcXYZ", 3, 0},
+		{"abcdef", "abcDEF", 4, 'd' - 'D'},
+
+		/* Case sensitivity */
+		{"HELLO", "hello", 5, 'H' - 'h'},
+		{"hello", "HELLO", 5, 'h' - 'H'}
+	};
+
+	size_t num_memcmp_tests = sizeof(memcmp_tests) / sizeof(memcmp_tests[0]);
+
+	/* Run test cases */
+	for (size_t t = 0; t < num_memcmp_tests; t++) {
+		int std_result = memcmp(memcmp_tests[t].s1, memcmp_tests[t].s2, memcmp_tests[t].n);
+		int ft_result = ft_memcmp(memcmp_tests[t].s1, memcmp_tests[t].s2, memcmp_tests[t].n);
+
+		/* Normalize results to -1, 0, or 1 */
+		int std_sign = (std_result > 0) ? 1 : ((std_result < 0) ? -1 : 0);
+		int ft_sign = (ft_result > 0) ? 1 : ((ft_result < 0) ? -1 : 0);
+
+		total++;
+
+		printf("Test %zu: s1=\"%s\", s2=\"%s\", n=%zu\n", t+1,
+			memcmp_tests[t].s1, memcmp_tests[t].s2, memcmp_tests[t].n);
+		printf("Standard: %d | Yours: %d\n", std_sign, ft_sign);
+
+		if (std_sign == ft_sign) {
+			passed++;
+			printf("✓ Passed\n\n");
+		} else {
+			printf("✗ Failed! Expected sign %d, got %d\n\n", std_sign, ft_sign);
+		}
+	}
+
+	/* Additional comprehensive binary test */
+	printf("\n===== BINARY DATA COMPARISON TEST =====\n\n");
+	{
+		unsigned char data1[256];
+		unsigned char data2[256];
+
+		/* Initialize arrays with slight difference */
+		for (int i = 0; i < 256; i++) {
+			data1[i] = i;
+			data2[i] = i;
+		}
+		data2[128] = 42;  // Create difference at position 128
+
+		int std_result = memcmp(data1, data2, 256);
+		int ft_result = ft_memcmp(data1, data2, 256);
+
+		/* Normalize results */
+		int std_sign = (std_result > 0) ? 1 : ((std_result < 0) ? -1 : 0);
+		int ft_sign = (ft_result > 0) ? 1 : ((ft_result < 0) ? -1 : 0);
+
+		total++;
+
+		printf("Comparing 256-byte arrays with difference at position 128\n");
+		printf("Standard: %d | Yours: %d\n", std_sign, ft_sign);
+
+		if (std_sign == ft_sign) {
+			passed++;
+			printf("✓ Passed\n\n");
+		} else {
+			printf("✗ Failed! Expected sign %d, got %d\n\n", std_sign, ft_sign);
+		}
+	}
+
+	/* Print test summary */
+	printf("\n===== FT_MEMCMP TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_memcmp works correctly.\n\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
+
+
+	
 	return (0);
 }
