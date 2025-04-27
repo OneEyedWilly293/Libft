@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/27 23:57:18 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 00:05:29 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2559,6 +2559,178 @@ int	main(void)
 
 	if (passed == total)
 		printf("All tests passed! Your ft_strncmp works correctly.\n\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
+
+	/* ******************************************************************************** */
+	/*                                                                                  */
+	/*                        TEST FOR FT_MEMCHR FUNCTION                               */
+	/*                                                                                  */
+	/* This program tests the ft_memchr function by comparing its results               */
+	/* with the standard memchr function from the C library.                            */
+	/* It tests various memory scenarios and edge cases to ensure proper behavior.      */
+	/* ******************************************************************************** */
+
+	/* Initialize counters */
+	passed = 0;
+	total = 0;
+
+	/* Print header for the test */
+	printf("\n===== TESTING FT_MEMCHR =====\n\n");
+
+	/* Test case 1: Basic functionality - character found */
+	{
+		char str[] = "Hello, world!";
+		int c = 'o';
+		size_t n = strlen(str);
+		void *std_result = memchr(str, c, n);
+		void *ft_result = ft_memchr(str, c, n);
+		total++;
+
+		printf("Test 1: Character found in middle\n");
+		printf("Buffer: \"%s\"\n", str);
+		printf("Searching for '%c' in %zu bytes\n", c, n);
+		printf("Standard memchr: %s\n", std_result ? (char*)std_result : "NULL");
+		printf("Your ft_memchr: %s\n", ft_result ? (char*)ft_result : "NULL");
+
+		if (std_result == ft_result)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+	}
+
+	/* Test case 2: Character not found */
+	{
+		char str[] = "abcdefghijkl";
+		int c = 'z';
+		size_t n = strlen(str);
+		void *std_result = memchr(str, c, n);
+		void *ft_result = ft_memchr(str, c, n);
+		total++;
+
+		printf("Test 2: Character not found\n");
+		printf("Buffer: \"%s\"\n", str);
+		printf("Searching for '%c' in %zu bytes\n", c, n);
+		printf("Standard memchr: %s\n", std_result ? (char*)std_result : "NULL");
+		printf("Your ft_memchr: %s\n", ft_result ? (char*)ft_result : "NULL");
+
+		if (std_result == ft_result)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+	}
+
+	/* Test case 3: Searching for null terminator */
+	{
+		char str[] = "test\0hidden";
+		int c = '\0';
+		size_t n = strlen("test\0hidden") + 1;  // Include null terminator
+		void *std_result = memchr(str, c, n);
+		void *ft_result = ft_memchr(str, c, n);
+		total++;
+
+		printf("Test 3: Search for null terminator\n");
+		printf("Buffer: \"test\\0hidden\"\n");
+		printf("Searching for '\\0' in %zu bytes\n", n);
+		printf("Standard memchr: %s\n", std_result ? (char*)std_result : "NULL");
+		printf("Your ft_memchr: %s\n", ft_result ? (char*)ft_result : "NULL");
+
+		if (std_result == ft_result)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+	}
+
+	/* Test case 4: Partial buffer search */
+	{
+		char str[] = "123456789";
+		int c = '5';
+		size_t n = 5;
+		void *std_result = memchr(str, c, n);
+		void *ft_result = ft_memchr(str, c, n);
+		total++;
+
+		printf("Test 4: Partial buffer search\n");
+		printf("Buffer: \"%s\"\n", str);
+		printf("Searching for '%c' in first %zu bytes\n", c, n);
+		printf("Standard memchr: %s\n", std_result ? (char*)std_result : "NULL");
+		printf("Your ft_memchr: %s\n", ft_result ? (char*)ft_result : "NULL");
+
+		if (std_result == ft_result)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+	}
+
+	/* Test case 5: Zero-length search */
+	{
+		char str[] = "test";
+		int c = 't';
+		size_t n = 0;
+		void *std_result = memchr(str, c, n);
+		void *ft_result = ft_memchr(str, c, n);
+		total++;
+
+		printf("Test 5: Zero-length search\n");
+		printf("Buffer: \"%s\"\n", str);
+		printf("Searching for '%c' in 0 bytes\n", c);
+		printf("Standard memchr: %s\n", std_result ? (char*)std_result : "NULL");
+		printf("Your ft_memchr: %s\n", ft_result ? (char*)ft_result : "NULL");
+
+		if (std_result == ft_result)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+	}
+
+	/* Test case 6: Non-ASCII characters */
+	{
+		unsigned char data[] = {0x41, 0xFF, 0x42, 0x00};
+		int c = 0xFF;
+		size_t n = sizeof(data);
+		void *std_result = memchr(data, c, n);
+		void *ft_result = ft_memchr(data, c, n);
+		total++;
+
+		printf("Test 6: Non-ASCII character (0xFF)\n");
+		printf("Buffer: {0x41, 0xFF, 0x42, 0x00}\n");
+		printf("Searching for 0xFF in %zu bytes\n", n);
+		printf("Standard memchr: %p\n", std_result);
+		printf("Your ft_memchr: %p\n", ft_result);
+
+		if (std_result == ft_result)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+	}
+
+	/* Print test summary */
+	printf("\n===== FT_MEMCHR TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_memchr works correctly.\n\n\n");
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
