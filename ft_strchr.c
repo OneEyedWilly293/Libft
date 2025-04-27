@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 20:13:33 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/16 20:15:15 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/27 23:32:03 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 char	*strchr(const char *s, int c)
 {
-	int		i;
-	char	*temp;
-
-	temp = (char *)s;
-	i = ft_strlen(temp);
-	temp += i;
-	while (i >= 0)
+	while (*s != '\0')
 	{
-		if (*temp == (char)c)
-			return (temp);
-		temp--;
-		i--;
+		if (*s == (char)c)
+			return ((char *)s);
+		s++;
 	}
+	if ((char)c == '\0')
+		return ((char *)s);
 	return (NULL);
 }
