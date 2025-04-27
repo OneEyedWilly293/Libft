@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 00:13:56 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 00:20:52 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2856,7 +2856,108 @@ int	main(void)
 
 
 
+	/* ****************************************************************************** */
+	/*                                                                                */
+	/*                        TEST FOR FT_STRNSTR FUNCTION                            */
+	/*                                                                                */
+	/* This test compares your ft_strnstr function with the standard strnstr          */
+	/* function from the BSD library. It tests various search scenarios and edge      */
+	/* cases to ensure proper substring search behavior within limited lengths.       */
+	/* ****************************************************************************** */
 
-	
+	/* Initialize counters */
+	passed = 0;
+	total = 0;
+
+	/* Print header for the test */
+	printf("\n===== TESTING FT_STRNSTR =====\n\n");
+
+	struct {
+		const char *haystack;
+		const char *needle;
+		size_t len;
+		const char *expected;  /* NULL if not expected to find */
+	} tests[] = {
+		/* Basic functionality */
+		{"Hello, world!", "world", 13, "world!"},
+		{"Hello, world!", "world", 10, NULL},
+
+		/* Edge positions */
+		{"startMiddleEnd", "start", 5, "startMiddleEnd"},
+		{"EndsWithNeedle", "Needle", 20, "Needle"},
+
+		/* Special cases */
+		{"test", "", 4, "test"},           /* Empty needle */
+		{"test", "test", 0, NULL},         /* Zero length */
+		{"CaseSensitive", "case", 14, NULL},/* Case sensitivity */
+
+		/* Partial matches */
+		{"partial", "art", 4, NULL},       /* Partial in allowed length */
+		{"123456789", "456", 9, "456789"}, /* Middle of string */
+
+		/* Non-ASCII and special characters */
+		{"caf\xc3\xa9", "f\xc3\xa9", 5, "f\xc3\xa9"},  /* UTF-8 characters */
+		{"abc\0def", "def", 6, NULL},      /* Embedded null terminator */
+
+		/* No match cases */
+		{"mississippi", "issip", 10, "issippi"},       /* Partial match */
+		{"haystack", "needle", 8, NULL},   /* No match */
+
+		/* Exact matches */
+		{"perfect", "perfect", 7, "perfect"},
+		{"overlap", "lap", 5, "lap"},
+	};
+
+	size_t test_count = sizeof(tests)/sizeof(tests[0]);
+
+	for (size_t i = 0; i < test_count; i++) {
+		const char *h = tests[i].haystack;
+		const char *n = tests[i].needle;
+		size_t l = tests[i].len;
+		const char *exp = tests[i].expected;
+
+		/* Get reference result */
+		char *std_result = strnstr(h, n, l);
+		char *ft_result = ft_strnstr(h, n, l);
+
+		/* For empty needle special case */
+		if (*n == '\0') std_result = (char *)h;
+
+		total++;
+
+		printf("Test %zu: haystack=\"%s\", needle=\"%s\", len=%zu\n",
+			i+1, h, n, l);
+		printf("Expected: %s\n", std_result ? std_result : "NULL");
+		printf("Received: %s\n", ft_result ? ft_result : "NULL");
+
+		/* Pointer comparison for exact match */
+		if ((std_result == NULL && ft_result == NULL) ||
+			(std_result && ft_result && std_result == ft_result)) {
+			passed++;
+			printf("✓ Passed\n\n");
+		} else {
+			printf("✗ Failed\n");
+
+			/* Show detailed comparison for mismatches */
+			if (std_result && ft_result) {
+				printf("  Offset mismatch! Standard: %ld, Yours: %ld\n\n",
+					std_result - h, ft_result - h);
+			} else {
+				printf("\n");
+			}
+		}
+	}
+
+	/* Print test summary */
+	printf("\n===== FT_STRNSTR TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_strnstr works correctly.\n\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
 	return (0);
 }
