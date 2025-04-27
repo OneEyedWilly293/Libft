@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:09:29 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/24 21:22:21 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 00:29:28 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int	sign;
-	int	result;
+	long	result;
 
 	sign = 1;
 	result = 0;
@@ -27,11 +27,19 @@ void	ft_atoi(const char *str)
 		{
 			sign *= -1;
 		}
+		str++;
 	}
 	while (*str >= '0' && *str <= '9')
 	{
+		if (result > (LONG_MAX - (*str - '0')) / 10)
+		{
+			if (sign == 1)
+				return (-1);
+			else
+				return (0);
+		}
 		result = result * 10 + (*str - '0');
 		str++;
 	}
-	return (result * sign);
+	return ((int)(result * sign));
 }

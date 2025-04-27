@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 00:20:52 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 00:36:15 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2957,6 +2957,137 @@ int	main(void)
 		printf("All tests passed! Your ft_strnstr works correctly.\n\n\n");
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
+
+	/* **************************************************************************** */
+	/*                                                                              */
+	/*                        TEST FOR FT_ATOI FUNCTION                             */
+	/*                                                                              */
+	/* This test compares your ft_atoi function with the standard atoi function,    */
+	/* while considering the Libft project's specific overflow handling rules.      */
+	/*                                                                              */
+	/* **************************************************************************** */
+
+	/* Initialize counters */
+	passed = 0;
+	total = 0;
+
+	/* Print header for the test */
+	printf("\n===== TESTING FT_ATOI =====\n\n");
+
+	struct {
+		const char *input;
+		int expected;       /* Expected return value from ft_atoi */
+		int std_expected;   /* Expected return value from standard atoi */
+	} atoi_tests[] = {
+		/* Basic numbers */
+		{"42", 42, 42},
+		{"-123", -123, -123},
+		{"0", 0, 0},
+		{"+456", 456, 456},
+
+		/* Overflow/underflow cases (Libft specific) */
+		{"2147483647", 2147483647, 2147483647},        /* INT_MAX */
+		{"-2147483648", -2147483648, -2147483648},     /* INT_MIN */
+		{"2147483648", -1, 2147483647},                /* Overflow (Libft: -1, Std: undefined) */
+		{"-2147483649", 0, -2147483648},               /* Underflow (Libft: 0, Std: undefined) */
+
+		/* Whitespace handling */
+		{" \t\n\v\f\r+42", 42, 42},
+		{"    -123", -123, -123},
+
+		/* Invalid formats */
+		{"123abc", 123, 123},
+		{"abc123", 0, 0},
+		{"--123", 0, 0},
+		{"++456", 0, 0},
+
+		/* Edge cases */
+		{"", 0, 0},
+		{" \t\n", 0, 0},
+		{"9223372036854775807", -1, 2147483647},       /* LONG_MAX (if sizeof(long) > sizeof(int)) */
+		{"-9223372036854775808", 0, -2147483648}       /* LONG_MIN */
+	};
+
+	size_t num_atoi_tests = sizeof(atoi_tests) / sizeof(atoi_tests[0]);
+
+	for (size_t t = 0; t < num_atoi_tests; t++) {
+		int ft_result = ft_atoi(atoi_tests[t].input);
+		int std_result = atoi(atoi_tests[t].input);
+		int expected = atoi_tests[t].expected;
+
+		/* For overflow/underflow cases, use Libft-specific expectations */
+		int success = (ft_result == expected);
+
+		total++;
+
+		printf("Test %zu: Input: \"%s\"\n", t+1, atoi_tests[t].input);
+		printf("Expected: %d | ft_atoi: %d | std_atoi: %d\n", 
+			expected, ft_result, std_result);
+
+		if (success) {
+			passed++;
+			printf("✓ Passed\n\n");
+		} else {
+			printf("✗ Failed!\n");
+
+			/* Special message for overflow/underflow cases */
+			if (ft_result != std_result && 
+				(expected == -1 || expected == 0)) {
+				printf("  Note: Libft requires %s handling (expected %d)\n",
+					(expected == -1) ? "overflow" : "underflow", expected);
+			}
+			printf("\n");
+		}
+	}
+
+	/* Additional numeric format tests */
+	struct {
+		const char *desc;
+		const char *input;
+		int expected;
+	} special_cases[] = {
+		{"Leading zeros", "00042", 42},
+		{"Positive with leading zeros", "+0042", 42},
+		{"Negative with leading zeros", "-000123", -123},
+		{"Mixed signs", "+-123", 0},
+		{"Multiple signs", "--123", 0},
+		{"Hexadecimal (invalid)", "0x1a", 0},
+		{"Binary (invalid)", "0b1010", 0}
+	};
+
+	size_t num_special = sizeof(special_cases) / sizeof(special_cases[0]);
+
+	for (size_t t = 0; t < num_special; t++) {
+		int ft_result = ft_atoi(special_cases[t].input);
+		int expected = special_cases[t].expected;
+
+		total++;
+
+		printf("Special Case %zu: %s\n", t+1, special_cases[t].desc);
+		printf("Input: \"%s\"\n", special_cases[t].input);
+		printf("Expected: %d | ft_atoi: %d\n", expected, ft_result);
+
+		if (ft_result == expected) {
+			passed++;
+			printf("✓ Passed\n\n");
+		} else {
+			printf("✗ Failed!\n\n");
+		}
+	}
+
+	/* Print test summary */
+	printf("\n===== FT_ATOI TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_atoi works correctly.\n\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n\n");
+
+
 
 
 	return (0);

@@ -3,6 +3,20 @@
 ## <ins>Logs</ins>
 
 ### <ins>27.04.2025</ins>
+- Added ft_atoi function test.
+- Modified ft_atoi function.
+	> *Added overflow check*
+- Added test for ft_strnstr function.
+- Modified prototype for ft_strnstr function.
+- Added test for ft_memcmp function.
+- Added test for ft_memchr function.
+- Modified syntax for ft_memchr function.
+- Added test for ft_strncmp function.
+- Modified syntax and prototype of ft_strncmp function.
+- Added test for ft_strrchr function.
+- Modified syntax and prototype of ft_strrchr function.
+- Added test for ft_strchr function.
+- Modified synyax and prototype for ft_strchr function.
 - Changed ft_isalpha file name.
 	> *from ft_isalpa*
 - Added test for ft_strlcat function.
