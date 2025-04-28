@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 15:41:02 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 19:35:31 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -3012,32 +3012,32 @@ int	main(void)
 		int std_expected;   /* Expected return value from standard atoi */
 	} atoi_tests[] = {
 		/* Basic numbers */
-		{"42", 42, 42},
-		{"-123", -123, -123},
-		{"0", 0, 0},
-		{"+456", 456, 456},
+		{"42", 42, 42},		//t1
+		{"-123", -123, -123},		//t2
+		{"0", 0, 0},				//t3
+		{"+456", 456, 456},			//t3
 
 		/* Overflow/underflow cases (Libft specific) */
-		{"2147483647", 2147483647, 2147483647},        /* INT_MAX */
-		{"-2147483648", -2147483648, -2147483648},     /* INT_MIN */
-		{"2147483648", -1, 2147483647},                /* Overflow (Libft: -1, Std: undefined) */
-		{"-2147483649", 0, -2147483648},               /* Underflow (Libft: 0, Std: undefined) */
+		{"2147483647", 2147483647, 2147483647},       //t4 /* INT_MAX */
+		{"-2147483648", -2147483648, -2147483648},     //t5 /* INT_MIN */
+		{"2147483648", -1, 2147483647},                //t6 /* Overflow (Libft: -1, Std: undefined) */
+		{"-2147483649", 0, -2147483648},               //t7 /* Underflow (Libft: 0, Std: undefined) */
 
 		/* Whitespace handling */
-		{" \t\n\v\f\r+42", 42, 42},
-		{"    -123", -123, -123},
+		{" \t\n\v\f\r+42", 42, 42},			//t8
+		{"    -123", -123, -123},			//t9
 
 		/* Invalid formats */
-		{"123abc", 123, 123},
-		{"abc123", 0, 0},
-		{"--123", 0, 0},
-		{"++456", 0, 0},
+		{"123abc", 123, 123},				//t10
+		{"abc123", 0, 0},					//t11
+		{"--123", 0, 0},					//t12
+		{"++456", 0, 0},					//t13
 
 		/* Edge cases */
-		{"", 0, 0},
-		{" \t\n", 0, 0},
-		{"9223372036854775807", -1, 2147483647},       /* LONG_MAX (if sizeof(long) > sizeof(int)) */
-		{"-9223372036854775808", 0, -2147483648}       /* LONG_MIN */
+		{"", 0, 0},							//t14
+		{" \t\n", 0, 0},					//t15
+		{"9223372036854775807", -1, 2147483647},    //t16   /* LONG_MAX (if sizeof(long) > sizeof(int)) */
+		{"-9223372036854775808", 0, -2147483648}     //t17   /* LONG_MIN */
 	};
 
 	size_t num_atoi_tests = sizeof(atoi_tests) / sizeof(atoi_tests[0]);
@@ -3118,6 +3118,332 @@ int	main(void)
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
 	}
+
+
+
+
+	/* *************************************************************************************
+	*                            TEST FOR FT_STRDUP FUNCTION                               *
+	*                                                                                      *
+	* This test compares your ft_strdup function with the standard strdup function from    *
+	* the C library to ensure it behaves correctly.                                        *
+	*                                                                                      *
+	* It tests:                                                                            *
+	* 1. Empty strings                                                                     *
+	* 2. Short strings                                                                     *
+	* 3. Long strings                                                                      *
+	* 4. Strings with special characters                                                   *
+	* 5. Memory independence (modifying duplicate doesn't affect original)                 *
+	* *************************************************************************************/
+
+	{
+		int		passed;
+		int		total;
+		char	*dup_std;
+		char	*dup_ft;
+		const char	*src;
+	
+		passed = 0;
+		total = 0;
+	
+		printf("\n===== TESTING FT_STRDUP =====\n\n");
+	
+		/* Test 1: Empty string */
+		src = "";
+		dup_std = strdup(src);
+		dup_ft = ft_strdup(src);
+		total++;
+		printf("Test 1: Empty string\n");
+		printf("Original: \"%s\"\n", src);
+		printf("Standard strdup: \"%s\"\n", dup_std);
+		printf("Your ft_strdup: \"%s\"\n", dup_ft);
+		if (dup_std && dup_ft && strcmp(dup_std, dup_ft) == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(dup_std);
+		free(dup_ft);
+	
+		/* Test 2: Short string */
+		src = "Hello, world!";
+		dup_std = strdup(src);
+		dup_ft = ft_strdup(src);
+		total++;
+		printf("Test 2: Short string\n");
+		printf("Original: \"%s\"\n", src);
+		printf("Standard strdup: \"%s\"\n", dup_std);
+		printf("Your ft_strdup: \"%s\"\n", dup_ft);
+		if (dup_std && dup_ft && strcmp(dup_std, dup_ft) == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(dup_std);
+		free(dup_ft);
+	
+		/* Test 3: String with special characters */
+		src = "!@#$$%^&*()_+{}|:<>?";
+		dup_std = strdup(src);
+		dup_ft = ft_strdup(src);
+		total++;
+		printf("Test 3: Special characters\n");
+		printf("Original: \"%s\"\n", src);
+		printf("Standard strdup: \"%s\"\n", dup_std);
+		printf("Your ft_strdup: \"%s\"\n", dup_ft);
+		if (dup_std && dup_ft && strcmp(dup_std, dup_ft) == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(dup_std);
+		free(dup_ft);
+	
+		/* Test 4: Long string */
+		src = "This is a very long string that will test if the function can handle longer strings properly without any issues or memory problems that might occur during allocation or copying.";
+		dup_std = strdup(src);
+		dup_ft = ft_strdup(src);
+		total++;
+		printf("Test 4: Long string\n");
+		printf("Original: \"%s\"\n", src);
+		printf("Standard strdup: \"%s\"\n", dup_std);
+		printf("Your ft_strdup: \"%s\"\n", dup_ft);
+		if (dup_std && dup_ft && strcmp(dup_std, dup_ft) == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(dup_std);
+		free(dup_ft);
+	
+		/* Test 5: Memory independence */
+		src = "Memory independence";
+		dup_ft = ft_strdup(src);
+		total++;
+		printf("Test 5: Memory independence\n");
+		printf("Original: \"%s\"\n", src);
+		printf("Your ft_strdup: \"%s\"\n", dup_ft);
+		if (dup_ft && dup_ft != src)
+		{
+			dup_ft[0] = 'X';
+			if (src[0] != 'X')
+			{
+				passed++;
+				printf("✓ Test passed! Duplicate is independent.\n\n");
+			}
+			else
+				printf("✗ Test failed! Duplicate is not independent.\n\n");
+		}
+		else
+			printf("✗ Test failed! ft_strdup returned NULL or same pointer.\n\n");
+		free(dup_ft);
+	
+		printf("\n===== FT_STRDUP TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n",
+			passed, total, (float)passed / total * 100);
+	
+		if (passed == total)
+			printf("All tests passed! Your ft_strdup function works correctly.\n\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n\n");
+		}
+
+
+
+
+		/* **************************************************************************************
+*                            TEST FOR FT_MEMMOVE FUNCTION                              *
+*                                                                                      *
+* This test compares your ft_memmove function with the standard memmove function        *
+* from the C library to ensure it behaves correctly.                                   *
+*                                                                                      *
+* It tests:                                                                            *
+* 1. Non-overlapping regions                                                           *
+* 2. Overlapping regions (dst < src and dst > src)                                     *
+* 3. Zero-length operation                                                             *
+* 4. Large buffer copy                                                                 *
+* 5. NULL pointers with zero length                                                    *
+* 6. Struct and binary data                                                            *
+* *************************************************************************************/
+
+{
+	int		passed = 0;
+	int		total = 0;
+	size_t	j;
+
+	printf("\n===== TESTING FT_MEMMOVE =====\n\n");
+
+	/* Test 1: Non-overlapping regions */
+	char src1[] = "Hello, world!";
+	char dst1[20] = {0};
+	char dst2[20] = {0};
+	size_t len1 = strlen(src1) + 1; /* Include null terminator */
+
+	memmove(dst1, src1, len1);
+	ft_memmove(dst2, src1, len1);
+	total++;
+
+	printf("Test 1: Non-overlapping regions (basic string copy)\n");
+	printf("Source: \"%s\"\n", src1);
+	printf("Standard memmove: \"%s\"\n", dst1);
+	printf("Your ft_memmove: \"%s\"\n", dst2);
+
+	if (memcmp(dst1, dst2, len1) == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test 2: Overlapping regions (dst < src) */
+	char buffer2[30] = "ABCDEFGHIJKLMN";
+	memmove(buffer2, buffer2 + 4, 8); // Move "EFGHIJKL" to start
+	char buffer3[30] = "ABCDEFGHIJKLMN";
+	ft_memmove(buffer3, buffer3 + 4, 8);
+	total++;
+
+	printf("Test 2: Overlapping regions (dst < src)\n");
+	printf("Original: \"ABCDEFGHIJKLMN\"\n");
+	printf("Standard memmove: \"%.14s\"\n", buffer2);
+	printf("Your ft_memmove: \"%.14s\"\n", buffer3);
+
+	if (memcmp(buffer2, buffer3, 14) == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test 3: Overlapping regions (dst > src) */
+	char buffer4[30] = "ABCDEFGHIJKLMN";
+	memmove(buffer4 + 4, buffer4, 8); // Move "ABCDEFGH" to offset 4
+	char buffer5[30] = "ABCDEFGHIJKLMN";
+	ft_memmove(buffer5 + 4, buffer5, 8);
+	total++;
+
+	printf("Test 3: Overlapping regions (dst > src)\n");
+	printf("Original: \"ABCDEFGHIJKLMN\"\n");
+	printf("Standard memmove: \"%.14s\"\n", buffer4);
+	printf("Your ft_memmove: \"%.14s\"\n", buffer5);
+
+	if (memcmp(buffer4, buffer5, 14) == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test 4: Zero-length operation */
+	char src6[] = "Hello, world!";
+	char dst6[20] = "XXXXXXXXXXXXXXX";
+	char dst7[20] = "XXXXXXXXXXXXXXX";
+	size_t len4 = 0;
+
+	memmove(dst6, src6, len4);
+	ft_memmove(dst7, src6, len4);
+	total++;
+
+	printf("Test 4: Zero-length operation\n");
+	printf("Standard memmove: \"%s\"\n", dst6);
+	printf("Your ft_memmove: \"%s\"\n", dst7);
+
+	if (memcmp(dst6, dst7, 20) == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test 5: Large buffer */
+	#define MEMMOVE_LARGE_SIZE 1000
+	unsigned char large_src[MEMMOVE_LARGE_SIZE];
+	unsigned char large_dst1[MEMMOVE_LARGE_SIZE];
+	unsigned char large_dst2[MEMMOVE_LARGE_SIZE];
+
+	for (j = 0; j < MEMMOVE_LARGE_SIZE; j++)
+	{
+		large_src[j] = (unsigned char)(j % 256);
+		large_dst1[j] = 0;
+		large_dst2[j] = 0;
+	}
+
+	memmove(large_dst1, large_src, MEMMOVE_LARGE_SIZE);
+	ft_memmove(large_dst2, large_src, MEMMOVE_LARGE_SIZE);
+	total++;
+
+	printf("Test 5: Large buffer (1000 bytes)\n");
+
+	if (memcmp(large_dst1, large_dst2, MEMMOVE_LARGE_SIZE) == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Test 6: NULL pointers with zero length */
+	char *null_src = NULL;
+	char *null_dst = NULL;
+	void *std_result = memmove(null_dst, null_src, 0);
+	void *ft_result = ft_memmove(null_dst, null_src, 0);
+	total++;
+
+	printf("Test 6: NULL pointers with zero length\n");
+	if ((std_result == NULL && ft_result == NULL) || (std_result != NULL && ft_result != NULL))
+	{
+		passed++;
+		printf("✓ Test passed! Both returned %s\n", std_result == NULL ? "NULL" : "non-NULL");
+	}
+	else
+		printf("✗ Test failed! Standard: %s, Yours: %s\n",
+			std_result == NULL ? "NULL" : "non-NULL",
+			ft_result == NULL ? "NULL" : "non-NULL");
+
+	/* Test 7: Struct copy with overlap */
+	struct memmove_struct {
+		int a;
+		char b;
+		double c;
+		char str[10];
+	} s1 = {42, 'X', 3.14159, "Hello"},
+	  s2 = {42, 'X', 3.14159, "Hello"};
+
+	memmove(&s1, ((char*)&s1) + sizeof(int), sizeof(struct memmove_struct) - sizeof(int));
+	ft_memmove(&s2, ((char*)&s2) + sizeof(int), sizeof(struct memmove_struct) - sizeof(int));
+	total++;
+
+	printf("\nTest 7: Struct copy with overlap\n");
+	if (memcmp(&s1, &s2, sizeof(struct memmove_struct)) == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed!\n\n");
+
+	/* Print test summary */
+	printf("\n===== FT_MEMMOVE TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_memmove function works correctly.\n\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n\n");
+}
+
 
 
 

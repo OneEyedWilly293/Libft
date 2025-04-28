@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 16:52:30 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 14:28:11 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 19:37:51 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ int	ft_memcmp(const void *str1, const void *str2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int	ft_atoi(const char *str);
 
-char	*ft_strdup(const char *s);
-void	*ft_memmove(void *dest, const void *src, size_t n);
+char	*ft_strdup(const char *s1);
+void	*ft_memmove(void *dst, const void *src, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 
 void	ft_putchar_fd(char c, int fd);

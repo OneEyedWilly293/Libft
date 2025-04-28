@@ -4,11 +4,13 @@
 ```json
 "terminal.integrated.scrollback": 100000
 ```
+> Add the this to your `json` file to accomodate the scrollback length when running the compiled test.
 
 ## <ins>Logs</ins>
 
 ### <ins>28.04.2025</ins>
-- 
+- Added test for ft_strdup function.
+- Modified prototype for ft_strdup.
 - Modified ft_strncmp syntax error identified through test.
 - Modified a few function errors identified through test.
 - Modified ft_atoi according to issues identified through test.

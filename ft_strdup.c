@@ -6,13 +6,13 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 15:02:20 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/20 15:32:09 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 19:17:00 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*strdup(const char *s)
+char	*ft_strdup(const char *s1)
 {
 	char	*dup;
 	int		len;
