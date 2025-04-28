@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 16:52:30 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 19:37:51 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 19:40:51 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	ft_atoi(const char *str);
 
 char	*ft_strdup(const char *s1);
 void	*ft_memmove(void *dst, const void *src, size_t n);
-void	*ft_calloc(size_t count, size_t size);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);

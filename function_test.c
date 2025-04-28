@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 19:35:31 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 19:56:45 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -3445,6 +3445,135 @@ int	main(void)
 }
 
 
+
+	/* **************************************************************************************
+	*                            TEST FOR FT_CALLOC FUNCTION                               *
+	*                                                                                      *
+	* This test compares your ft_calloc function with the standard calloc function from    *
+	* the C library to ensure it behaves correctly.                                        *
+	*                                                                                      *
+	* It tests:                                                                            *
+	* 1. Zero-initialization                                                               *
+	* 2. Various element counts and sizes                                                  *
+	* 3. Edge cases (zero nmemb/size)                                                      *
+	* 4. Memory independence                                                               *
+	* *************************************************************************************/
+
+	{
+		int		passed = 0;
+		int		total = 0;
+		int		*arr_std;
+		int		*arr_ft;
+
+		printf("\n===== TESTING FT_CALLOC =====\n\n");
+
+		/* Test 1: Allocate 5 ints */
+		total++;
+		arr_std = (int *)calloc(5, sizeof(int));
+		arr_ft = (int *)ft_calloc(5, sizeof(int));
+		printf("Test 1: Allocate 5 ints\n");
+		if (arr_std && arr_ft && memcmp(arr_std, arr_ft, 5 * sizeof(int)) == 0)
+		{
+			passed++;
+			printf("✓ Both arrays are zero-initialized and match.\n");
+		}
+		else
+			printf("✗ Arrays do not match or allocation failed.\n");
+		free(arr_std);
+		free(arr_ft);
+
+		/* Test 2: Allocate 10 chars */
+		total++;
+		char *c_std = (char *)calloc(10, sizeof(char));
+		char *c_ft = (char *)ft_calloc(10, sizeof(char));
+		printf("\nTest 2: Allocate 10 chars\n");
+		if (c_std && c_ft && memcmp(c_std, c_ft, 10) == 0)
+		{
+			passed++;
+			printf("✓ Both arrays are zero-initialized and match.\n");
+		}
+		else
+			printf("✗ Arrays do not match or allocation failed.\n");
+		free(c_std);
+		free(c_ft);
+
+		/* Test 3: Zero nmemb */
+		total++;
+		int *z_std = (int *)calloc(0, sizeof(int));
+		int *z_ft = (int *)ft_calloc(0, sizeof(int));
+		printf("\nTest 3: Zero nmemb\n");
+		if ((z_std == NULL && z_ft == NULL) || (z_std != NULL && z_ft != NULL))
+		{
+			passed++;
+			printf("✓ Both behave the same for nmemb = 0.\n");
+		}
+		else
+			printf("✗ Behavior mismatch for nmemb = 0.\n");
+		free(z_std);
+		free(z_ft);
+
+		/* Test 4: Zero size */
+		total++;
+		int *s_std = (int *)calloc(5, 0);
+		int *s_ft = (int *)ft_calloc(5, 0);
+		printf("\nTest 4: Zero size\n");
+		if ((s_std == NULL && s_ft == NULL) || (s_std != NULL && s_ft != NULL))
+		{
+			passed++;
+			printf("✓ Both behave the same for size = 0.\n");
+		}
+		else
+			printf("✗ Behavior mismatch for size = 0.\n");
+		free(s_std);
+		free(s_ft);
+
+		/* Test 5: Memory independence */
+		total++;
+		int *m_ft = (int *)ft_calloc(3, sizeof(int));
+		printf("\nTest 5: Memory independence\n");
+		if (m_ft)
+		{
+			m_ft[0] = 42;
+			if (m_ft[0] == 42)
+			{
+				passed++;
+				printf("✓ Memory is writable and independent.\n");
+			}
+			else
+				printf("✗ Memory is not writable or not independent.\n");
+			free(m_ft);
+		}
+		else
+			printf("✗ Allocation failed.\n");
+
+		/* Test 6: Large allocation (should not crash, may fail if system is low on memory) */
+		total++;
+		size_t big_size = 100000;
+		char *big_std = (char *)calloc(big_size, sizeof(char));
+		char *big_ft = (char *)ft_calloc(big_size, sizeof(char));
+		printf("\nTest 6: Large allocation (100000 chars)\n");
+		if (big_std && big_ft && memcmp(big_std, big_ft, big_size) == 0)
+		{
+			passed++;
+			printf("✓ Large arrays are zero-initialized and match.\n");
+		}
+		else if (!big_std && !big_ft)
+			printf("✓ Both failed to allocate (acceptable if out of memory).\n");
+		else
+			printf("✗ Mismatch or allocation failed only for one.\n");
+		free(big_std);
+		free(big_ft);
+
+		/* Print test summary */
+		printf("\n===== FT_CALLOC TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n",
+			passed, total, (float)passed / total * 100);
+
+		if (passed == total)
+			printf("All tests passed! Your ft_calloc function works correctly.\n\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n\n");
+	}
 
 
 	return (0);
