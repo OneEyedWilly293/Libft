@@ -3,19 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 22:41:24 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/18 23:30:47 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 11:51:10 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
+	const unsigned char *s1;
+	const unsigned char *s2;
 	size_t	i;
 
+	s1 = (const unsigned char *)str1;
+	s2 = (const unsigned char *)str2;
 	i = 0;
 	while (i < n)
 	{

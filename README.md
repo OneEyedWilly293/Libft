@@ -1,6 +1,18 @@
 # Libft
 
+## <ins>Testing configurations<ins>
+'''json
+"terminal.integrated.scrollback": 100000
+'''
+
 ## <ins>Logs</ins>
+
+### <ins>28.04.2025</ins>
+- 
+- Modified ft_strncmp syntax error identified through test.
+- Modified a few function errors identified through test.
+- Modified ft_atoi according to issues identified through test.
+	> *overflow/nderflow handling*
 
 ### <ins>27.04.2025</ins>
 - Added ft_atoi function test.

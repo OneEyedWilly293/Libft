@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   function_test.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 00:36:15 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 15:41:02 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <ctype.h>
 #include <string.h>
 #include <stddef.h>
+#include <limits.h>
 #include <bsd/string.h>     // for strlcpy function[COMPILE with -lbsd]
 #include "libft.h"
 
@@ -2091,7 +2092,7 @@ int	main(void)
 	* 4. Empty string                                                                      *
 	* 5. Non-ASCII and edge values                                                         *
 	* *************************************************************************************/
-
+	{
 	/* Initialize counters */
 	passed = 0;
 	total = 0;
@@ -2245,7 +2246,7 @@ int	main(void)
 
 	/* Test case 9: Non-ASCII character */
 	const char *str9 = "héllo";
-	int ch9 = (unsigned char)'é';
+	int ch9 = (unsigned char)233;  //'é'
 	const char *std_ptr9 = strchr(str9, ch9);
 	const char *ft_ptr9 = ft_strchr(str9, ch9);
 	total++;
@@ -2289,6 +2290,7 @@ int	main(void)
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
+	}
 
 
 	/* **************************************************************************************
@@ -2306,7 +2308,7 @@ int	main(void)
 	* 6. Non-ASCII characters                                                              *
 	* 7. Edge cases (first/last character)                                                 *
 	* *************************************************************************************/
-
+	{
 	/* Initialize counters */
 	passed = 0;
 	total = 0;
@@ -2450,6 +2452,7 @@ int	main(void)
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
+	}
 
 
 	/* ******************************************************************************** */
@@ -2461,7 +2464,7 @@ int	main(void)
 	/* It tests various string combinations and edge cases to ensure proper comparison  */
 	/* behavior up to n characters.                                                     */
 	/* ******************************************************************************** */
-
+	{
 	/* Initialize counters */
 	passed = 0;
 	total = 0;
@@ -2477,32 +2480,32 @@ int	main(void)
 		int expected;
 	} tests[] = {
 		/* Basic comparisons */
-		{"apple", "apple", 5, 0},
-		{"apple", "apples", 5, 0},
-		{"apple", "apples", 6, -'s'},
-		{"apple", "banana", 5, 'a' - 'b'},
-		{"banana", "apple", 5, 'b' - 'a'},
-		{"", "", 0, 0},
+		{"apple", "apple", 5, 0},				// Test 1
+		{"apple", "apples", 5, 0},				// Test 2
+		{"apple", "apples", 6, -'s'},			// Test 3
+		{"apple", "banana", 5, 'a' - 'b'},		// Test 4
+		{"banana", "apple", 5, 'b' - 'a'},		// Test 5
+		{"", "", 0, 0},							// Test 6
 
 		/* Case sensitivity */
-		{"HELLO", "hello", 5, 'H' - 'h'},
-		{"hello", "HELLO", 5, 'h' - 'H'},
+		{"HELLO", "hello", 5, 'H' - 'h'},		// Test 7
+		{"hello", "HELLO", 5, 'h' - 'H'},		// Test 8
 
 		/* Different lengths */
-		{"short", "shorter", 5, 0},
-		{"shorter", "short", 5, 0},
-		{"shorter", "short", 6, 'e' - '\0'},
+		{"short", "shorter", 5, 0},				// Test 9
+		{"shorter", "short", 5, 0},				// Test 10
+		{"shorter", "short", 6, 'e' - '\0'},	// Test 11
 
 		/* Special characters */
-		{"test\200", "test\0", 5, 128},
-		{"\255", "\255", 1, 0},
-		{"\0abc", "\0xyz", 4, 0},
+		{"test\200", "test\0", 5, 128},			// Test 12 (\200 is octal for 128 && \000 NULL character)
+		{"\255", "\255", 1, 0},					// Test 13 (\255 Octal/ \xad for Hex; soft hyphen)
+		{"\0abc", "\0xyz", 4, 0},				// Test 14
 
 		/* Edge cases */
-		{"", "non-empty", 0, 0},
-		{"abc", "abc", 0, 0},
-		{"abc", "abd", 2, 0},
-		{"abc", "abd", 3, 'c' - 'd'}
+		{"", "non-empty", 0, 0},				// Test 15
+		{"abc", "abc", 0, 0},					// Test 16
+		{"abc", "abd", 2, 0},					// Test 17
+		{"abc", "abd", 3, 'c' - 'd'}			// Test 18
 	};
 
 	size_t num_tests = sizeof(tests) / sizeof(tests[0]);
@@ -2521,9 +2524,32 @@ int	main(void)
 			printf("✗ ");
 		}
 
-		printf("Test %zu: s1=\"%s\", s2=\"%s\", n=%zu\n", t+1,
-			tests[t].s1, tests[t].s2, tests[t].n);
+		printf("Test %zu: s1=\"", t + 1);
+		for (size_t k = 0; k < tests[t].n && tests[t].s1[k]; k++)
+		{
+			unsigned char c = (unsigned char)tests[t].s1[k];
+			if (c >= 32 && c <= 126)
+				printf("%c", c);
+			else
+				printf("\\x%02x", c);
+		}
+		printf("\", s2=\"");
+		for (size_t k = 0; k < tests[t].n && tests[t].s2[k]; k++)
+		{
+			unsigned char c = (unsigned char)tests[t].s2[k];
+			if (c >= 32 && c <= 126)
+				printf("%c", c);
+			else
+				printf("\\x%02x", c);
+		}
+		printf("\", n=%zu\n", tests[t].n);
+
+		/*
+		printf("Test %zu: s1=\"%s\", s2=\"%s\", n=%zu\n", t+1,   // This was causing the hex to print Unicode "replacement-
+			tests[t].s1, tests[t].s2, tests[t].n);				character(U+FFFD;question mark indicating that the editor cannot correctly
+		*/														// display a byte that is not valid bUTF-8 or not current locale/font/)"
 		printf("Expected: %d | Actual: %d\n", expected, actual);
+
 
 		if (actual != expected) {
 			printf("MISMATCH! (Standard: %d, Yours: %d)\n",
@@ -2562,6 +2588,7 @@ int	main(void)
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
+	}
 
 
 	/* ******************************************************************************** */
@@ -2572,7 +2599,7 @@ int	main(void)
 	/* with the standard memchr function from the C library.                            */
 	/* It tests various memory scenarios and edge cases to ensure proper behavior.      */
 	/* ******************************************************************************** */
-
+	{
 	/* Initialize counters */
 	passed = 0;
 	total = 0;
@@ -2734,6 +2761,7 @@ int	main(void)
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
+	}
 
 
 	/* **************************************************************************** */
@@ -2744,7 +2772,7 @@ int	main(void)
 	/* with the standard memcmp function from the C library.                        */
 	/* It tests various memory comparison scenarios including edge cases.           */
 	/* **************************************************************************** */
-
+	{
 	/* Initialize counters */
 	passed = 0;
 	total = 0;
@@ -2854,6 +2882,7 @@ int	main(void)
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
+	}
 
 
 	/* ****************************************************************************** */
@@ -2864,7 +2893,7 @@ int	main(void)
 	/* function from the BSD library. It tests various search scenarios and edge      */
 	/* cases to ensure proper substring search behavior within limited lengths.       */
 	/* ****************************************************************************** */
-
+	{
 	/* Initialize counters */
 	passed = 0;
 	total = 0;
@@ -2914,7 +2943,7 @@ int	main(void)
 		const char *h = tests[i].haystack;
 		const char *n = tests[i].needle;
 		size_t l = tests[i].len;
-		const char *exp = tests[i].expected;
+		//const char *exp = tests[i].expected;   -Werror flags unused variable
 
 		/* Get reference result */
 		char *std_result = strnstr(h, n, l);
@@ -2959,6 +2988,7 @@ int	main(void)
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
 
+	}
 
 	/* **************************************************************************** */
 	/*                                                                              */
@@ -2968,7 +2998,7 @@ int	main(void)
 	/* while considering the Libft project's specific overflow handling rules.      */
 	/*                                                                              */
 	/* **************************************************************************** */
-
+	{
 	/* Initialize counters */
 	passed = 0;
 	total = 0;
@@ -3087,6 +3117,7 @@ int	main(void)
 	else
 		printf("Some tests failed. Please check your implementation.\n\n\n");
 
+	}
 
 
 
