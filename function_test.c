@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 19:56:45 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 20:12:55 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 #include <string.h>
 #include <stddef.h>
 #include <limits.h>
+#include <fcntl.h>			/* For open() */
+#include <unistd.h>			/* For close(), write(), read(), unlink */
 #include <bsd/string.h>     // for strlcpy function[COMPILE with -lbsd]
 #include "libft.h"
 
@@ -3575,6 +3577,90 @@ int	main(void)
 			printf("Some tests failed. Please check your implementation.\n\n\n");
 	}
 
+
+
+	/* ********************************************************************************
+	*                            TEST FOR FT_PUTCHAR_FD FUNCTION                      *
+	*                                                                                 *
+	* This test checks if ft_putchar_fd correctly writes a character to a given       *
+	* file descriptor. It tests:                                                      *
+	* 1. Writing to standard output (fd 1)                                            *
+	* 2. Writing to a file and verifying the content                                  *
+	* 3. Writing to standard error (fd 2)                                             *
+	* ********************************************************************************/
+	{
+	int		passed = 0;
+	int		total = 0;
+	int		fd;
+	char	buf[2];
+
+	printf("\n===== TESTING FT_PUTCHAR_FD =====\n\n");
+
+	/* Test 1: Write to standard output (fd 1) */
+	printf("Test 1: Writing 'A' to standard output (should see 'A' below):\n");
+	printf("Expected output: A\nYour output:    ");
+	fflush(stdout);
+	ft_putchar_fd('A', 1);
+	printf("\n");
+	printf("(If you see 'A' above, the test passed visually.)\n");
+	passed++;
+	total++;
+
+	/* Test 2: Write to a file and check content */
+	printf("\nTest 2: Writing 'Z' to a file and verifying content...\n");
+	fd = open("test_putchar_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd < 0)
+	{
+		printf("✗ Could not open file for writing. Test failed.\n");
+	}
+	else
+	{
+		ft_putchar_fd('Z', fd);
+		close(fd);
+
+		fd = open("test_putchar_fd.txt", O_RDONLY);
+		if (fd < 0)
+		{
+			printf("✗ Could not open file for reading. Test failed.\n");
+		}
+		else
+		{
+			ssize_t bytes = read(fd, buf, 1);
+			close(fd);
+			buf[bytes] = '\0';
+			if (bytes == 1 && buf[0] == 'Z')
+			{
+				printf("✓ File contains the correct character: '%c'\n", buf[0]);
+				passed++;
+			}
+			else
+			{
+				printf("✗ File does not contain the correct character. Got: '%c'\n", buf[0]);
+			}
+			total++;
+		}
+		unlink("test_putchar_fd.txt");
+	}
+
+	/* Test 3: Write to standard error (fd 2) */
+	printf("\nTest 3: Writing 'E' to standard error (should see 'E' below):\n");
+	fprintf(stderr, "Expected output (stderr): E\nYour output (stderr):    ");
+	fflush(stderr);
+	ft_putchar_fd('E', 2);
+	fprintf(stderr, "\n(If you see 'E' above, the test passed visually.)\n");
+	passed++;
+	total++;
+
+	/* Print test summary */
+	printf("\n===== FT_PUTCHAR_FD TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_putchar_fd function works correctly.\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n");
+	}
 
 	return (0);
 }
