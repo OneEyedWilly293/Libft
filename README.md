@@ -1,9 +1,9 @@
 # Libft
 
 ## <ins>Testing configurations<ins>
-'''json
+```json
 "terminal.integrated.scrollback": 100000
-'''
+```
 
 ## <ins>Logs</ins>
 
