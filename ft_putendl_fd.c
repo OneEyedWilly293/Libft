@@ -6,9 +6,11 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:55:09 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/22 20:06:25 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 21:42:49 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

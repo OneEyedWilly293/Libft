@@ -9,7 +9,7 @@
 ## <ins>Logs</ins>
 
 ### <ins>28.04.2025</ins>
-- 
+- Added test file for ft_putchar_fd.
 - Added test file for ft_calloc.
 - Modified prototype for ft_calloc in the libft header file.
 - Modified syntax for ft_memmove.

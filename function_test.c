@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 20:12:55 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/28 21:52:29 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -3661,6 +3661,336 @@ int	main(void)
 	else
 		printf("Some tests failed. Please check your implementation.\n\n");
 	}
+
+
+
+	/* ********************************************************************************
+	*                            TEST FOR FT_PUTSTR_FD FUNCTION                       *
+	*                                                                                 *
+	* This test checks if ft_putstr_fd correctly writes a string to a given           *
+	* file descriptor. It tests:                                                      *
+	* 1. Writing to standard output (fd 1)                                            *
+	* 2. Writing to standard error (fd 2)                                             *
+	* 3. Writing to a file and verifying the content                                  *
+	* 4. Writing an empty string                                                      *
+	* 5. Handling NULL pointer (should not crash)                                     *
+	* ********************************************************************************/
+	{
+	int		passed = 0;
+	int		total = 0;
+	int		fd;
+	char	buf[256];
+	ssize_t	bytes;
+
+	printf("\n===== TESTING FT_PUTSTR_FD =====\n\n");
+
+	/* Test 1: Write to standard output (fd 1) */
+	printf("Test 1: Writing \"Hello, World!\" to standard output (should see below):\n");
+	printf("Expected output: Hello, World!\nYour output:    ");
+	fflush(stdout);
+	ft_putstr_fd("Hello, World!", 1);
+	printf("\n(If you see 'Hello, World!' above, the test passed visually.)\n");
+	passed++;
+	total++;
+
+	/* Test 2: Write to standard error (fd 2) */
+	fprintf(stderr, "\nTest 2: Writing \"Error output!\" to standard error (should see below):\n");
+	fprintf(stderr, "Expected output (stderr): Error output!\nYour output (stderr):    ");
+	fflush(stderr);
+	ft_putstr_fd("Error output!", 2);
+	fprintf(stderr, "\n(If you see 'Error output!' above, the test passed visually.)\n");
+	passed++;
+	total++;
+
+	/* Test 3: Write to a file and check content */
+	printf("\nTest 3: Writing \"File test string.\" to a file and verifying content...\n");
+	fd = open("test_putstr_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+	if (fd < 0)
+	{
+		printf("✗ Could not open file for writing. Test failed.\n");
+	}
+	else
+	{
+		ft_putstr_fd("File test string.", fd);
+		close(fd);
+
+		fd = open("test_putstr_fd.txt", O_RDONLY);
+		if (fd < 0)
+		{
+			printf("✗ Could not open file for reading. Test failed.\n");
+		}
+		else
+		{
+			bytes = read(fd, buf, sizeof(buf) - 1);
+			close(fd);
+			if (bytes >= 0)
+				buf[bytes] = '\0';
+			else
+				buf[0] = '\0';
+
+			if (strcmp(buf, "File test string.") == 0)
+			{
+				printf("✓ File contains the correct string: \"%s\"\n", buf);
+				passed++;
+			}
+			else
+			{
+				printf("✗ File does not contain the correct string. Got: \"%s\"\n", buf);
+			}
+			total++;
+		}
+		unlink("test_putstr_fd.txt");
+	}
+
+	/* Test 4: Write an empty string */
+	printf("\nTest 4: Writing an empty string to stdout (should see nothing):\n");
+	printf("Expected output: <nothing>\nYour output:    <");
+	fflush(stdout);
+	ft_putstr_fd("", 1);
+	printf(">\n(If you see nothing between the angle brackets, the test passed visually.)\n");
+	passed++;
+	total++;
+
+	/* Test 5: NULL pointer (should not crash) */
+	printf("\nTest 5: Writing NULL string to stdout (should not crash):\n");
+	printf("If you see this message, your function handled NULL safely.\n");
+	ft_putstr_fd(NULL, 1);
+	passed++;
+	total++;
+
+	/* Print test summary */
+	printf("\n===== FT_PUTSTR_FD TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_putstr_fd function works correctly.\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n");
+	}
+
+
+
+	/* ********************************************************************************
+	*                            TEST FOR FT_PUTENDL_FD FUNCTION                      *
+	*                                                                                 *
+	* This test checks if ft_putendl_fd correctly writes a string and newline         *
+	* to a given file descriptor. It tests:                                           *
+	* 1. Writing to standard output (fd 1)                                            *
+	* 2. Writing to standard error (fd 2)                                             *
+	* 3. Writing to a file and verifying the content                                  *
+	* 4. Writing an empty string                                                      *
+	* 5. Handling NULL pointer (should not crash)                                     *
+	* ********************************************************************************/
+	{
+		int		passed = 0;
+		int		total = 0;
+		int		fd;
+		char	buf[256];
+		ssize_t	bytes;
+
+		printf("\n===== TESTING FT_PUTENDL_FD =====\n\n");
+
+		/* Test 1: Write to standard output (fd 1) */
+		printf("Test 1: Writing \"Hello, World!\" with newline to stdout (should see below):\n");
+		printf("Expected output:\nHello, World!\nYour output:\n");
+		fflush(stdout);
+		ft_putendl_fd("Hello, World!", 1);
+		printf("(If you see 'Hello, World!' followed by a newline, the test passed visually.)\n");
+		passed++;
+		total++;
+
+		/* Test 2: Write to standard error (fd 2) */
+		fprintf(stderr, "\nTest 2: Writing \"Error output!\" with newline to stderr (should see below):\n");
+		fprintf(stderr, "Expected output (stderr):\nError output!\nYour output (stderr):\n");
+		fflush(stderr);
+		ft_putendl_fd("Error output!", 2);
+		fprintf(stderr, "(If you see 'Error output!' followed by a newline, the test passed visually.)\n");
+		passed++;
+		total++;
+
+		/* Test 3: Write to a file and check content */
+		printf("\nTest 3: Writing \"File test string.\" with newline to a file and verifying content...\n");
+		fd = open("test_putendl_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (fd < 0)
+		{
+			printf("✗ Could not open file for writing. Test failed.\n");
+		}
+		else
+		{
+			ft_putendl_fd("File test string.", fd);
+			close(fd);
+
+			fd = open("test_putendl_fd.txt", O_RDONLY);
+			if (fd < 0)
+			{
+				printf("✗ Could not open file for reading. Test failed.\n");
+			}
+			else
+			{
+				bytes = read(fd, buf, sizeof(buf) - 1);
+				close(fd);
+				if (bytes >= 0)
+					buf[bytes] = '\0';
+				else
+					buf[0] = '\0';
+
+				if (strcmp(buf, "File test string.\n") == 0)
+				{
+					printf("✓ File contains the correct string and newline: \"%s\"\n", buf);
+					passed++;
+				}
+				else
+				{
+					printf("✗ File does not contain the correct string and newline. Got: \"%s\"\n", buf);
+				}
+				total++;
+			}
+			unlink("test_putendl_fd.txt");
+		}
+
+		/* Test 4: Write an empty string */
+		printf("\nTest 4: Writing an empty string to stdout (should see just a newline):\n");
+		printf("Expected output: <newline>\nYour output: <");
+		fflush(stdout);
+		ft_putendl_fd("", 1);
+		printf(">\n(If you see only a newline between the angle brackets, the test passed visually.)\n");
+		passed++;
+		total++;
+
+		/* Test 5: NULL pointer (should not crash) */
+		printf("\nTest 5: Writing NULL string to stdout (should not crash):\n");
+		printf("If you see this message, your function handled NULL safely.\n");
+		ft_putendl_fd(NULL, 1);
+		passed++;
+		total++;
+
+		/* Print test summary */
+		printf("\n===== FT_PUTENDL_FD TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n",
+			passed, total, (float)passed / total * 100);
+
+		if (passed == total)
+			printf("All tests passed! Your ft_putendl_fd function works correctly.\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n");
+	}
+
+
+	/* ********************************************************************************
+	*                            TEST FOR FT_PUTNBR_FD FUNCTION                       *
+	*                                                                                 *
+	* This test checks if ft_putnbr_fd correctly writes an integer to a given         *
+	* file descriptor. It tests:                                                      *
+	* 1. Writing to standard output (fd 1)                                            *
+	* 2. Writing to a file and verifying the content                                  *
+	* 3. Writing to standard error (fd 2)                                             *
+	* 4. Edge cases: INT_MIN, INT_MAX, 0, negatives, positives                       *
+	* ********************************************************************************/
+{
+	int		passed = 0;
+	int		total = 0;
+	int		fd;
+	char	buf[64];
+	ssize_t	bytes;
+
+	printf("\n===== TESTING FT_PUTNBR_FD =====\n\n");
+
+	struct {
+		int value;
+		const char *expected;
+	} tests[] = {
+		{0, "0"},
+		{42, "42"},
+		{-42, "-42"},
+		{2147483647, "2147483647"},
+		{-2147483648, "-2147483648"},
+		{123456, "123456"},
+		{-987654, "-987654"}
+	};
+
+	size_t num_tests = sizeof(tests) / sizeof(tests[0]);
+
+	/* Test 1: Write to stdout (visual check) */
+	printf("Test 1: Writing numbers to standard output (should see below):\n");
+	for (size_t i = 0; i < num_tests; i++)
+	{
+		printf("Expected: %s | Your output: ", tests[i].expected);
+		fflush(stdout);
+		ft_putnbr_fd(tests[i].value, 1);
+		printf("\n");
+	}
+	printf("(If the numbers above match the expected, the test passed visually.)\n");
+	passed++;
+	total++;
+
+	/* Test 2: Write to a file and verify content */
+	printf("\nTest 2: Writing numbers to a file and verifying content...\n");
+	int all_match = 1;
+	for (size_t i = 0; i < num_tests; i++)
+	{
+		fd = open("test_putnbr_fd.txt", O_WRONLY | O_CREAT | O_TRUNC, 0644);
+		if (fd < 0)
+		{
+			printf("✗ Could not open file for writing. Test failed.\n");
+			all_match = 0;
+			break;
+		}
+		ft_putnbr_fd(tests[i].value, fd);
+		close(fd);
+
+		fd = open("test_putnbr_fd.txt", O_RDONLY);
+		if (fd < 0)
+		{
+			printf("✗ Could not open file for reading. Test failed.\n");
+			all_match = 0;
+			break;
+		}
+		bytes = read(fd, buf, sizeof(buf) - 1);
+		close(fd);
+		if (bytes < 0)
+		{
+			printf("✗ Could not read file. Test failed.\n");
+			all_match = 0;
+			break;
+		}
+		buf[bytes] = '\0';
+		if (strcmp(buf, tests[i].expected) == 0)
+		{
+			printf("✓ File contains correct output for %d: \"%s\"\n", tests[i].value, buf);
+		}
+		else
+		{
+			printf("✗ File output mismatch for %d. Expected: \"%s\", Got: \"%s\"\n",
+				tests[i].value, tests[i].expected, buf);
+			all_match = 0;
+		}
+		unlink("test_putnbr_fd.txt");
+	}
+	if (all_match)
+		passed++;
+	total++;
+
+	/* Test 3: Write to standard error (visual check) */
+	fprintf(stderr, "\nTest 3: Writing -12345 to standard error (should see -12345 below):\n");
+	fprintf(stderr, "Expected output (stderr): -12345\nYour output (stderr):    ");
+	fflush(stderr);
+	ft_putnbr_fd(-12345, 2);
+	fprintf(stderr, "\n(If you see -12345 above, the test passed visually.)\n");
+	passed++;
+	total++;
+
+	/* Print test summary */
+	printf("\n===== FT_PUTNBR_FD TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_putnbr_fd function works correctly.\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n");
+}
+
 
 	return (0);
 }
