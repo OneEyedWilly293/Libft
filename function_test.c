@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 22:39:34 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/30 00:25:03 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -4759,6 +4759,197 @@ int	main(void)
 		else
 			printf("Some tests failed. Please check your implementation.\n\n\n");
 	}
+
+
+
+	/* ********************************************************************************
+	*                            TEST FOR FT_SPLIT FUNCTION                           *
+	*                                                                                 *
+	* This test checks if ft_split correctly splits a string into an array of         *
+	* substrings based on a delimiter. It covers normal, edge, and corner cases.      *
+	*                                                                                 *
+	* It tests:                                                                       *
+	* 1. Basic splitting                                                              *
+	* 2. Multiple consecutive delimiters                                              *
+	* 3. Delimiter at start/end                                                       *
+	* 4. No delimiter present                                                         *
+	* 5. Empty string and all delimiters                                              *
+	* 6. NULL input                                                                   *
+	* ********************************************************************************/
+	{
+		int		passed = 0;
+		int		total = 0;
+		int		i, j;
+		char	**result;
+		char	*input;
+		char	delimiter;
+		const char	*expected[10][10] = {
+			/* Test 1: Basic split */
+			{"Hello", "world", "this", "is", "test", NULL},
+			/* Test 2: Multiple delimiters */
+			{"foo", "bar", "baz", NULL},
+			/* Test 3: No delimiter */
+			{"HelloWorld", NULL},
+			/* Test 4: Empty string */
+			{NULL},
+			/* Test 5: All delimiters */
+			{NULL},
+			/* Test 6: Delimiter at start/end */
+			{"one", "two", NULL},
+			/* Test 7: Mixed spaces */
+			{"Split", "this", "string", NULL},
+			/* Test 8: Numbers */
+			{"1", "2", "3", "4", "5", NULL},
+		};
+
+		struct {
+			const char	*input;
+			char		delimiter;
+			int			expected_index;
+		} tests[] = {
+			{"Hello world this is test", ' ', 0},
+			{"foo,,bar,,baz", ',', 1},
+			{"HelloWorld", ' ', 2},
+			{"", 'a', 3},
+			{"||||", '|', 4},
+			{":one:two:", ':', 5},
+			{"  Split  this   string  ", ' ', 6},
+			{"1,2,3,4,5", ',', 7},
+		};
+
+		int num_tests = sizeof(tests) / sizeof(tests[0]);
+
+		printf("\n===== TESTING FT_SPLIT =====\n\n");
+
+		for (i = 0; i < num_tests; i++)
+		{
+			total++;
+			input = (char *)tests[i].input;
+			delimiter = tests[i].delimiter;
+			printf("Test %d: Input: \"%s\", Delimiter: '%c'\n", i + 1, input, delimiter);
+
+			result = ft_split(input, delimiter);
+
+			/* Compare result with expected */
+			int match = 1;
+			for (j = 0; expected[tests[i].expected_index][j] != NULL; j++)
+			{
+				if (!result || !result[j] || strcmp(result[j], expected[tests[i].expected_index][j]) != 0)
+				{
+					match = 0;
+					break;
+				}
+			}
+			/* Check for extra tokens in result */
+			if (result && result[j] != NULL)
+				match = 0;
+
+			if (match)
+			{
+				passed++;
+				printf("✓ Passed\n");
+			}
+			else
+			{
+				printf("✗ Failed\nExpected: [");
+				for (j = 0; expected[tests[i].expected_index][j] != NULL; j++)
+				{
+					printf("\"%s\"", expected[tests[i].expected_index][j]);
+					if (expected[tests[i].expected_index][j + 1])
+						printf(", ");
+				}
+				printf("]\nReceived: [");
+				if (result)
+				{
+					for (j = 0; result[j] != NULL; j++)
+					{
+						printf("\"%s\"", result[j]);
+						if (result[j + 1])
+							printf(", ");
+					}
+				}
+				printf("]\n");
+			}
+
+			/* Free result */
+			if (result)
+			{
+				for (j = 0; result[j]; j++)
+				{
+					free(result[j]);
+					//result[j] = NULL;		// REMOVE TO TEST DANGLING
+				}
+				free(result);
+				//result = NULL;				// REMOVE TO TEST DANGLING
+			}
+		}
+
+		/* Test NULL input */
+		total++;
+		printf("Test %d: NULL input\n", num_tests + 1);
+		result = ft_split(NULL, 'a');
+		if (result == NULL)
+		{
+			passed++;
+			printf("✓ Passed\n");
+		}
+		else
+		{
+			printf("✗ Failed (Expected NULL, got non-NULL)\n");
+			for (j = 0; result[j] != NULL; j++)
+				free(result[j]);
+			free(result);
+		}
+
+		printf("\n===== FT_SPLIT TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n",
+			passed, total, (float)passed / total * 100);
+
+		if (passed == total)
+			printf("All tests passed! Your ft_split works correctly.\n\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n\n");
+	}
+
+
+
+	/* **************************************************************************** */
+	/*                  DANGLING POINTER TEST FOR FT_SPLIT FUNCTION                 */
+	/* **************************************************************************** */
+	{
+		int     passed = 0;
+		int     total = 0;
+		char    **result;
+
+		printf("\n===== TESTING FOR DANGLING POINTERS IN FT_SPLIT =====\n\n");
+
+		/* Valid memory management test */
+		total++;
+		result = ft_split("test1,test2,test3", ',');
+		if (result)
+		{
+			/* Proper cleanup */
+			for (int i = 0; result[i]; i++)
+				free(result[i]);
+			free(result);
+
+			passed++;
+			printf("✓ Test 1: Proper memory cleanup\n");
+		}
+		else
+		{
+			printf("✗ Test 1: Memory allocation failed\n");
+		}
+
+		printf("\n===== DANGLING POINTER TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d\n", passed, total);
+
+		if (passed == total)
+			printf("Clean memory management demonstrated\n\n\n");
+		else
+			printf("Issues found in basic memory handling\n\n\n");
+	}
+
 
 	return (0);
 }

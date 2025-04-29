@@ -6,25 +6,25 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 17:42:03 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/22 16:10:34 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/30 00:06:31 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(char const)
+static int	count_words(char const *s, char c)
 {
 	int	count;
 	int	i;
 
 	count = 0;
 	i = 0;
-	while (s1[i] && s[i] == c)
+	while (s[i] && s[i] == c)
 		i++;
 	while (s[i])
 	{
 		count++;
-		while (s1[i] && s[i] != c)
+		while (s[i] && s[i] != c)
 			i++;
 		while (s[i] && s[i] == c)
 			i++;
@@ -61,9 +61,11 @@ static char	*create_word(char const	*s, char c, int *start)
 		i++;
 	}
 	word[i] = '\0';
+	*start += len;
+	return (word);
 }
 
-static void	free-array(char **array, int size)
+static void	free_array(char **array, int size)
 {
 	int	i;
 
@@ -71,9 +73,11 @@ static void	free-array(char **array, int size)
 	while (i < size)
 	{
 		free(array[i]);
+		array[i] = NULL;
 		i++;
 	}
 	free(array);
+	array = NULL;
 }
 
 char **ft_split(char const *s, char c)
@@ -94,7 +98,7 @@ char **ft_split(char const *s, char c)
 	while (i < word_count)
 	{
 		result[i] = create_word(s, c, &start);
-		if (!result)
+		if (!result[i])
 		{
 			free_array(result, i);
 			return (NULL);

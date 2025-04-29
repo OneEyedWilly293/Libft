@@ -1,16 +1,37 @@
-# Libft
+Libft
 
-## <ins>Testing configurations<ins>
+## <ins>How to run the test<ins>
 ```json
 "terminal.integrated.scrollback": 100000
 ```
-> Add the this to your `json` file to accomodate the scrollback length when running the compiled test.
+> Add the this to your `json`(in VSCode) file to accommodate the scroll-back length when running the compiled test.
 
 ## <ins>Logs</ins>
 
+### <ins>29.04.2025</ins>
+- Added test for ft_split.
+	> *Included dangling pointer test*
+- Modified minor syntax errors in ft_split.
+- Added tests for ft_strtrim.
+- Reconstructed ft_strtrim to be more concise.
+	> *using ft_substr.*
+- Reconstructed ft_strjoin function.
+	> *issue identified through testing and comply with the Norm*
+- Added test for ft_strjoin.
+- Added header library for ft_strjoin function.
+- Added test ft_substr.
+- Added Header/library fr ft_substr function.
+- Modified ft_itoa to comply with the Norm format.
+- Added test for ft_itoa.
+- Modified syntax structure for ft_itoa.
+- Added test for ft_strmapi function.
+- Modified syntax structure issue identified by testing.
+- Added test for ft_striteri function.
+
 ### <ins>28.04.2025</ins>
-- Added test file for ft_putchar_fd.
-- Added test file for ft_calloc.
+- Added test for ft_putstr_fd & ft_putendl_fd & ft_putnbr_fd.
+- Added test for ft_putchar_fd.
+- Added test for ft_calloc.
 - Modified prototype for ft_calloc in the libft header file.
 - Modified syntax for ft_memmove.
 - Added test for ft_strdup function.
@@ -18,7 +39,7 @@
 - Modified ft_strncmp syntax error identified through test.
 - Modified a few function errors identified through test.
 - Modified ft_atoi according to issues identified through test.
-	> *overflow/nderflow handling*
+	> *overflow/underflow handling*
 
 ### <ins>27.04.2025</ins>
 - Added ft_atoi function test.
