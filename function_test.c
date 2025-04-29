@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 22:20:38 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 22:39:34 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -4592,6 +4592,170 @@ int	main(void)
 
 		if (passed == total)
 			printf("All tests passed! Your ft_strjoin works correctly.\n\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n\n");
+	}
+
+
+
+	/* **************************************************************************************
+	*                            TEST FOR FT_STRTRIM FUNCTION                              *
+	*                                                                                      *
+	* This test checks your ft_strtrim function by comparing its result with the expected   *
+	* output for a variety of cases, including edge cases.                                 *
+	*                                                                                      *
+	* It tests:                                                                            *
+	* 1. Trimming whitespace and custom sets from both ends                                *
+	* 2. No characters to trim                                                             *
+	* 3. Empty strings and sets                                                            *
+	* 4. All characters trimmed                                                            *
+	* 5. NULL input handling                                                               *
+	* *************************************************************************************/
+
+	{
+		int		passed = 0;
+		int		total = 0;
+		char	*result;
+
+		printf("\n===== TESTING FT_STRTRIM =====\n\n");
+
+		/* Test case 1: Trim spaces */
+		result = ft_strtrim("   Hello World   ", " ");
+		total++;
+		printf("Test 1: Trim spaces\n");
+		printf("Input: \"   Hello World   \" | Set: \" \"\n");
+		printf("Expected: \"Hello World\"\n");
+		printf("Result:   \"%s\"\n", result);
+		if (result && strcmp(result, "Hello World") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test case 2: Trim multiple chars */
+		result = ft_strtrim("abcHelloabc", "abc");
+		total++;
+		printf("Test 2: Trim 'a', 'b', 'c'\n");
+		printf("Input: \"abcHelloabc\" | Set: \"abc\"\n");
+		printf("Expected: \"Hello\"\n");
+		printf("Result:   \"%s\"\n", result);
+		if (result && strcmp(result, "Hello") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test case 3: No characters to trim */
+		result = ft_strtrim("Hello", "xyz");
+		total++;
+		printf("Test 3: No characters to trim\n");
+		printf("Input: \"Hello\" | Set: \"xyz\"\n");
+		printf("Expected: \"Hello\"\n");
+		printf("Result:   \"%s\"\n", result);
+		if (result && strcmp(result, "Hello") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test case 4: Empty string */
+		result = ft_strtrim("", "abc");
+		total++;
+		printf("Test 4: Empty string\n");
+		printf("Input: \"\" | Set: \"abc\"\n");
+		printf("Expected: \"\"\n");
+		printf("Result:   \"%s\"\n", result);
+		if (result && strcmp(result, "") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test case 5: Empty set */
+		result = ft_strtrim("Hello", "");
+		total++;
+		printf("Test 5: Empty set\n");
+		printf("Input: \"Hello\" | Set: \"\"\n");
+		printf("Expected: \"Hello\"\n");
+		printf("Result:   \"%s\"\n", result);
+		if (result && strcmp(result, "Hello") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test case 6: All characters trimmed */
+		result = ft_strtrim("aaa", "a");
+		total++;
+		printf("Test 6: All characters trimmed\n");
+		printf("Input: \"aaa\" | Set: \"a\"\n");
+		printf("Expected: \"\"\n");
+		printf("Result:   \"%s\"\n", result);
+		if (result && strcmp(result, "") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test case 7: NULL string */
+		result = ft_strtrim(NULL, "a");
+		total++;
+		printf("Test 7: NULL string\n");
+		printf("Input: NULL | Set: \"a\"\n");
+		printf("Expected: NULL\n");
+		printf("Result:   %s\n", result ? result : "NULL");
+		if (result == NULL)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+		{
+			printf("✗ Test failed!\n\n");
+			free(result);
+		}
+
+		/* Test case 8: NULL set */
+		result = ft_strtrim("Hello", NULL);
+		total++;
+		printf("Test 8: NULL set\n");
+		printf("Input: \"Hello\" | Set: NULL\n");
+		printf("Expected: \"Hello\"\n");
+		printf("Result:   \"%s\"\n", result);
+		if (result && strcmp(result, "Hello") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Print test summary */
+		printf("\n===== FT_STRTRIM TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n",
+			passed, total, (float)passed / total * 100);
+
+		if (passed == total)
+			printf("All tests passed! Your ft_strtrim function works correctly.\n\n\n");
 		else
 			printf("Some tests failed. Please check your implementation.\n\n\n");
 	}
