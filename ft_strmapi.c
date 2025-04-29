@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:58:11 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/22 18:06:20 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 19:11:07 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	i = 0;
 	while (s[i])
-		i++:
+		i++;
 	result = (char *)malloc(sizeof(char) * (i + 1));
 	if (!result)
 		return (NULL);
@@ -31,6 +31,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		result[i] = f(i, s[i]);
 		i++;
 	}
-	result[]i = '\0';
+	result[i] = '\0';
 	return (result);
 }

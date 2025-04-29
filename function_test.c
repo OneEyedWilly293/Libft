@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 19:07:35 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 19:21:43 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include <bsd/string.h>     // for strlcpy function[COMPILE with -lbsd]
 #include "libft.h"
 
-
+//////////////////////////////////HELPER FUNCTION FOR FT_STRITERI//////////////////////////////////////
 /* Helper: uppercase every character */
 void	iter_upper(unsigned int i, char *c)
 {
@@ -42,6 +42,22 @@ void	iter_even_star(unsigned int i, char *c)
 {
 	if (i % 2 == 0)
 		*c = '*';
+}
+
+/////////////////////////////////HELPER FUNCTION FOR FT_STRMAPI////////////////////////////////////////
+/* Helper function: uppercase every odd index */
+char	strmapi_upper_odd(unsigned int i, char c)
+{
+	if (i % 2 == 1 && c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
+}
+
+/* Helper function: identity */
+char	strmapi_identity(unsigned int i, char c)
+{
+	(void)i;
+	return (c);
 }
 
 
@@ -4119,6 +4135,126 @@ int	main(void)
 
 
 
-	
+	/* *************************************************************************************
+	*                            TEST FOR FT_STRMAPI FUNCTION                              *
+	*                                                                                      *
+	* This test checks if ft_strmapi correctly applies a function to each character        *
+	* of a string, passing the index and character, and returns a new string.              *
+	* It tests:                                                                            *
+	* 1. Basic transformation (e.g., uppercase every other letter)                         *
+	* 2. Identity function                                                                 *
+	* 3. Empty string                                                                      *
+	* 4. NULL input string and NULL function                                               *
+	* 5. Memory allocation failure is hard to simulate, but NULL is checked                *
+	* *************************************************************************************/
+
+	{
+		int		passed = 0;
+		int		total = 0;
+		char	*result;
+
+		printf("\n===== TESTING FT_STRMAPI =====\n\n");
+
+		/* Test 1: Basic transformation */
+		const char *input1 = "hello world";
+		const char *expected1 = "hElLo wOrLd";
+		result = ft_strmapi(input1, strmapi_upper_odd);
+		total++;
+		printf("Test 1: Uppercase every odd index\n");
+		printf("Input:    \"%s\"\n", input1);
+		printf("Expected: \"%s\"\n", expected1);
+		printf("Result:   \"%s\"\n", result ? result : "(null)");
+		if (result && strcmp(result, expected1) == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test 2: Identity function */
+		const char *input2 = "LibftTest";
+		result = ft_strmapi(input2, strmapi_identity);
+		total++;
+		printf("Test 2: Identity function\n");
+		printf("Input:    \"%s\"\n", input2);
+		printf("Expected: \"%s\"\n", input2);
+		printf("Result:   \"%s\"\n", result ? result : "(null)");
+		if (result && strcmp(result, input2) == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test 3: Empty string */
+		const char *input3 = "";
+		result = ft_strmapi(input3, strmapi_upper_odd);
+		total++;
+		printf("Test 3: Empty string\n");
+		printf("Input:    \"\"\n");
+		printf("Expected: \"\"\n");
+		printf("Result:   \"%s\"\n", result ? result : "(null)");
+		if (result && strcmp(result, "") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		free(result);
+
+		/* Test 4: NULL input string */
+		result = ft_strmapi(NULL, strmapi_upper_odd);
+		total++;
+		printf("Test 4: NULL input string\n");
+		printf("Expected: (null)\n");
+		printf("Result:   %s\n", result ? result : "(null)");
+		if (result == NULL)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+		{
+			printf("✗ Test failed!\n\n");
+			free(result);
+		}
+
+		/* Test 5: NULL function pointer */
+		result = ft_strmapi("test", NULL);
+		total++;
+		printf("Test 5: NULL function pointer\n");
+		printf("Expected: (null)\n");
+		printf("Result:   %s\n", result ? result : "(null)");
+		if (result == NULL)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+		{
+			printf("✗ Test failed!\n\n");
+			free(result);
+		}
+
+		/* Print test summary */
+		printf("\n===== FT_STRMAPI TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n",
+			passed, total, (float)passed / total * 100);
+
+		if (passed == total)
+			printf("All tests passed! Your ft_strmapi function works correctly.\n\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n\n");
+
+	}
+
+
+
+
 	return (0);
 }
