@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 19:40:32 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 20:19:01 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -4338,6 +4338,117 @@ int	main(void)
 			printf("All tests passed! Your ft_itoa works correctly.\n\n\n");
 		else
 			printf("Some tests failed. Please check your implementation.\n\n\n");
+	}
+
+
+
+	/* ********************************************************************************
+	*                            TEST FOR FT_SUBSTR FUNCTION                          *
+	*                                                                                 *
+	* This test checks if ft_substr correctly returns substrings for various cases.   *
+	* It covers:                                                                      *
+	* 1. Normal extraction                                                            *
+	* 2. Start index beyond string length                                             *
+	* 3. Length longer than string                                                    *
+	* 4. Zero length                                                                 *
+	* 5. Empty string                                                                *
+	* 6. NULL string                                                                 *
+	* ********************************************************************************/
+	{
+	int passed = 0;
+	int total = 0;
+	char *result;
+
+	printf("\n===== TESTING FT_SUBSTR =====\n\n");
+
+	/* Test 1: Normal extraction */
+	result = ft_substr("Hello, World!", 7, 5);
+	printf("Test 1: ft_substr(\"Hello, World!\", 7, 5) -> \"%s\"\n", result);
+	if (result && strcmp(result, "World") == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: \"World\"\n\n");
+	free(result);
+	total++;
+
+	/* Test 2: Start index beyond string length */
+	result = ft_substr("Hello", 10, 3);
+	printf("Test 2: ft_substr(\"Hello\", 10, 3) -> \"%s\"\n", result);
+	if (result && strcmp(result, "") == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: \"\"\n\n");
+	free(result);
+	total++;
+
+	/* Test 3: Length longer than string */
+	result = ft_substr("Hi", 0, 10);
+	printf("Test 3: ft_substr(\"Hi\", 0, 10) -> \"%s\"\n", result);
+	if (result && strcmp(result, "Hi") == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: \"Hi\"\n\n");
+	free(result);
+	total++;
+
+	/* Test 4: Zero length */
+	result = ft_substr("Hello", 2, 0);
+	printf("Test 4: ft_substr(\"Hello\", 2, 0) -> \"%s\"\n", result);
+	if (result && strcmp(result, "") == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: \"\"\n\n");
+	free(result);
+	total++;
+
+	/* Test 5: Empty string */
+	result = ft_substr("", 0, 5);
+	printf("Test 5: ft_substr(\"\", 0, 5) -> \"%s\"\n", result);
+	if (result && strcmp(result, "") == 0)
+	{
+		passed++;
+		printf("✓ Test passed!\n\n");
+	}
+	else
+		printf("✗ Test failed! Expected: \"\"\n\n");
+	free(result);
+	total++;
+
+	/* Test 6: NULL string */
+	result = ft_substr(NULL, 0, 5);
+	printf("Test 6: ft_substr(NULL, 0, 5) -> %s\n", result == NULL ? "NULL" : result);
+	if (result == NULL)
+	{
+		passed++;
+		printf("✓ Test passed! (NULL returned as expected)\n\n");
+	}
+	else
+	{
+		printf("✗ Test failed! Expected: NULL\n\n");
+		free(result);
+	}
+	total++;
+
+	printf("\n===== FT_SUBSTR TEST SUMMARY =====\n");
+	printf("Tests passed: %d/%d (%.2f%%)\n",
+		passed, total, (float)passed / total * 100);
+
+	if (passed == total)
+		printf("All tests passed! Your ft_substr function works correctly.\n\n");
+	else
+		printf("Some tests failed. Please check your implementation.\n\n");
 	}
 
 
