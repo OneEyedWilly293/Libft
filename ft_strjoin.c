@@ -6,15 +6,17 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 17:38:27 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/20 17:44:26 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 22:15:46 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 char    *ft_strjoin(char const *s1, char const *s2)
 {
-    char    *new_str;
-    size_t  s1_len;
-    size_t  s2_len;
+    char    *result;
+    size_t  len1;
+    size_t  len2;
 
     if (!s1 && !s2)
         return (NULL);
@@ -22,12 +24,12 @@ char    *ft_strjoin(char const *s1, char const *s2)
         return (ft_strdup(s2));
     if (!s2)
         return (ft_strdup(s1));
-    s1_len = ft_strlen(s1);
-    s2_len = ft_strlen(s2);
-    new_str = (char *)malloc(sizeof(char) * (s1_len + s2_len + 1));
-    if (!new_str)
+    len1 = ft_strlen(s1);
+    len2 = ft_strlen(s2);
+    result = (char *)malloc(sizeof(char) * (len1 + len2 + 1));
+    if (!result)
         return (NULL);
-    ft_strcpy(new_str, s1);
-    ft_strcat(new_str, s2);
-    return (new_str);
+    ft_memcpy(result, s1, len1);
+    ft_memcpy(result + len1, s2, len2 + 1);
+    return (result);
 }

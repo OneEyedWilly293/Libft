@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 20:19:01 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 22:20:38 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -4453,6 +4453,148 @@ int	main(void)
 
 
 
-	
+	/* ****************************************************************************** */
+	/*                                TEST FOR FT_STRJOIN                            */
+	/*                                                                                */
+	/* This test checks the ft_strjoin function for correct string concatenation,     */
+	/* memory allocation, and edge case handling.                                     */
+	/* ****************************************************************************** */
+
+	{
+		int passed = 0;
+		int total = 0;
+		char *result;
+		
+		printf("\n===== TESTING FT_STRJOIN =====\n\n");
+
+		/* Test 1: Basic concatenation */
+		const char *s1_1 = "Hello, ";
+		const char *s2_1 = "world!";
+		char *expected_1 = "Hello, world!";
+		result = ft_strjoin(s1_1, s2_1);
+		total++;
+		printf("Test 1: Basic concatenation\n");
+		printf("s1: \"%s\"\ns2: \"%s\"\n", s1_1, s2_1);
+		printf("Expected: \"%s\"\nResult:   \"%s\"\n", expected_1, result);
+		if (result && strcmp(result, expected_1) == 0)
+			passed++;
+		else
+			printf("✗ Failed\n");
+		free(result);
+		
+		/* Test 2: Empty first string */
+		const char *s1_2 = "";
+		const char *s2_2 = "Test";
+		char *expected_2 = "Test";
+		result = ft_strjoin(s1_2, s2_2);
+		total++;
+		printf("\nTest 2: Empty first string\n");
+		printf("s1: \"%s\"\ns2: \"%s\"\n", s1_2, s2_2);
+		printf("Expected: \"%s\"\nResult:   \"%s\"\n", expected_2, result);
+		if (result && strcmp(result, expected_2) == 0)
+			passed++;
+		else
+			printf("✗ Failed\n");
+		free(result);
+
+		/* Test 3: Empty second string */
+		const char *s1_3 = "Test";
+		const char *s2_3 = "";
+		char *expected_3 = "Test";
+		result = ft_strjoin(s1_3, s2_3);
+		total++;
+		printf("\nTest 3: Empty second string\n");
+		printf("s1: \"%s\"\ns2: \"%s\"\n", s1_3, s2_3);
+		printf("Expected: \"%s\"\nResult:   \"%s\"\n", expected_3, result);
+		if (result && strcmp(result, expected_3) == 0)
+			passed++;
+		else
+			printf("✗ Failed\n");
+		free(result);
+
+		/* Test 4: Both strings empty */
+		const char *s1_4 = "";
+		const char *s2_4 = "";
+		result = ft_strjoin(s1_4, s2_4);
+		total++;
+		printf("\nTest 4: Both strings empty\n");
+		printf("s1: \"%s\"\ns2: \"%s\"\n", s1_4, s2_4);
+		printf("Expected: \"\"\nResult:   \"%s\"\n", result);
+		if (result && strcmp(result, "") == 0)
+			passed++;
+		else
+			printf("✗ Failed\n");
+		free(result);
+
+		/* Test 5: First string NULL */
+		const char *s1_5 = NULL;
+		const char *s2_5 = "Test";
+		char *expected_5 = "Test";
+		result = ft_strjoin(s1_5, s2_5);
+		total++;
+		printf("\nTest 5: First string NULL\n");
+		printf("s1: NULL\ns2: \"%s\"\n", s2_5);
+		printf("Expected: \"%s\"\nResult:   \"%s\"\n", expected_5, result);
+		if (result && strcmp(result, expected_5) == 0)
+			passed++;
+		else
+			printf("✗ Failed\n");
+		free(result);
+
+		/* Test 6: Second string NULL */
+		const char *s1_6 = "Test";
+		const char *s2_6 = NULL;
+		char *expected_6 = "Test";
+		result = ft_strjoin(s1_6, s2_6);
+		total++;
+		printf("\nTest 6: Second string NULL\n");
+		printf("s1: \"%s\"\ns2: NULL\n", s1_6);
+		printf("Expected: \"%s\"\nResult:   \"%s\"\n", expected_6, result);
+		if (result && strcmp(result, expected_6) == 0)
+			passed++;
+		else
+			printf("✗ Failed\n");
+		free(result);
+
+		/* Test 7: Both strings NULL */
+		const char *s1_7 = NULL;
+		const char *s2_7 = NULL;
+		result = ft_strjoin(s1_7, s2_7);
+		total++;
+		printf("\nTest 7: Both strings NULL\n");
+		printf("s1: NULL\ns2: NULL\n");
+		printf("Expected: NULL\nResult:   %s\n", result ? result : "NULL");
+		if (result == NULL)
+			passed++;
+		else
+			printf("✗ Failed\n");
+		free(result);
+
+		/* Test 8: Large strings */
+		const char *s1_8 = "This is a very long string part 1. ";
+		const char *s2_8 = "This is part 2 of the long string.";
+		char *expected_8 = "This is a very long string part 1. This is part 2 of the long string.";
+		result = ft_strjoin(s1_8, s2_8);
+		total++;
+		printf("\nTest 8: Large strings\n");
+		printf("s1 length: %zu\ns2 length: %zu\n", strlen(s1_8), strlen(s2_8));
+		printf("Result length: %s\n", result ? (strlen(result) == strlen(expected_8) ? "✓ Correct" : "✗ Incorrect") : "NULL Result");
+		if (result && strcmp(result, expected_8) == 0)
+			passed++;
+		else
+			printf("✗ Failed\n");
+		free(result);
+
+		/* Print summary */
+		printf("\n===== FT_STRJOIN TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n", passed, total, 
+			(passed * 100.0) / total);
+
+		if (passed == total)
+			printf("All tests passed! Your ft_strjoin works correctly.\n\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n\n");
+	}
+
 	return (0);
 }
