@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 21:52:29 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 19:07:35 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,30 @@
 #include <unistd.h>			/* For close(), write(), read(), unlink */
 #include <bsd/string.h>     // for strlcpy function[COMPILE with -lbsd]
 #include "libft.h"
+
+
+/* Helper: uppercase every character */
+void	iter_upper(unsigned int i, char *c)
+{
+	(void)i;
+	if (*c >= 'a' && *c <= 'z')
+		*c -= 32;
+}
+
+/* Helper: lowercase every character */
+void	iter_lower(unsigned int i, char *c)
+{
+	(void)i;
+	if (*c >= 'A' && *c <= 'Z')
+		*c += 32;
+}
+
+/* Helper: replace even indices with '*' */
+void	iter_even_star(unsigned int i, char *c)
+{
+	if (i % 2 == 0)
+		*c = '*';
+}
 
 
 /* *****************************************************************************************************
@@ -3992,5 +4016,109 @@ int	main(void)
 }
 
 
+
+	/* *************************************************************************************
+	*                            TEST FOR FT_STRITERI FUNCTION                             *
+	*                                                                                      *
+	* This test checks if ft_striteri correctly applies a function to each character        *
+	* of a string, passing both index and address, and modifies the string in place.       *
+	*                                                                                      *
+	* It tests:                                                                            *
+	* 1. Uppercasing every character                                                       *
+	* 2. Lowercasing every character                                                       *
+	* 3. Using the index to modify only even/odd chars                                     *
+	* 4. Handling empty strings and NULL pointers                                          *
+	* *************************************************************************************/
+
+	{
+		int		passed = 0;
+		int		total = 0;
+
+		printf("\n===== TESTING FT_STRITERI =====\n\n");
+
+		/* Test 1: Uppercase conversion */
+		char str1[] = "hello World!";
+		ft_striteri(str1, iter_upper);
+		printf("Test 1: Uppercase conversion\n");
+		printf("Result: \"%s\"\n", str1);
+		if (strcmp(str1, "HELLO WORLD!") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		total++;
+
+		/* Test 2: Lowercase conversion */
+		char str2[] = "HELLO World!";
+		ft_striteri(str2, iter_lower);
+		printf("Test 2: Lowercase conversion\n");
+		printf("Result: \"%s\"\n", str2);
+		if (strcmp(str2, "hello world!") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		total++;
+
+		/* Test 3: Star at even indices */
+		char str3[] = "abcdef";
+		ft_striteri(str3, iter_even_star);
+		printf("Test 3: Star at even indices\n");
+		printf("Result: \"%s\"\n", str3);
+		if (strcmp(str3, "*b*d*f") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		total++;
+
+		/* Test 4: Empty string */
+		char str4[] = "";
+		ft_striteri(str4, iter_upper);
+		printf("Test 4: Empty string\n");
+		printf("Result: \"%s\"\n", str4);
+		if (strcmp(str4, "") == 0)
+		{
+			passed++;
+			printf("✓ Test passed!\n\n");
+		}
+		else
+			printf("✗ Test failed!\n\n");
+		total++;
+
+		/* Test 5: NULL string (should not crash) */
+		printf("Test 5: NULL string (should not crash)\n");
+		ft_striteri(NULL, iter_upper);
+		printf("If you see this message, the function handled NULL safely.\n");
+		passed++;
+		total++;
+
+		/* Test 6: NULL function pointer (should not crash) */
+		char str6[] = "test";
+		printf("Test 6: NULL function pointer (should not crash)\n");
+		ft_striteri(str6, NULL);
+		printf("If you see this message, the function handled NULL safely.\n");
+		passed++;
+		total++;
+
+		printf("\n===== FT_STRITERI TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n",
+			passed, total, (float)passed / total * 100);
+
+		if (passed == total)
+			printf("All tests passed! Your ft_striteri function works correctly.\n\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n\n");
+	}
+
+
+
+	
 	return (0);
 }
