@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 19:21:43 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 19:40:32 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -4255,6 +4255,93 @@ int	main(void)
 
 
 
+	/* ****************************************************************************** */
+	/*                                                                                */
+	/*                        TEST FOR FT_ITOA FUNCTION                               */
+	/*                                                                                */
+	/* This test checks if ft_itoa correctly converts integers to ASCII strings.     */
+	/* It tests:                                                                      */
+	/* 1. Zero                                                                        */
+	/* 2. Positive numbers                                                            */
+	/* 3. Negative numbers                                                            */
+	/* 4. INT_MAX                                                                     */
+	/* 5. INT_MIN                                                                     */
+	/* 6. Edge cases                                                                  */
+	/* ****************************************************************************** */
 
+	{
+		int passed = 0;
+		int total = 0;
+		char *result;
+		char buffer[20];
+
+		printf("\n===== TESTING FT_ITOA =====\n\n");
+
+		struct {
+			int input;
+			const char *expected;
+		} tests[] = {
+			{0, "0"},
+			{42, "42"},
+			{-42, "-42"},
+			{2147483647, "2147483647"},
+			{-2147483648, "-2147483648"},
+			{123456, "123456"},
+			{-123456, "-123456"},
+			{1, "1"},
+			{-999, "-999"}
+		};
+
+		size_t num_tests = sizeof(tests)/sizeof(tests[0]);
+
+		for (size_t i = 0; i < num_tests; i++) {
+			total++;
+			result = ft_itoa(tests[i].input);
+			snprintf(buffer, sizeof(buffer), "%d", tests[i].input);
+
+			printf("Test %zu: Input: %d\n", i+1, tests[i].input);
+			printf("Expected: \"%s\" | Yours: \"%s\"\n", buffer, result);
+
+			if (result == NULL) {
+				printf("✗ Memory allocation failed!\n\n");
+				continue;
+			}
+
+			int match = strcmp(result, buffer) == 0;
+			if (match) {
+				passed++;
+				printf("✓ Passed\n\n");
+			} else {
+				printf("✗ Failed\n\n");
+			}
+
+			free(result);
+		}
+
+		/* Test memory allocation and null termination */
+		total++;
+		result = ft_itoa(12345);
+		if (result != NULL && result[5] == '\0' && strcmp(result, "12345") == 0) {
+			passed++;
+			printf("✓ Memory and null termination test passed\n\n");
+		} else {
+			printf("✗ Memory allocation or null termination failed\n\n");
+		}
+		free(result);
+
+		/* Print test summary */
+		printf("\n===== FT_ITOA TEST SUMMARY =====\n");
+		printf("Tests passed: %d/%d (%.2f%%)\n",
+			passed, total, (float)passed / total * 100);
+
+		if (passed == total)
+			printf("All tests passed! Your ft_itoa works correctly.\n\n\n");
+		else
+			printf("Some tests failed. Please check your implementation.\n\n\n");
+	}
+
+
+
+	
 	return (0);
 }

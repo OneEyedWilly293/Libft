@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:47:47 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/24 21:22:59 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/04/29 20:13:54 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ static size_t	ft_numlen(int n)
 
 	len = 0;
 	num = n;
-	if (num <= 0)
+	if (num == 0)
+		return (1);
+	if (num < 0)
 	{
 		num *= -1;
 		len++;
@@ -37,36 +39,25 @@ char	*ft_itoa(int n)
 	char	*str;
 	size_t	len;
 	long	num;
+	int 	is_neg;
 
-	if (n == -2147483648)
-	{
-		str = (char *)malloc(12);
-		if (!str)
-			return (NULL);
-		return (strcpy(str, "-2147483648"));
-	}
 	len = ft_numlen(n);
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	str = (char *)malloc(len + 1);
 	if (!str)
 		return (NULL);
-	if (n == 0)
-	{
-		str[0] = '0';
-		str[1] = '\0';
-		return (str);
-	}
-	num = n;
-	if (num < 0)
-	{
-		str[0] = '-';
-		num *= -1;
-	}
 	str[len] = '\0';
+	is_neg = (n < 0);
+	num = n;
+	if (is_neg)
+		num *= -1;
+	if (n == 0)
+		str[0] = '0';
 	while (num > 0)
 	{
-		len--;
-		str[len] = (num % 10) + '0';
+		str[--len] = (num % 10) + '0';
 		num /= 10;
 	}
+	if (is_neg)
+		str[0] = '-';
 	return (str);
 }
