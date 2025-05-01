@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:58:11 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 19:11:07 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 03:14:02 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	char	*result;
+	char			*result;
 
 	if (!s || !f)
 		return (NULL);

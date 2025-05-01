@@ -8,6 +8,15 @@ Libft
 
 ## <ins>Logs</ins>
 
+### <ins>01.05.2025</ins>
+- Created Makefile.
+	> *Thank you Mika!*
+
+### <ins>30.04.2025</ins>
+- Created Makefile.
+- Configured testfile for valgrind error summary.
+	> *Thank you Leon^^*
+
 ### <ins>29.04.2025</ins>
 - Added test for ft_split.
 	> *Included dangling pointer test*

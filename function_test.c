@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/30 00:25:03 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 02:54:35 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ int	main(void)
 	/* Test all ASCII characters */
 	passed = 0;
 	total = 0;
+	printf("\n===== TESTING FT_ISALPHA =====\n\n");
 	printf("Testing ft_isalpha against standard isalpha:\n\n");
 
 	/* Test ASCII values from 0 to 127 */
@@ -1522,7 +1523,7 @@ int	main(void)
 		char b;
 		double c;
 		char str[10];
-	} src_struct, dest_struct1, dest_struct2;
+	} src_struct = {0}, dest_struct1 = {0}, dest_struct2 = {0};
 
 	/* Initialize source struct with values */
 	src_struct.a = 42;
@@ -4877,10 +4878,10 @@ int	main(void)
 				for (j = 0; result[j]; j++)
 				{
 					free(result[j]);
-					//result[j] = NULL;		// REMOVE TO TEST DANGLING
+					result[j] = NULL;		// REMOVE TO TEST DANGLING
 				}
 				free(result);
-				//result = NULL;				// REMOVE TO TEST DANGLING
+				result = NULL;				// REMOVE TO TEST DANGLING
 			}
 		}
 
@@ -4913,42 +4914,53 @@ int	main(void)
 
 
 
-	/* **************************************************************************** */
-	/*                  DANGLING POINTER TEST FOR FT_SPLIT FUNCTION                 */
-	/* **************************************************************************** */
-	{
-		int     passed = 0;
-		int     total = 0;
-		char    **result;
+	// /* **************************************************************************** */
+	// /*                  DANGLING POINTER TEST FOR FT_SPLIT FUNCTION                 */
+	// /* **************************************************************************** */
+	// {
+    // printf("\n===== TESTING FT_SPLIT DANGLING POINTERS =====\n\n");
 
-		printf("\n===== TESTING FOR DANGLING POINTERS IN FT_SPLIT =====\n\n");
+    // char **result = ft_split("test1,test2,test3", ',');
+    // char **copy = NULL;
+    // int detected = 0;
 
-		/* Valid memory management test */
-		total++;
-		result = ft_split("test1,test2,test3", ',');
-		if (result)
-		{
-			/* Proper cleanup */
-			for (int i = 0; result[i]; i++)
-				free(result[i]);
-			free(result);
+    // if (result)
+    // {
+    //     // Create copy of pointers before freeing
+    //     int count = 0;
+    //     while (result[count]) count++;
 
-			passed++;
-			printf("✓ Test 1: Proper memory cleanup\n");
-		}
-		else
-		{
-			printf("✗ Test 1: Memory allocation failed\n");
-		}
+    //     copy = malloc(sizeof(char *) * (count + 1));
+    //     for (int i = 0; i < count; i++)
+    //         copy[i] = result[i]; // Copy pointers, not contents
+    //     copy[count] = NULL;
 
-		printf("\n===== DANGLING POINTER TEST SUMMARY =====\n");
-		printf("Tests passed: %d/%d\n", passed, total);
+    //     // Free original memory
+    //     for (int i = 0; result[i]; i++) {
+    //         free(result[i]);
+    //         result[i] = NULL; // Best practice: NULL after free
+    //     }
+    //     free(result);
+	// 	free(copy[0]);
+	// 	copy[0] = NULL;
+    //     // Attempt to access copied pointers (should crash if dangling)
+    //     printf("Checking for dangling pointers...\n");
+    //     for (int i = 0; copy[i]; i++) {
+    //         if (copy[i] != NULL) { // Access attempt
+    //             printf("Dangling pointer detected at index %d!\n", i);
+    //             detected++;
+    //         }
+    //     }
 
-		if (passed == total)
-			printf("Clean memory management demonstrated\n\n\n");
-		else
-			printf("Issues found in basic memory handling\n\n\n");
-	}
+    //     //free(copy);
+    // }
+
+    // if (!detected)
+    //     printf("✓ No dangling pointers detected\n");
+    // else
+    //     printf("✗ Found %d dangling pointers!\n", detected);
+
+	// }
 
 
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 14:49:36 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 22:37:35 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 03:12:13 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 		return (NULL);
 	if (!set)
 		return (ft_strdup(s1));
-
 	start = 0;
 	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;

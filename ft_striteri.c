@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 18:12:06 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/22 18:23:01 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 03:15:04 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 	unsigned int	i;
 
 	if (s == NULL || f == NULL)
-		return;
+		return ;
 	i = 0;
 	while (s[i] != '\0')
 	{

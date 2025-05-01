@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 17:42:03 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/30 00:06:31 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 03:00:04 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	count_words(char const *s, char c)
 
 static int	word_length(char const *s, char c, int start)
 {
-	int len;
+	int	len;
 
 	len = 0;
 	while (s[start + len] && s[start + len] != c)
@@ -44,9 +44,9 @@ static int	word_length(char const *s, char c, int start)
 
 static char	*create_word(char const	*s, char c, int *start)
 {
-	int	len;
+	int		len;
 	char	*word;
-	int	i;
+	int		i;
 
 	while (s[*start] && s[*start] == c)
 		(*start)++;
@@ -80,12 +80,12 @@ static void	free_array(char **array, int size)
 	array = NULL;
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	int	word_count;
-	int	i;
-	int start;
+	int		word_count;
+	int		i;
+	int		start;
 
 	if (!s)
 		return (NULL);

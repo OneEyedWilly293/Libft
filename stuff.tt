@@ -1,0 +1,2737 @@
+
+===== TESTING FT_ISALPHA =====
+
+Testing ft_isalpha against standard isalpha:
+
+Testing ASCII characters (0-127):
+✓ Char: (ASCII 0) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 1) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 2) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 3) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 4) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 5) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 6) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 7) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 8) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 9) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 10) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 11) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 12) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 13) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 14) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 15) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 16) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 17) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 18) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 19) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 20) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 21) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 22) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 23) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 24) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 25) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 26) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 27) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 28) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 29) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 30) | Standard: 0 | Yours: 0
+✓ Char: (ASCII 31) | Standard: 0 | Yours: 0
+✓ Char: ' ' | Standard: 0 | Yours: 0
+✓ Char: '!' | Standard: 0 | Yours: 0
+✓ Char: '"' | Standard: 0 | Yours: 0
+✓ Char: '#' | Standard: 0 | Yours: 0
+✓ Char: '$' | Standard: 0 | Yours: 0
+✓ Char: '%' | Standard: 0 | Yours: 0
+✓ Char: '&' | Standard: 0 | Yours: 0
+✓ Char: ''' | Standard: 0 | Yours: 0
+✓ Char: '(' | Standard: 0 | Yours: 0
+✓ Char: ')' | Standard: 0 | Yours: 0
+✓ Char: '*' | Standard: 0 | Yours: 0
+✓ Char: '+' | Standard: 0 | Yours: 0
+✓ Char: ',' | Standard: 0 | Yours: 0
+✓ Char: '-' | Standard: 0 | Yours: 0
+✓ Char: '.' | Standard: 0 | Yours: 0
+✓ Char: '/' | Standard: 0 | Yours: 0
+✓ Char: '0' | Standard: 0 | Yours: 0
+✓ Char: '1' | Standard: 0 | Yours: 0
+✓ Char: '2' | Standard: 0 | Yours: 0
+✓ Char: '3' | Standard: 0 | Yours: 0
+✓ Char: '4' | Standard: 0 | Yours: 0
+✓ Char: '5' | Standard: 0 | Yours: 0
+✓ Char: '6' | Standard: 0 | Yours: 0
+✓ Char: '7' | Standard: 0 | Yours: 0
+✓ Char: '8' | Standard: 0 | Yours: 0
+✓ Char: '9' | Standard: 0 | Yours: 0
+✓ Char: ':' | Standard: 0 | Yours: 0
+✓ Char: ';' | Standard: 0 | Yours: 0
+✓ Char: '<' | Standard: 0 | Yours: 0
+✓ Char: '=' | Standard: 0 | Yours: 0
+✓ Char: '>' | Standard: 0 | Yours: 0
+✓ Char: '?' | Standard: 0 | Yours: 0
+✓ Char: '@' | Standard: 0 | Yours: 0
+✓ Char: 'A' | Standard: 1 | Yours: 1
+✓ Char: 'B' | Standard: 1 | Yours: 1
+✓ Char: 'C' | Standard: 1 | Yours: 1
+✓ Char: 'D' | Standard: 1 | Yours: 1
+✓ Char: 'E' | Standard: 1 | Yours: 1
+✓ Char: 'F' | Standard: 1 | Yours: 1
+✓ Char: 'G' | Standard: 1 | Yours: 1
+✓ Char: 'H' | Standard: 1 | Yours: 1
+✓ Char: 'I' | Standard: 1 | Yours: 1
+✓ Char: 'J' | Standard: 1 | Yours: 1
+✓ Char: 'K' | Standard: 1 | Yours: 1
+✓ Char: 'L' | Standard: 1 | Yours: 1
+✓ Char: 'M' | Standard: 1 | Yours: 1
+✓ Char: 'N' | Standard: 1 | Yours: 1
+✓ Char: 'O' | Standard: 1 | Yours: 1
+✓ Char: 'P' | Standard: 1 | Yours: 1
+✓ Char: 'Q' | Standard: 1 | Yours: 1
+✓ Char: 'R' | Standard: 1 | Yours: 1
+✓ Char: 'S' | Standard: 1 | Yours: 1
+✓ Char: 'T' | Standard: 1 | Yours: 1
+✓ Char: 'U' | Standard: 1 | Yours: 1
+✓ Char: 'V' | Standard: 1 | Yours: 1
+✓ Char: 'W' | Standard: 1 | Yours: 1
+✓ Char: 'X' | Standard: 1 | Yours: 1
+✓ Char: 'Y' | Standard: 1 | Yours: 1
+✓ Char: 'Z' | Standard: 1 | Yours: 1
+✓ Char: '[' | Standard: 0 | Yours: 0
+✓ Char: '\' | Standard: 0 | Yours: 0
+✓ Char: ']' | Standard: 0 | Yours: 0
+✓ Char: '^' | Standard: 0 | Yours: 0
+✓ Char: '_' | Standard: 0 | Yours: 0
+✓ Char: '`' | Standard: 0 | Yours: 0
+✓ Char: 'a' | Standard: 1 | Yours: 1
+✓ Char: 'b' | Standard: 1 | Yours: 1
+✓ Char: 'c' | Standard: 1 | Yours: 1
+✓ Char: 'd' | Standard: 1 | Yours: 1
+✓ Char: 'e' | Standard: 1 | Yours: 1
+✓ Char: 'f' | Standard: 1 | Yours: 1
+✓ Char: 'g' | Standard: 1 | Yours: 1
+✓ Char: 'h' | Standard: 1 | Yours: 1
+✓ Char: 'i' | Standard: 1 | Yours: 1
+✓ Char: 'j' | Standard: 1 | Yours: 1
+✓ Char: 'k' | Standard: 1 | Yours: 1
+✓ Char: 'l' | Standard: 1 | Yours: 1
+✓ Char: 'm' | Standard: 1 | Yours: 1
+✓ Char: 'n' | Standard: 1 | Yours: 1
+✓ Char: 'o' | Standard: 1 | Yours: 1
+✓ Char: 'p' | Standard: 1 | Yours: 1
+✓ Char: 'q' | Standard: 1 | Yours: 1
+✓ Char: 'r' | Standard: 1 | Yours: 1
+✓ Char: 's' | Standard: 1 | Yours: 1
+✓ Char: 't' | Standard: 1 | Yours: 1
+✓ Char: 'u' | Standard: 1 | Yours: 1
+✓ Char: 'v' | Standard: 1 | Yours: 1
+✓ Char: 'w' | Standard: 1 | Yours: 1
+✓ Char: 'x' | Standard: 1 | Yours: 1
+✓ Char: 'y' | Standard: 1 | Yours: 1
+✓ Char: 'z' | Standard: 1 | Yours: 1
+✓ Char: '{' | Standard: 0 | Yours: 0
+✓ Char: '|' | Standard: 0 | Yours: 0
+✓ Char: '}' | Standard: 0 | Yours: 0
+✓ Char: '~' | Standard: 0 | Yours: 0
+✓ Char: (ASCII 127) | Standard: 0 | Yours: 0
+
+Summary: 128/128 tests passed (100%)
+
+Congratulations! Your ft_isalpha function works correctly!
+
+
+
+===== TESTING FT_ISDIGIT =====
+
+Testing all ASCII characters (0-127):
+✓ Char: '\  0' (ASCII:   0) | Expected: 0 | Result: 0
+✓ Char: '\  1' (ASCII:   1) | Expected: 0 | Result: 0
+✓ Char: '\  2' (ASCII:   2) | Expected: 0 | Result: 0
+✓ Char: '\  3' (ASCII:   3) | Expected: 0 | Result: 0
+✓ Char: '\  4' (ASCII:   4) | Expected: 0 | Result: 0
+✓ Char: '\  5' (ASCII:   5) | Expected: 0 | Result: 0
+✓ Char: '\  6' (ASCII:   6) | Expected: 0 | Result: 0
+✓ Char: '\  7' (ASCII:   7) | Expected: 0 | Result: 0
+✓ Char: '\  8' (ASCII:   8) | Expected: 0 | Result: 0
+✓ Char: '\  9' (ASCII:   9) | Expected: 0 | Result: 0
+✓ Char: '\ 10' (ASCII:  10) | Expected: 0 | Result: 0
+✓ Char: '\ 11' (ASCII:  11) | Expected: 0 | Result: 0
+✓ Char: '\ 12' (ASCII:  12) | Expected: 0 | Result: 0
+✓ Char: '\ 13' (ASCII:  13) | Expected: 0 | Result: 0
+✓ Char: '\ 14' (ASCII:  14) | Expected: 0 | Result: 0
+✓ Char: '\ 15' (ASCII:  15) | Expected: 0 | Result: 0
+✓ Char: '\ 16' (ASCII:  16) | Expected: 0 | Result: 0
+✓ Char: '\ 17' (ASCII:  17) | Expected: 0 | Result: 0
+✓ Char: '\ 18' (ASCII:  18) | Expected: 0 | Result: 0
+✓ Char: '\ 19' (ASCII:  19) | Expected: 0 | Result: 0
+✓ Char: '\ 20' (ASCII:  20) | Expected: 0 | Result: 0
+✓ Char: '\ 21' (ASCII:  21) | Expected: 0 | Result: 0
+✓ Char: '\ 22' (ASCII:  22) | Expected: 0 | Result: 0
+✓ Char: '\ 23' (ASCII:  23) | Expected: 0 | Result: 0
+✓ Char: '\ 24' (ASCII:  24) | Expected: 0 | Result: 0
+✓ Char: '\ 25' (ASCII:  25) | Expected: 0 | Result: 0
+✓ Char: '\ 26' (ASCII:  26) | Expected: 0 | Result: 0
+✓ Char: '\ 27' (ASCII:  27) | Expected: 0 | Result: 0
+✓ Char: '\ 28' (ASCII:  28) | Expected: 0 | Result: 0
+✓ Char: '\ 29' (ASCII:  29) | Expected: 0 | Result: 0
+✓ Char: '\ 30' (ASCII:  30) | Expected: 0 | Result: 0
+✓ Char: '\ 31' (ASCII:  31) | Expected: 0 | Result: 0
+✓ Char: ' ' (ASCII:  32) | Expected: 0 | Result: 0
+✓ Char: '!' (ASCII:  33) | Expected: 0 | Result: 0
+✓ Char: '"' (ASCII:  34) | Expected: 0 | Result: 0
+✓ Char: '#' (ASCII:  35) | Expected: 0 | Result: 0
+✓ Char: '$' (ASCII:  36) | Expected: 0 | Result: 0
+✓ Char: '%' (ASCII:  37) | Expected: 0 | Result: 0
+✓ Char: '&' (ASCII:  38) | Expected: 0 | Result: 0
+✓ Char: ''' (ASCII:  39) | Expected: 0 | Result: 0
+✓ Char: '(' (ASCII:  40) | Expected: 0 | Result: 0
+✓ Char: ')' (ASCII:  41) | Expected: 0 | Result: 0
+✓ Char: '*' (ASCII:  42) | Expected: 0 | Result: 0
+✓ Char: '+' (ASCII:  43) | Expected: 0 | Result: 0
+✓ Char: ',' (ASCII:  44) | Expected: 0 | Result: 0
+✓ Char: '-' (ASCII:  45) | Expected: 0 | Result: 0
+✓ Char: '.' (ASCII:  46) | Expected: 0 | Result: 0
+✓ Char: '/' (ASCII:  47) | Expected: 0 | Result: 0
+✓ Char: '0' (ASCII:  48) | Expected: 1 | Result: 1
+✓ Char: '1' (ASCII:  49) | Expected: 1 | Result: 1
+✓ Char: '2' (ASCII:  50) | Expected: 1 | Result: 1
+✓ Char: '3' (ASCII:  51) | Expected: 1 | Result: 1
+✓ Char: '4' (ASCII:  52) | Expected: 1 | Result: 1
+✓ Char: '5' (ASCII:  53) | Expected: 1 | Result: 1
+✓ Char: '6' (ASCII:  54) | Expected: 1 | Result: 1
+✓ Char: '7' (ASCII:  55) | Expected: 1 | Result: 1
+✓ Char: '8' (ASCII:  56) | Expected: 1 | Result: 1
+✓ Char: '9' (ASCII:  57) | Expected: 1 | Result: 1
+✓ Char: ':' (ASCII:  58) | Expected: 0 | Result: 0
+✓ Char: ';' (ASCII:  59) | Expected: 0 | Result: 0
+✓ Char: '<' (ASCII:  60) | Expected: 0 | Result: 0
+✓ Char: '=' (ASCII:  61) | Expected: 0 | Result: 0
+✓ Char: '>' (ASCII:  62) | Expected: 0 | Result: 0
+✓ Char: '?' (ASCII:  63) | Expected: 0 | Result: 0
+✓ Char: '@' (ASCII:  64) | Expected: 0 | Result: 0
+✓ Char: 'A' (ASCII:  65) | Expected: 0 | Result: 0
+✓ Char: 'B' (ASCII:  66) | Expected: 0 | Result: 0
+✓ Char: 'C' (ASCII:  67) | Expected: 0 | Result: 0
+✓ Char: 'D' (ASCII:  68) | Expected: 0 | Result: 0
+✓ Char: 'E' (ASCII:  69) | Expected: 0 | Result: 0
+✓ Char: 'F' (ASCII:  70) | Expected: 0 | Result: 0
+✓ Char: 'G' (ASCII:  71) | Expected: 0 | Result: 0
+✓ Char: 'H' (ASCII:  72) | Expected: 0 | Result: 0
+✓ Char: 'I' (ASCII:  73) | Expected: 0 | Result: 0
+✓ Char: 'J' (ASCII:  74) | Expected: 0 | Result: 0
+✓ Char: 'K' (ASCII:  75) | Expected: 0 | Result: 0
+✓ Char: 'L' (ASCII:  76) | Expected: 0 | Result: 0
+✓ Char: 'M' (ASCII:  77) | Expected: 0 | Result: 0
+✓ Char: 'N' (ASCII:  78) | Expected: 0 | Result: 0
+✓ Char: 'O' (ASCII:  79) | Expected: 0 | Result: 0
+✓ Char: 'P' (ASCII:  80) | Expected: 0 | Result: 0
+✓ Char: 'Q' (ASCII:  81) | Expected: 0 | Result: 0
+✓ Char: 'R' (ASCII:  82) | Expected: 0 | Result: 0
+✓ Char: 'S' (ASCII:  83) | Expected: 0 | Result: 0
+✓ Char: 'T' (ASCII:  84) | Expected: 0 | Result: 0
+✓ Char: 'U' (ASCII:  85) | Expected: 0 | Result: 0
+✓ Char: 'V' (ASCII:  86) | Expected: 0 | Result: 0
+✓ Char: 'W' (ASCII:  87) | Expected: 0 | Result: 0
+✓ Char: 'X' (ASCII:  88) | Expected: 0 | Result: 0
+✓ Char: 'Y' (ASCII:  89) | Expected: 0 | Result: 0
+✓ Char: 'Z' (ASCII:  90) | Expected: 0 | Result: 0
+✓ Char: '[' (ASCII:  91) | Expected: 0 | Result: 0
+✓ Char: '\' (ASCII:  92) | Expected: 0 | Result: 0
+✓ Char: ']' (ASCII:  93) | Expected: 0 | Result: 0
+✓ Char: '^' (ASCII:  94) | Expected: 0 | Result: 0
+✓ Char: '_' (ASCII:  95) | Expected: 0 | Result: 0
+✓ Char: '`' (ASCII:  96) | Expected: 0 | Result: 0
+✓ Char: 'a' (ASCII:  97) | Expected: 0 | Result: 0
+✓ Char: 'b' (ASCII:  98) | Expected: 0 | Result: 0
+✓ Char: 'c' (ASCII:  99) | Expected: 0 | Result: 0
+✓ Char: 'd' (ASCII: 100) | Expected: 0 | Result: 0
+✓ Char: 'e' (ASCII: 101) | Expected: 0 | Result: 0
+✓ Char: 'f' (ASCII: 102) | Expected: 0 | Result: 0
+✓ Char: 'g' (ASCII: 103) | Expected: 0 | Result: 0
+✓ Char: 'h' (ASCII: 104) | Expected: 0 | Result: 0
+✓ Char: 'i' (ASCII: 105) | Expected: 0 | Result: 0
+✓ Char: 'j' (ASCII: 106) | Expected: 0 | Result: 0
+✓ Char: 'k' (ASCII: 107) | Expected: 0 | Result: 0
+✓ Char: 'l' (ASCII: 108) | Expected: 0 | Result: 0
+✓ Char: 'm' (ASCII: 109) | Expected: 0 | Result: 0
+✓ Char: 'n' (ASCII: 110) | Expected: 0 | Result: 0
+✓ Char: 'o' (ASCII: 111) | Expected: 0 | Result: 0
+✓ Char: 'p' (ASCII: 112) | Expected: 0 | Result: 0
+✓ Char: 'q' (ASCII: 113) | Expected: 0 | Result: 0
+✓ Char: 'r' (ASCII: 114) | Expected: 0 | Result: 0
+✓ Char: 's' (ASCII: 115) | Expected: 0 | Result: 0
+✓ Char: 't' (ASCII: 116) | Expected: 0 | Result: 0
+✓ Char: 'u' (ASCII: 117) | Expected: 0 | Result: 0
+✓ Char: 'v' (ASCII: 118) | Expected: 0 | Result: 0
+✓ Char: 'w' (ASCII: 119) | Expected: 0 | Result: 0
+✓ Char: 'x' (ASCII: 120) | Expected: 0 | Result: 0
+✓ Char: 'y' (ASCII: 121) | Expected: 0 | Result: 0
+✓ Char: 'z' (ASCII: 122) | Expected: 0 | Result: 0
+✓ Char: '{' (ASCII: 123) | Expected: 0 | Result: 0
+✓ Char: '|' (ASCII: 124) | Expected: 0 | Result: 0
+✓ Char: '}' (ASCII: 125) | Expected: 0 | Result: 0
+✓ Char: '~' (ASCII: 126) | Expected: 0 | Result: 0
+✓ Char: '\127' (ASCII: 127) | Expected: 0 | Result: 0
+
+===== SPECIFIC TEST CASES =====
+
+Testing digits (0-9):
+ft_isdigit('0'): 1 (Expected: 1)
+ft_isdigit('1'): 1 (Expected: 1)
+ft_isdigit('2'): 1 (Expected: 1)
+ft_isdigit('3'): 1 (Expected: 1)
+ft_isdigit('4'): 1 (Expected: 1)
+ft_isdigit('5'): 1 (Expected: 1)
+ft_isdigit('6'): 1 (Expected: 1)
+ft_isdigit('7'): 1 (Expected: 1)
+ft_isdigit('8'): 1 (Expected: 1)
+ft_isdigit('9'): 1 (Expected: 1)
+
+Testing some non-digits:
+ft_isdigit('a'): 0 (Expected: 0)
+ft_isdigit('Z'): 0 (Expected: 0)
+ft_isdigit('*'): 0 (Expected: 0)
+ft_isdigit(' '): 0 (Expected: 0)
+
+Testing edge cases:
+ft_isdigit(-1): 0 (Expected: 0)
+ft_isdigit(128): 0 (Expected: 0)
+
+===== TEST SUMMARY =====
+Tests passed: 128/128 (100.00%)
+All tests passed! ft_isdigit works correctly.
+
+
+
+===== TESTING FT_ISALNUM =====
+
+Testing all ASCII characters (0-127):
+✓ Char: '\  0' (ASCII:   0) | Expected: 0 | Result: 0
+✓ Char: '\  1' (ASCII:   1) | Expected: 0 | Result: 0
+✓ Char: '\  2' (ASCII:   2) | Expected: 0 | Result: 0
+✓ Char: '\  3' (ASCII:   3) | Expected: 0 | Result: 0
+✓ Char: '\  4' (ASCII:   4) | Expected: 0 | Result: 0
+✓ Char: '\  5' (ASCII:   5) | Expected: 0 | Result: 0
+✓ Char: '\  6' (ASCII:   6) | Expected: 0 | Result: 0
+✓ Char: '\  7' (ASCII:   7) | Expected: 0 | Result: 0
+✓ Char: '\  8' (ASCII:   8) | Expected: 0 | Result: 0
+✓ Char: '\  9' (ASCII:   9) | Expected: 0 | Result: 0
+✓ Char: '\ 10' (ASCII:  10) | Expected: 0 | Result: 0
+✓ Char: '\ 11' (ASCII:  11) | Expected: 0 | Result: 0
+✓ Char: '\ 12' (ASCII:  12) | Expected: 0 | Result: 0
+✓ Char: '\ 13' (ASCII:  13) | Expected: 0 | Result: 0
+✓ Char: '\ 14' (ASCII:  14) | Expected: 0 | Result: 0
+✓ Char: '\ 15' (ASCII:  15) | Expected: 0 | Result: 0
+✓ Char: '\ 16' (ASCII:  16) | Expected: 0 | Result: 0
+✓ Char: '\ 17' (ASCII:  17) | Expected: 0 | Result: 0
+✓ Char: '\ 18' (ASCII:  18) | Expected: 0 | Result: 0
+✓ Char: '\ 19' (ASCII:  19) | Expected: 0 | Result: 0
+✓ Char: '\ 20' (ASCII:  20) | Expected: 0 | Result: 0
+✓ Char: '\ 21' (ASCII:  21) | Expected: 0 | Result: 0
+✓ Char: '\ 22' (ASCII:  22) | Expected: 0 | Result: 0
+✓ Char: '\ 23' (ASCII:  23) | Expected: 0 | Result: 0
+✓ Char: '\ 24' (ASCII:  24) | Expected: 0 | Result: 0
+✓ Char: '\ 25' (ASCII:  25) | Expected: 0 | Result: 0
+✓ Char: '\ 26' (ASCII:  26) | Expected: 0 | Result: 0
+✓ Char: '\ 27' (ASCII:  27) | Expected: 0 | Result: 0
+✓ Char: '\ 28' (ASCII:  28) | Expected: 0 | Result: 0
+✓ Char: '\ 29' (ASCII:  29) | Expected: 0 | Result: 0
+✓ Char: '\ 30' (ASCII:  30) | Expected: 0 | Result: 0
+✓ Char: '\ 31' (ASCII:  31) | Expected: 0 | Result: 0
+✓ Char: ' ' (ASCII:  32) | Expected: 0 | Result: 0
+✓ Char: '!' (ASCII:  33) | Expected: 0 | Result: 0
+✓ Char: '"' (ASCII:  34) | Expected: 0 | Result: 0
+✓ Char: '#' (ASCII:  35) | Expected: 0 | Result: 0
+✓ Char: '$' (ASCII:  36) | Expected: 0 | Result: 0
+✓ Char: '%' (ASCII:  37) | Expected: 0 | Result: 0
+✓ Char: '&' (ASCII:  38) | Expected: 0 | Result: 0
+✓ Char: ''' (ASCII:  39) | Expected: 0 | Result: 0
+✓ Char: '(' (ASCII:  40) | Expected: 0 | Result: 0
+✓ Char: ')' (ASCII:  41) | Expected: 0 | Result: 0
+✓ Char: '*' (ASCII:  42) | Expected: 0 | Result: 0
+✓ Char: '+' (ASCII:  43) | Expected: 0 | Result: 0
+✓ Char: ',' (ASCII:  44) | Expected: 0 | Result: 0
+✓ Char: '-' (ASCII:  45) | Expected: 0 | Result: 0
+✓ Char: '.' (ASCII:  46) | Expected: 0 | Result: 0
+✓ Char: '/' (ASCII:  47) | Expected: 0 | Result: 0
+✓ Char: '0' (ASCII:  48) | Expected: 1 | Result: 1
+✓ Char: '1' (ASCII:  49) | Expected: 1 | Result: 1
+✓ Char: '2' (ASCII:  50) | Expected: 1 | Result: 1
+✓ Char: '3' (ASCII:  51) | Expected: 1 | Result: 1
+✓ Char: '4' (ASCII:  52) | Expected: 1 | Result: 1
+✓ Char: '5' (ASCII:  53) | Expected: 1 | Result: 1
+✓ Char: '6' (ASCII:  54) | Expected: 1 | Result: 1
+✓ Char: '7' (ASCII:  55) | Expected: 1 | Result: 1
+✓ Char: '8' (ASCII:  56) | Expected: 1 | Result: 1
+✓ Char: '9' (ASCII:  57) | Expected: 1 | Result: 1
+✓ Char: ':' (ASCII:  58) | Expected: 0 | Result: 0
+✓ Char: ';' (ASCII:  59) | Expected: 0 | Result: 0
+✓ Char: '<' (ASCII:  60) | Expected: 0 | Result: 0
+✓ Char: '=' (ASCII:  61) | Expected: 0 | Result: 0
+✓ Char: '>' (ASCII:  62) | Expected: 0 | Result: 0
+✓ Char: '?' (ASCII:  63) | Expected: 0 | Result: 0
+✓ Char: '@' (ASCII:  64) | Expected: 0 | Result: 0
+✓ Char: 'A' (ASCII:  65) | Expected: 1 | Result: 1
+✓ Char: 'B' (ASCII:  66) | Expected: 1 | Result: 1
+✓ Char: 'C' (ASCII:  67) | Expected: 1 | Result: 1
+✓ Char: 'D' (ASCII:  68) | Expected: 1 | Result: 1
+✓ Char: 'E' (ASCII:  69) | Expected: 1 | Result: 1
+✓ Char: 'F' (ASCII:  70) | Expected: 1 | Result: 1
+✓ Char: 'G' (ASCII:  71) | Expected: 1 | Result: 1
+✓ Char: 'H' (ASCII:  72) | Expected: 1 | Result: 1
+✓ Char: 'I' (ASCII:  73) | Expected: 1 | Result: 1
+✓ Char: 'J' (ASCII:  74) | Expected: 1 | Result: 1
+✓ Char: 'K' (ASCII:  75) | Expected: 1 | Result: 1
+✓ Char: 'L' (ASCII:  76) | Expected: 1 | Result: 1
+✓ Char: 'M' (ASCII:  77) | Expected: 1 | Result: 1
+✓ Char: 'N' (ASCII:  78) | Expected: 1 | Result: 1
+✓ Char: 'O' (ASCII:  79) | Expected: 1 | Result: 1
+✓ Char: 'P' (ASCII:  80) | Expected: 1 | Result: 1
+✓ Char: 'Q' (ASCII:  81) | Expected: 1 | Result: 1
+✓ Char: 'R' (ASCII:  82) | Expected: 1 | Result: 1
+✓ Char: 'S' (ASCII:  83) | Expected: 1 | Result: 1
+✓ Char: 'T' (ASCII:  84) | Expected: 1 | Result: 1
+✓ Char: 'U' (ASCII:  85) | Expected: 1 | Result: 1
+✓ Char: 'V' (ASCII:  86) | Expected: 1 | Result: 1
+✓ Char: 'W' (ASCII:  87) | Expected: 1 | Result: 1
+✓ Char: 'X' (ASCII:  88) | Expected: 1 | Result: 1
+✓ Char: 'Y' (ASCII:  89) | Expected: 1 | Result: 1
+✓ Char: 'Z' (ASCII:  90) | Expected: 1 | Result: 1
+✓ Char: '[' (ASCII:  91) | Expected: 0 | Result: 0
+✓ Char: '\' (ASCII:  92) | Expected: 0 | Result: 0
+✓ Char: ']' (ASCII:  93) | Expected: 0 | Result: 0
+✓ Char: '^' (ASCII:  94) | Expected: 0 | Result: 0
+✓ Char: '_' (ASCII:  95) | Expected: 0 | Result: 0
+✓ Char: '`' (ASCII:  96) | Expected: 0 | Result: 0
+✓ Char: 'a' (ASCII:  97) | Expected: 1 | Result: 1
+✓ Char: 'b' (ASCII:  98) | Expected: 1 | Result: 1
+✓ Char: 'c' (ASCII:  99) | Expected: 1 | Result: 1
+✓ Char: 'd' (ASCII: 100) | Expected: 1 | Result: 1
+✓ Char: 'e' (ASCII: 101) | Expected: 1 | Result: 1
+✓ Char: 'f' (ASCII: 102) | Expected: 1 | Result: 1
+✓ Char: 'g' (ASCII: 103) | Expected: 1 | Result: 1
+✓ Char: 'h' (ASCII: 104) | Expected: 1 | Result: 1
+✓ Char: 'i' (ASCII: 105) | Expected: 1 | Result: 1
+✓ Char: 'j' (ASCII: 106) | Expected: 1 | Result: 1
+✓ Char: 'k' (ASCII: 107) | Expected: 1 | Result: 1
+✓ Char: 'l' (ASCII: 108) | Expected: 1 | Result: 1
+✓ Char: 'm' (ASCII: 109) | Expected: 1 | Result: 1
+✓ Char: 'n' (ASCII: 110) | Expected: 1 | Result: 1
+✓ Char: 'o' (ASCII: 111) | Expected: 1 | Result: 1
+✓ Char: 'p' (ASCII: 112) | Expected: 1 | Result: 1
+✓ Char: 'q' (ASCII: 113) | Expected: 1 | Result: 1
+✓ Char: 'r' (ASCII: 114) | Expected: 1 | Result: 1
+✓ Char: 's' (ASCII: 115) | Expected: 1 | Result: 1
+✓ Char: 't' (ASCII: 116) | Expected: 1 | Result: 1
+✓ Char: 'u' (ASCII: 117) | Expected: 1 | Result: 1
+✓ Char: 'v' (ASCII: 118) | Expected: 1 | Result: 1
+✓ Char: 'w' (ASCII: 119) | Expected: 1 | Result: 1
+✓ Char: 'x' (ASCII: 120) | Expected: 1 | Result: 1
+✓ Char: 'y' (ASCII: 121) | Expected: 1 | Result: 1
+✓ Char: 'z' (ASCII: 122) | Expected: 1 | Result: 1
+✓ Char: '{' (ASCII: 123) | Expected: 0 | Result: 0
+✓ Char: '|' (ASCII: 124) | Expected: 0 | Result: 0
+✓ Char: '}' (ASCII: 125) | Expected: 0 | Result: 0
+✓ Char: '~' (ASCII: 126) | Expected: 0 | Result: 0
+✓ Char: '\127' (ASCII: 127) | Expected: 0 | Result: 0
+
+===== SPECIFIC TEST CASES FOR FT_ISALNUM =====
+
+Testing digits (0-9):
+ft_isalnum('0'): 1 (Expected: 1)
+ft_isalnum('1'): 1 (Expected: 1)
+ft_isalnum('2'): 1 (Expected: 1)
+ft_isalnum('3'): 1 (Expected: 1)
+ft_isalnum('4'): 1 (Expected: 1)
+ft_isalnum('5'): 1 (Expected: 1)
+ft_isalnum('6'): 1 (Expected: 1)
+ft_isalnum('7'): 1 (Expected: 1)
+ft_isalnum('8'): 1 (Expected: 1)
+ft_isalnum('9'): 1 (Expected: 1)
+
+Testing uppercase letters (A-Z):
+ft_isalnum('A'): 1 (Expected: 1)
+ft_isalnum('B'): 1 (Expected: 1)
+ft_isalnum('C'): 1 (Expected: 1)
+ft_isalnum('D'): 1 (Expected: 1)
+ft_isalnum('E'): 1 (Expected: 1)
+ft_isalnum('F'): 1 (Expected: 1)
+ft_isalnum('G'): 1 (Expected: 1)
+ft_isalnum('H'): 1 (Expected: 1)
+ft_isalnum('I'): 1 (Expected: 1)
+ft_isalnum('J'): 1 (Expected: 1)
+ft_isalnum('K'): 1 (Expected: 1)
+ft_isalnum('L'): 1 (Expected: 1)
+ft_isalnum('M'): 1 (Expected: 1)
+ft_isalnum('N'): 1 (Expected: 1)
+ft_isalnum('O'): 1 (Expected: 1)
+ft_isalnum('P'): 1 (Expected: 1)
+ft_isalnum('Q'): 1 (Expected: 1)
+ft_isalnum('R'): 1 (Expected: 1)
+ft_isalnum('S'): 1 (Expected: 1)
+ft_isalnum('T'): 1 (Expected: 1)
+ft_isalnum('U'): 1 (Expected: 1)
+ft_isalnum('V'): 1 (Expected: 1)
+ft_isalnum('W'): 1 (Expected: 1)
+ft_isalnum('X'): 1 (Expected: 1)
+ft_isalnum('Y'): 1 (Expected: 1)
+ft_isalnum('Z'): 1 (Expected: 1)
+
+Testing lowercase letters (a-z):
+ft_isalnum('a'): 1 (Expected: 1)
+ft_isalnum('b'): 1 (Expected: 1)
+ft_isalnum('c'): 1 (Expected: 1)
+ft_isalnum('d'): 1 (Expected: 1)
+ft_isalnum('e'): 1 (Expected: 1)
+ft_isalnum('f'): 1 (Expected: 1)
+ft_isalnum('g'): 1 (Expected: 1)
+ft_isalnum('h'): 1 (Expected: 1)
+ft_isalnum('i'): 1 (Expected: 1)
+ft_isalnum('j'): 1 (Expected: 1)
+ft_isalnum('k'): 1 (Expected: 1)
+ft_isalnum('l'): 1 (Expected: 1)
+ft_isalnum('m'): 1 (Expected: 1)
+ft_isalnum('n'): 1 (Expected: 1)
+ft_isalnum('o'): 1 (Expected: 1)
+ft_isalnum('p'): 1 (Expected: 1)
+ft_isalnum('q'): 1 (Expected: 1)
+ft_isalnum('r'): 1 (Expected: 1)
+ft_isalnum('s'): 1 (Expected: 1)
+ft_isalnum('t'): 1 (Expected: 1)
+ft_isalnum('u'): 1 (Expected: 1)
+ft_isalnum('v'): 1 (Expected: 1)
+ft_isalnum('w'): 1 (Expected: 1)
+ft_isalnum('x'): 1 (Expected: 1)
+ft_isalnum('y'): 1 (Expected: 1)
+ft_isalnum('z'): 1 (Expected: 1)
+
+Testing some non-alphanumeric characters:
+ft_isalnum(' '): 0 (Expected: 0)
+ft_isalnum('	'): 0 (Expected: 0)
+ft_isalnum('
+'): 0 (Expected: 0)
+ft_isalnum('!'): 0 (Expected: 0)
+ft_isalnum('@'): 0 (Expected: 0)
+ft_isalnum('#'): 0 (Expected: 0)
+ft_isalnum('$'): 0 (Expected: 0)
+ft_isalnum('%'): 0 (Expected: 0)
+ft_isalnum('^'): 0 (Expected: 0)
+ft_isalnum('&'): 0 (Expected: 0)
+ft_isalnum('*'): 0 (Expected: 0)
+ft_isalnum('('): 0 (Expected: 0)
+ft_isalnum(')'): 0 (Expected: 0)
+ft_isalnum('-'): 0 (Expected: 0)
+ft_isalnum('_'): 0 (Expected: 0)
+ft_isalnum('='): 0 (Expected: 0)
+ft_isalnum('+'): 0 (Expected: 0)
+ft_isalnum('['): 0 (Expected: 0)
+ft_isalnum(']'): 0 (Expected: 0)
+ft_isalnum('{'): 0 (Expected: 0)
+ft_isalnum('}'): 0 (Expected: 0)
+ft_isalnum('|'): 0 (Expected: 0)
+ft_isalnum(';'): 0 (Expected: 0)
+ft_isalnum(':'): 0 (Expected: 0)
+ft_isalnum('''): 0 (Expected: 0)
+ft_isalnum('"'): 0 (Expected: 0)
+ft_isalnum(','): 0 (Expected: 0)
+ft_isalnum('.'): 0 (Expected: 0)
+ft_isalnum('<'): 0 (Expected: 0)
+ft_isalnum('>'): 0 (Expected: 0)
+ft_isalnum('/'): 0 (Expected: 0)
+ft_isalnum('?'): 0 (Expected: 0)
+ft_isalnum('\'): 0 (Expected: 0)
+
+Testing edge cases:
+ft_isalnum(-1): 0 (Expected: 0)
+ft_isalnum(128): 0 (Expected: 0)
+
+===== FT_ISALNUM TEST SUMMARY =====
+Tests passed: 128/128 (100.00%)
+All tests passed! ft_isalnum works correctly.
+
+
+
+===== TESTING FT_ISASCII =====
+
+Testing characters from -10 to 150:
+✓ Char: (ASCII: -10) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -9) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -8) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -7) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -6) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -5) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -4) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -3) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -2) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -1) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   0) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   1) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   2) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   3) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   4) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   5) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   6) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   7) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   8) | Expected: 1 | Result: 1
+✓ Char: (ASCII:   9) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  10) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  11) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  12) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  13) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  14) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  15) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  16) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  17) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  18) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  19) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  20) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  21) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  22) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  23) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  24) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  25) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  26) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  27) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  28) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  29) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  30) | Expected: 1 | Result: 1
+✓ Char: (ASCII:  31) | Expected: 1 | Result: 1
+✓ Char: ' ' (ASCII:  32) | Expected: 1 | Result: 1
+✓ Char: '!' (ASCII:  33) | Expected: 1 | Result: 1
+✓ Char: '"' (ASCII:  34) | Expected: 1 | Result: 1
+✓ Char: '#' (ASCII:  35) | Expected: 1 | Result: 1
+✓ Char: '$' (ASCII:  36) | Expected: 1 | Result: 1
+✓ Char: '%' (ASCII:  37) | Expected: 1 | Result: 1
+✓ Char: '&' (ASCII:  38) | Expected: 1 | Result: 1
+✓ Char: ''' (ASCII:  39) | Expected: 1 | Result: 1
+✓ Char: '(' (ASCII:  40) | Expected: 1 | Result: 1
+✓ Char: ')' (ASCII:  41) | Expected: 1 | Result: 1
+✓ Char: '*' (ASCII:  42) | Expected: 1 | Result: 1
+✓ Char: '+' (ASCII:  43) | Expected: 1 | Result: 1
+✓ Char: ',' (ASCII:  44) | Expected: 1 | Result: 1
+✓ Char: '-' (ASCII:  45) | Expected: 1 | Result: 1
+✓ Char: '.' (ASCII:  46) | Expected: 1 | Result: 1
+✓ Char: '/' (ASCII:  47) | Expected: 1 | Result: 1
+✓ Char: '0' (ASCII:  48) | Expected: 1 | Result: 1
+✓ Char: '1' (ASCII:  49) | Expected: 1 | Result: 1
+✓ Char: '2' (ASCII:  50) | Expected: 1 | Result: 1
+✓ Char: '3' (ASCII:  51) | Expected: 1 | Result: 1
+✓ Char: '4' (ASCII:  52) | Expected: 1 | Result: 1
+✓ Char: '5' (ASCII:  53) | Expected: 1 | Result: 1
+✓ Char: '6' (ASCII:  54) | Expected: 1 | Result: 1
+✓ Char: '7' (ASCII:  55) | Expected: 1 | Result: 1
+✓ Char: '8' (ASCII:  56) | Expected: 1 | Result: 1
+✓ Char: '9' (ASCII:  57) | Expected: 1 | Result: 1
+✓ Char: ':' (ASCII:  58) | Expected: 1 | Result: 1
+✓ Char: ';' (ASCII:  59) | Expected: 1 | Result: 1
+✓ Char: '<' (ASCII:  60) | Expected: 1 | Result: 1
+✓ Char: '=' (ASCII:  61) | Expected: 1 | Result: 1
+✓ Char: '>' (ASCII:  62) | Expected: 1 | Result: 1
+✓ Char: '?' (ASCII:  63) | Expected: 1 | Result: 1
+✓ Char: '@' (ASCII:  64) | Expected: 1 | Result: 1
+✓ Char: 'A' (ASCII:  65) | Expected: 1 | Result: 1
+✓ Char: 'B' (ASCII:  66) | Expected: 1 | Result: 1
+✓ Char: 'C' (ASCII:  67) | Expected: 1 | Result: 1
+✓ Char: 'D' (ASCII:  68) | Expected: 1 | Result: 1
+✓ Char: 'E' (ASCII:  69) | Expected: 1 | Result: 1
+✓ Char: 'F' (ASCII:  70) | Expected: 1 | Result: 1
+✓ Char: 'G' (ASCII:  71) | Expected: 1 | Result: 1
+✓ Char: 'H' (ASCII:  72) | Expected: 1 | Result: 1
+✓ Char: 'I' (ASCII:  73) | Expected: 1 | Result: 1
+✓ Char: 'J' (ASCII:  74) | Expected: 1 | Result: 1
+✓ Char: 'K' (ASCII:  75) | Expected: 1 | Result: 1
+✓ Char: 'L' (ASCII:  76) | Expected: 1 | Result: 1
+✓ Char: 'M' (ASCII:  77) | Expected: 1 | Result: 1
+✓ Char: 'N' (ASCII:  78) | Expected: 1 | Result: 1
+✓ Char: 'O' (ASCII:  79) | Expected: 1 | Result: 1
+✓ Char: 'P' (ASCII:  80) | Expected: 1 | Result: 1
+✓ Char: 'Q' (ASCII:  81) | Expected: 1 | Result: 1
+✓ Char: 'R' (ASCII:  82) | Expected: 1 | Result: 1
+✓ Char: 'S' (ASCII:  83) | Expected: 1 | Result: 1
+✓ Char: 'T' (ASCII:  84) | Expected: 1 | Result: 1
+✓ Char: 'U' (ASCII:  85) | Expected: 1 | Result: 1
+✓ Char: 'V' (ASCII:  86) | Expected: 1 | Result: 1
+✓ Char: 'W' (ASCII:  87) | Expected: 1 | Result: 1
+✓ Char: 'X' (ASCII:  88) | Expected: 1 | Result: 1
+✓ Char: 'Y' (ASCII:  89) | Expected: 1 | Result: 1
+✓ Char: 'Z' (ASCII:  90) | Expected: 1 | Result: 1
+✓ Char: '[' (ASCII:  91) | Expected: 1 | Result: 1
+✓ Char: '\' (ASCII:  92) | Expected: 1 | Result: 1
+✓ Char: ']' (ASCII:  93) | Expected: 1 | Result: 1
+✓ Char: '^' (ASCII:  94) | Expected: 1 | Result: 1
+✓ Char: '_' (ASCII:  95) | Expected: 1 | Result: 1
+✓ Char: '`' (ASCII:  96) | Expected: 1 | Result: 1
+✓ Char: 'a' (ASCII:  97) | Expected: 1 | Result: 1
+✓ Char: 'b' (ASCII:  98) | Expected: 1 | Result: 1
+✓ Char: 'c' (ASCII:  99) | Expected: 1 | Result: 1
+✓ Char: 'd' (ASCII: 100) | Expected: 1 | Result: 1
+✓ Char: 'e' (ASCII: 101) | Expected: 1 | Result: 1
+✓ Char: 'f' (ASCII: 102) | Expected: 1 | Result: 1
+✓ Char: 'g' (ASCII: 103) | Expected: 1 | Result: 1
+✓ Char: 'h' (ASCII: 104) | Expected: 1 | Result: 1
+✓ Char: 'i' (ASCII: 105) | Expected: 1 | Result: 1
+✓ Char: 'j' (ASCII: 106) | Expected: 1 | Result: 1
+✓ Char: 'k' (ASCII: 107) | Expected: 1 | Result: 1
+✓ Char: 'l' (ASCII: 108) | Expected: 1 | Result: 1
+✓ Char: 'm' (ASCII: 109) | Expected: 1 | Result: 1
+✓ Char: 'n' (ASCII: 110) | Expected: 1 | Result: 1
+✓ Char: 'o' (ASCII: 111) | Expected: 1 | Result: 1
+✓ Char: 'p' (ASCII: 112) | Expected: 1 | Result: 1
+✓ Char: 'q' (ASCII: 113) | Expected: 1 | Result: 1
+✓ Char: 'r' (ASCII: 114) | Expected: 1 | Result: 1
+✓ Char: 's' (ASCII: 115) | Expected: 1 | Result: 1
+✓ Char: 't' (ASCII: 116) | Expected: 1 | Result: 1
+✓ Char: 'u' (ASCII: 117) | Expected: 1 | Result: 1
+✓ Char: 'v' (ASCII: 118) | Expected: 1 | Result: 1
+✓ Char: 'w' (ASCII: 119) | Expected: 1 | Result: 1
+✓ Char: 'x' (ASCII: 120) | Expected: 1 | Result: 1
+✓ Char: 'y' (ASCII: 121) | Expected: 1 | Result: 1
+✓ Char: 'z' (ASCII: 122) | Expected: 1 | Result: 1
+✓ Char: '{' (ASCII: 123) | Expected: 1 | Result: 1
+✓ Char: '|' (ASCII: 124) | Expected: 1 | Result: 1
+✓ Char: '}' (ASCII: 125) | Expected: 1 | Result: 1
+✓ Char: '~' (ASCII: 126) | Expected: 1 | Result: 1
+✓ Char: (ASCII: 127) | Expected: 1 | Result: 1
+✓ Char: (ASCII: 128) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 129) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 130) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 131) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 132) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 133) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 134) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 135) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 136) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 137) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 138) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 139) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 140) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 141) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 142) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 143) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 144) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 145) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 146) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 147) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 148) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 149) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 150) | Expected: 0 | Result: 0
+
+===== SPECIFIC TEST CASES FOR FT_ISASCII =====
+
+Testing boundary values:
+ft_isascii(-1): 0 (Expected: 0)
+ft_isascii(0): 1 (Expected: 1)
+ft_isascii(127): 1 (Expected: 1)
+ft_isascii(128): 0 (Expected: 0)
+
+Testing some ASCII categories:
+Control characters (0-31):
+ft_isascii(0): 1 (Expected: 1)
+ft_isascii(31): 1 (Expected: 1)
+
+Printable characters (32-126):
+ft_isascii(' '): 1 (Expected: 1)
+ft_isascii('A'): 1 (Expected: 1)
+ft_isascii('z'): 1 (Expected: 1)
+ft_isascii('~'): 1 (Expected: 1)
+
+DEL character (127):
+ft_isascii(127): 1 (Expected: 1)
+
+===== FT_ISASCII TEST SUMMARY =====
+Tests passed: 161/161 (100.00%)
+All tests passed! ft_isascii works correctly.
+
+
+
+===== TESTING FT_ISPRINT =====
+
+Testing characters from -10 to 150:
+✓ Char: (ASCII: -10) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -9) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -8) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -7) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -6) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -5) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -4) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -3) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -2) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  -1) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   0) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   1) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   2) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   3) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   4) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   5) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   6) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   7) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   8) | Expected: 0 | Result: 0
+✓ Char: (ASCII:   9) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  10) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  11) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  12) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  13) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  14) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  15) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  16) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  17) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  18) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  19) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  20) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  21) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  22) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  23) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  24) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  25) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  26) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  27) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  28) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  29) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  30) | Expected: 0 | Result: 0
+✓ Char: (ASCII:  31) | Expected: 0 | Result: 0
+✓ Char: ' ' (ASCII:  32) | Expected: 1 | Result: 1
+✓ Char: '!' (ASCII:  33) | Expected: 1 | Result: 1
+✓ Char: '"' (ASCII:  34) | Expected: 1 | Result: 1
+✓ Char: '#' (ASCII:  35) | Expected: 1 | Result: 1
+✓ Char: '$' (ASCII:  36) | Expected: 1 | Result: 1
+✓ Char: '%' (ASCII:  37) | Expected: 1 | Result: 1
+✓ Char: '&' (ASCII:  38) | Expected: 1 | Result: 1
+✓ Char: ''' (ASCII:  39) | Expected: 1 | Result: 1
+✓ Char: '(' (ASCII:  40) | Expected: 1 | Result: 1
+✓ Char: ')' (ASCII:  41) | Expected: 1 | Result: 1
+✓ Char: '*' (ASCII:  42) | Expected: 1 | Result: 1
+✓ Char: '+' (ASCII:  43) | Expected: 1 | Result: 1
+✓ Char: ',' (ASCII:  44) | Expected: 1 | Result: 1
+✓ Char: '-' (ASCII:  45) | Expected: 1 | Result: 1
+✓ Char: '.' (ASCII:  46) | Expected: 1 | Result: 1
+✓ Char: '/' (ASCII:  47) | Expected: 1 | Result: 1
+✓ Char: '0' (ASCII:  48) | Expected: 1 | Result: 1
+✓ Char: '1' (ASCII:  49) | Expected: 1 | Result: 1
+✓ Char: '2' (ASCII:  50) | Expected: 1 | Result: 1
+✓ Char: '3' (ASCII:  51) | Expected: 1 | Result: 1
+✓ Char: '4' (ASCII:  52) | Expected: 1 | Result: 1
+✓ Char: '5' (ASCII:  53) | Expected: 1 | Result: 1
+✓ Char: '6' (ASCII:  54) | Expected: 1 | Result: 1
+✓ Char: '7' (ASCII:  55) | Expected: 1 | Result: 1
+✓ Char: '8' (ASCII:  56) | Expected: 1 | Result: 1
+✓ Char: '9' (ASCII:  57) | Expected: 1 | Result: 1
+✓ Char: ':' (ASCII:  58) | Expected: 1 | Result: 1
+✓ Char: ';' (ASCII:  59) | Expected: 1 | Result: 1
+✓ Char: '<' (ASCII:  60) | Expected: 1 | Result: 1
+✓ Char: '=' (ASCII:  61) | Expected: 1 | Result: 1
+✓ Char: '>' (ASCII:  62) | Expected: 1 | Result: 1
+✓ Char: '?' (ASCII:  63) | Expected: 1 | Result: 1
+✓ Char: '@' (ASCII:  64) | Expected: 1 | Result: 1
+✓ Char: 'A' (ASCII:  65) | Expected: 1 | Result: 1
+✓ Char: 'B' (ASCII:  66) | Expected: 1 | Result: 1
+✓ Char: 'C' (ASCII:  67) | Expected: 1 | Result: 1
+✓ Char: 'D' (ASCII:  68) | Expected: 1 | Result: 1
+✓ Char: 'E' (ASCII:  69) | Expected: 1 | Result: 1
+✓ Char: 'F' (ASCII:  70) | Expected: 1 | Result: 1
+✓ Char: 'G' (ASCII:  71) | Expected: 1 | Result: 1
+✓ Char: 'H' (ASCII:  72) | Expected: 1 | Result: 1
+✓ Char: 'I' (ASCII:  73) | Expected: 1 | Result: 1
+✓ Char: 'J' (ASCII:  74) | Expected: 1 | Result: 1
+✓ Char: 'K' (ASCII:  75) | Expected: 1 | Result: 1
+✓ Char: 'L' (ASCII:  76) | Expected: 1 | Result: 1
+✓ Char: 'M' (ASCII:  77) | Expected: 1 | Result: 1
+✓ Char: 'N' (ASCII:  78) | Expected: 1 | Result: 1
+✓ Char: 'O' (ASCII:  79) | Expected: 1 | Result: 1
+✓ Char: 'P' (ASCII:  80) | Expected: 1 | Result: 1
+✓ Char: 'Q' (ASCII:  81) | Expected: 1 | Result: 1
+✓ Char: 'R' (ASCII:  82) | Expected: 1 | Result: 1
+✓ Char: 'S' (ASCII:  83) | Expected: 1 | Result: 1
+✓ Char: 'T' (ASCII:  84) | Expected: 1 | Result: 1
+✓ Char: 'U' (ASCII:  85) | Expected: 1 | Result: 1
+✓ Char: 'V' (ASCII:  86) | Expected: 1 | Result: 1
+✓ Char: 'W' (ASCII:  87) | Expected: 1 | Result: 1
+✓ Char: 'X' (ASCII:  88) | Expected: 1 | Result: 1
+✓ Char: 'Y' (ASCII:  89) | Expected: 1 | Result: 1
+✓ Char: 'Z' (ASCII:  90) | Expected: 1 | Result: 1
+✓ Char: '[' (ASCII:  91) | Expected: 1 | Result: 1
+✓ Char: '\' (ASCII:  92) | Expected: 1 | Result: 1
+✓ Char: ']' (ASCII:  93) | Expected: 1 | Result: 1
+✓ Char: '^' (ASCII:  94) | Expected: 1 | Result: 1
+✓ Char: '_' (ASCII:  95) | Expected: 1 | Result: 1
+✓ Char: '`' (ASCII:  96) | Expected: 1 | Result: 1
+✓ Char: 'a' (ASCII:  97) | Expected: 1 | Result: 1
+✓ Char: 'b' (ASCII:  98) | Expected: 1 | Result: 1
+✓ Char: 'c' (ASCII:  99) | Expected: 1 | Result: 1
+✓ Char: 'd' (ASCII: 100) | Expected: 1 | Result: 1
+✓ Char: 'e' (ASCII: 101) | Expected: 1 | Result: 1
+✓ Char: 'f' (ASCII: 102) | Expected: 1 | Result: 1
+✓ Char: 'g' (ASCII: 103) | Expected: 1 | Result: 1
+✓ Char: 'h' (ASCII: 104) | Expected: 1 | Result: 1
+✓ Char: 'i' (ASCII: 105) | Expected: 1 | Result: 1
+✓ Char: 'j' (ASCII: 106) | Expected: 1 | Result: 1
+✓ Char: 'k' (ASCII: 107) | Expected: 1 | Result: 1
+✓ Char: 'l' (ASCII: 108) | Expected: 1 | Result: 1
+✓ Char: 'm' (ASCII: 109) | Expected: 1 | Result: 1
+✓ Char: 'n' (ASCII: 110) | Expected: 1 | Result: 1
+✓ Char: 'o' (ASCII: 111) | Expected: 1 | Result: 1
+✓ Char: 'p' (ASCII: 112) | Expected: 1 | Result: 1
+✓ Char: 'q' (ASCII: 113) | Expected: 1 | Result: 1
+✓ Char: 'r' (ASCII: 114) | Expected: 1 | Result: 1
+✓ Char: 's' (ASCII: 115) | Expected: 1 | Result: 1
+✓ Char: 't' (ASCII: 116) | Expected: 1 | Result: 1
+✓ Char: 'u' (ASCII: 117) | Expected: 1 | Result: 1
+✓ Char: 'v' (ASCII: 118) | Expected: 1 | Result: 1
+✓ Char: 'w' (ASCII: 119) | Expected: 1 | Result: 1
+✓ Char: 'x' (ASCII: 120) | Expected: 1 | Result: 1
+✓ Char: 'y' (ASCII: 121) | Expected: 1 | Result: 1
+✓ Char: 'z' (ASCII: 122) | Expected: 1 | Result: 1
+✓ Char: '{' (ASCII: 123) | Expected: 1 | Result: 1
+✓ Char: '|' (ASCII: 124) | Expected: 1 | Result: 1
+✓ Char: '}' (ASCII: 125) | Expected: 1 | Result: 1
+✓ Char: '~' (ASCII: 126) | Expected: 1 | Result: 1
+✓ Char: '' (ASCII: 127) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 128) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 129) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 130) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 131) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 132) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 133) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 134) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 135) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 136) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 137) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 138) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 139) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 140) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 141) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 142) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 143) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 144) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 145) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 146) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 147) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 148) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 149) | Expected: 0 | Result: 0
+✓ Char: (ASCII: 150) | Expected: 0 | Result: 0
+
+===== SPECIFIC TEST CASES FOR FT_ISPRINT =====
+
+Testing boundary values:
+ft_isprint(31): 0 (Expected: 0)
+ft_isprint(32): 1 (Expected: 1)
+ft_isprint(126): 1 (Expected: 1)
+ft_isprint(127): 0 (Expected: 0)
+
+Testing character categories:
+Control characters (0-31):
+ft_isprint(0): 0 (Expected: 0)
+ft_isprint('\n'): 0 (Expected: 0)
+ft_isprint('\t'): 0 (Expected: 0)
+
+Printable characters (samples):
+ft_isprint(' '): 1 (Expected: 1)
+ft_isprint('A'): 1 (Expected: 1)
+ft_isprint('z'): 1 (Expected: 1)
+ft_isprint('0'): 1 (Expected: 1)
+ft_isprint('~'): 1 (Expected: 1)
+
+DEL and extended ASCII:
+ft_isprint(127): 0 (Expected: 0)
+ft_isprint(128): 0 (Expected: 0)
+
+Testing edge cases:
+ft_isprint(-1): 0 (Expected: 0)
+
+===== FT_ISPRINT TEST SUMMARY =====
+Tests passed: 161/161 (100.00%)
+All tests passed! ft_isprint works correctly.
+
+
+
+===== TESTING FT_STRLEN =====
+
+Test 1: Empty string
+String: ""
+Standard strlen: 0 | Your ft_strlen: 0
+✓ Test passed!
+
+Test 2: Short string
+String: "Hello"
+Standard strlen: 5 | Your ft_strlen: 5
+✓ Test passed!
+
+Test 3: String with spaces
+String: "Hello, world! How are you?"
+Standard strlen: 26 | Your ft_strlen: 26
+✓ Test passed!
+
+Test 4: String with special characters
+String: "!@#$%^&*()_+{}[]|\:;"'<>,.?/~`"
+Standard strlen: 30 | Your ft_strlen: 30
+✓ Test passed!
+
+Test 5: Long string
+String length: 306 characters
+Standard strlen: 306 | Your ft_strlen: 306
+✓ Test passed!
+
+Test 6: String with non-ASCII characters
+String: "Hello, 你好, 안녕하세요, こんにちは"
+Standard strlen: 47 | Your ft_strlen: 47
+Note: Non-ASCII characters are multi-byte in UTF-8 encoding
+✓ Test passed!
+
+Test 7: String with escaped characters
+String contains newlines, tabs, and carriage returns
+Standard strlen: 25 | Your ft_strlen: 25
+✓ Test passed!
+
+
+===== FT_STRLEN TEST SUMMARY =====
+Tests passed: 7/7 (100.00%)
+All tests passed! Your ft_strlen function works correctly.
+
+
+
+===== TESTING FT_TOUPPER =====
+
+Testing all ASCII characters (0-127):
+✓ Char: (ASCII:   0) | Expected:   0 | Result:   0
+✓ Char: (ASCII:   1) | Expected:   1 | Result:   1
+✓ Char: (ASCII:   2) | Expected:   2 | Result:   2
+✓ Char: (ASCII:   3) | Expected:   3 | Result:   3
+✓ Char: (ASCII:   4) | Expected:   4 | Result:   4
+✓ Char: (ASCII:   5) | Expected:   5 | Result:   5
+✓ Char: (ASCII:   6) | Expected:   6 | Result:   6
+✓ Char: (ASCII:   7) | Expected:   7 | Result:   7
+✓ Char: (ASCII:   8) | Expected:   8 | Result:   8
+✓ Char: (ASCII:   9) | Expected:   9 | Result:   9
+✓ Char: (ASCII:  10) | Expected:  10 | Result:  10
+✓ Char: (ASCII:  11) | Expected:  11 | Result:  11
+✓ Char: (ASCII:  12) | Expected:  12 | Result:  12
+✓ Char: (ASCII:  13) | Expected:  13 | Result:  13
+✓ Char: (ASCII:  14) | Expected:  14 | Result:  14
+✓ Char: (ASCII:  15) | Expected:  15 | Result:  15
+✓ Char: (ASCII:  16) | Expected:  16 | Result:  16
+✓ Char: (ASCII:  17) | Expected:  17 | Result:  17
+✓ Char: (ASCII:  18) | Expected:  18 | Result:  18
+✓ Char: (ASCII:  19) | Expected:  19 | Result:  19
+✓ Char: (ASCII:  20) | Expected:  20 | Result:  20
+✓ Char: (ASCII:  21) | Expected:  21 | Result:  21
+✓ Char: (ASCII:  22) | Expected:  22 | Result:  22
+✓ Char: (ASCII:  23) | Expected:  23 | Result:  23
+✓ Char: (ASCII:  24) | Expected:  24 | Result:  24
+✓ Char: (ASCII:  25) | Expected:  25 | Result:  25
+✓ Char: (ASCII:  26) | Expected:  26 | Result:  26
+✓ Char: (ASCII:  27) | Expected:  27 | Result:  27
+✓ Char: (ASCII:  28) | Expected:  28 | Result:  28
+✓ Char: (ASCII:  29) | Expected:  29 | Result:  29
+✓ Char: (ASCII:  30) | Expected:  30 | Result:  30
+✓ Char: (ASCII:  31) | Expected:  31 | Result:  31
+✓ Char: ' ' (ASCII:  32) | Expected: ' ' | Result: ' '
+✓ Char: '!' (ASCII:  33) | Expected: '!' | Result: '!'
+✓ Char: '"' (ASCII:  34) | Expected: '"' | Result: '"'
+✓ Char: '#' (ASCII:  35) | Expected: '#' | Result: '#'
+✓ Char: '$' (ASCII:  36) | Expected: '$' | Result: '$'
+✓ Char: '%' (ASCII:  37) | Expected: '%' | Result: '%'
+✓ Char: '&' (ASCII:  38) | Expected: '&' | Result: '&'
+✓ Char: ''' (ASCII:  39) | Expected: ''' | Result: '''
+✓ Char: '(' (ASCII:  40) | Expected: '(' | Result: '('
+✓ Char: ')' (ASCII:  41) | Expected: ')' | Result: ')'
+✓ Char: '*' (ASCII:  42) | Expected: '*' | Result: '*'
+✓ Char: '+' (ASCII:  43) | Expected: '+' | Result: '+'
+✓ Char: ',' (ASCII:  44) | Expected: ',' | Result: ','
+✓ Char: '-' (ASCII:  45) | Expected: '-' | Result: '-'
+✓ Char: '.' (ASCII:  46) | Expected: '.' | Result: '.'
+✓ Char: '/' (ASCII:  47) | Expected: '/' | Result: '/'
+✓ Char: '0' (ASCII:  48) | Expected: '0' | Result: '0'
+✓ Char: '1' (ASCII:  49) | Expected: '1' | Result: '1'
+✓ Char: '2' (ASCII:  50) | Expected: '2' | Result: '2'
+✓ Char: '3' (ASCII:  51) | Expected: '3' | Result: '3'
+✓ Char: '4' (ASCII:  52) | Expected: '4' | Result: '4'
+✓ Char: '5' (ASCII:  53) | Expected: '5' | Result: '5'
+✓ Char: '6' (ASCII:  54) | Expected: '6' | Result: '6'
+✓ Char: '7' (ASCII:  55) | Expected: '7' | Result: '7'
+✓ Char: '8' (ASCII:  56) | Expected: '8' | Result: '8'
+✓ Char: '9' (ASCII:  57) | Expected: '9' | Result: '9'
+✓ Char: ':' (ASCII:  58) | Expected: ':' | Result: ':'
+✓ Char: ';' (ASCII:  59) | Expected: ';' | Result: ';'
+✓ Char: '<' (ASCII:  60) | Expected: '<' | Result: '<'
+✓ Char: '=' (ASCII:  61) | Expected: '=' | Result: '='
+✓ Char: '>' (ASCII:  62) | Expected: '>' | Result: '>'
+✓ Char: '?' (ASCII:  63) | Expected: '?' | Result: '?'
+✓ Char: '@' (ASCII:  64) | Expected: '@' | Result: '@'
+✓ Char: 'A' (ASCII:  65) | Expected: 'A' | Result: 'A'
+✓ Char: 'B' (ASCII:  66) | Expected: 'B' | Result: 'B'
+✓ Char: 'C' (ASCII:  67) | Expected: 'C' | Result: 'C'
+✓ Char: 'D' (ASCII:  68) | Expected: 'D' | Result: 'D'
+✓ Char: 'E' (ASCII:  69) | Expected: 'E' | Result: 'E'
+✓ Char: 'F' (ASCII:  70) | Expected: 'F' | Result: 'F'
+✓ Char: 'G' (ASCII:  71) | Expected: 'G' | Result: 'G'
+✓ Char: 'H' (ASCII:  72) | Expected: 'H' | Result: 'H'
+✓ Char: 'I' (ASCII:  73) | Expected: 'I' | Result: 'I'
+✓ Char: 'J' (ASCII:  74) | Expected: 'J' | Result: 'J'
+✓ Char: 'K' (ASCII:  75) | Expected: 'K' | Result: 'K'
+✓ Char: 'L' (ASCII:  76) | Expected: 'L' | Result: 'L'
+✓ Char: 'M' (ASCII:  77) | Expected: 'M' | Result: 'M'
+✓ Char: 'N' (ASCII:  78) | Expected: 'N' | Result: 'N'
+✓ Char: 'O' (ASCII:  79) | Expected: 'O' | Result: 'O'
+✓ Char: 'P' (ASCII:  80) | Expected: 'P' | Result: 'P'
+✓ Char: 'Q' (ASCII:  81) | Expected: 'Q' | Result: 'Q'
+✓ Char: 'R' (ASCII:  82) | Expected: 'R' | Result: 'R'
+✓ Char: 'S' (ASCII:  83) | Expected: 'S' | Result: 'S'
+✓ Char: 'T' (ASCII:  84) | Expected: 'T' | Result: 'T'
+✓ Char: 'U' (ASCII:  85) | Expected: 'U' | Result: 'U'
+✓ Char: 'V' (ASCII:  86) | Expected: 'V' | Result: 'V'
+✓ Char: 'W' (ASCII:  87) | Expected: 'W' | Result: 'W'
+✓ Char: 'X' (ASCII:  88) | Expected: 'X' | Result: 'X'
+✓ Char: 'Y' (ASCII:  89) | Expected: 'Y' | Result: 'Y'
+✓ Char: 'Z' (ASCII:  90) | Expected: 'Z' | Result: 'Z'
+✓ Char: '[' (ASCII:  91) | Expected: '[' | Result: '['
+✓ Char: '\' (ASCII:  92) | Expected: '\' | Result: '\'
+✓ Char: ']' (ASCII:  93) | Expected: ']' | Result: ']'
+✓ Char: '^' (ASCII:  94) | Expected: '^' | Result: '^'
+✓ Char: '_' (ASCII:  95) | Expected: '_' | Result: '_'
+✓ Char: '`' (ASCII:  96) | Expected: '`' | Result: '`'
+✓ Char: 'a' (ASCII:  97) | Expected: 'A' | Result: 'A'
+✓ Char: 'b' (ASCII:  98) | Expected: 'B' | Result: 'B'
+✓ Char: 'c' (ASCII:  99) | Expected: 'C' | Result: 'C'
+✓ Char: 'd' (ASCII: 100) | Expected: 'D' | Result: 'D'
+✓ Char: 'e' (ASCII: 101) | Expected: 'E' | Result: 'E'
+✓ Char: 'f' (ASCII: 102) | Expected: 'F' | Result: 'F'
+✓ Char: 'g' (ASCII: 103) | Expected: 'G' | Result: 'G'
+✓ Char: 'h' (ASCII: 104) | Expected: 'H' | Result: 'H'
+✓ Char: 'i' (ASCII: 105) | Expected: 'I' | Result: 'I'
+✓ Char: 'j' (ASCII: 106) | Expected: 'J' | Result: 'J'
+✓ Char: 'k' (ASCII: 107) | Expected: 'K' | Result: 'K'
+✓ Char: 'l' (ASCII: 108) | Expected: 'L' | Result: 'L'
+✓ Char: 'm' (ASCII: 109) | Expected: 'M' | Result: 'M'
+✓ Char: 'n' (ASCII: 110) | Expected: 'N' | Result: 'N'
+✓ Char: 'o' (ASCII: 111) | Expected: 'O' | Result: 'O'
+✓ Char: 'p' (ASCII: 112) | Expected: 'P' | Result: 'P'
+✓ Char: 'q' (ASCII: 113) | Expected: 'Q' | Result: 'Q'
+✓ Char: 'r' (ASCII: 114) | Expected: 'R' | Result: 'R'
+✓ Char: 's' (ASCII: 115) | Expected: 'S' | Result: 'S'
+✓ Char: 't' (ASCII: 116) | Expected: 'T' | Result: 'T'
+✓ Char: 'u' (ASCII: 117) | Expected: 'U' | Result: 'U'
+✓ Char: 'v' (ASCII: 118) | Expected: 'V' | Result: 'V'
+✓ Char: 'w' (ASCII: 119) | Expected: 'W' | Result: 'W'
+✓ Char: 'x' (ASCII: 120) | Expected: 'X' | Result: 'X'
+✓ Char: 'y' (ASCII: 121) | Expected: 'Y' | Result: 'Y'
+✓ Char: 'z' (ASCII: 122) | Expected: 'Z' | Result: 'Z'
+✓ Char: '{' (ASCII: 123) | Expected: '{' | Result: '{'
+✓ Char: '|' (ASCII: 124) | Expected: '|' | Result: '|'
+✓ Char: '}' (ASCII: 125) | Expected: '}' | Result: '}'
+✓ Char: '~' (ASCII: 126) | Expected: '~' | Result: '~'
+✓ Char: (ASCII: 127) | Expected: 127 | Result: 127
+
+===== SPECIFIC TEST CASES FOR FT_TOUPPER =====
+
+Testing lowercase letters (a-z):
+ft_toupper('a'): 'A' (Expected: 'A')
+ft_toupper('b'): 'B' (Expected: 'B')
+ft_toupper('c'): 'C' (Expected: 'C')
+ft_toupper('d'): 'D' (Expected: 'D')
+ft_toupper('e'): 'E' (Expected: 'E')
+ft_toupper('f'): 'F' (Expected: 'F')
+ft_toupper('g'): 'G' (Expected: 'G')
+ft_toupper('h'): 'H' (Expected: 'H')
+ft_toupper('i'): 'I' (Expected: 'I')
+ft_toupper('j'): 'J' (Expected: 'J')
+ft_toupper('k'): 'K' (Expected: 'K')
+ft_toupper('l'): 'L' (Expected: 'L')
+ft_toupper('m'): 'M' (Expected: 'M')
+ft_toupper('n'): 'N' (Expected: 'N')
+ft_toupper('o'): 'O' (Expected: 'O')
+ft_toupper('p'): 'P' (Expected: 'P')
+ft_toupper('q'): 'Q' (Expected: 'Q')
+ft_toupper('r'): 'R' (Expected: 'R')
+ft_toupper('s'): 'S' (Expected: 'S')
+ft_toupper('t'): 'T' (Expected: 'T')
+ft_toupper('u'): 'U' (Expected: 'U')
+ft_toupper('v'): 'V' (Expected: 'V')
+ft_toupper('w'): 'W' (Expected: 'W')
+ft_toupper('x'): 'X' (Expected: 'X')
+ft_toupper('y'): 'Y' (Expected: 'Y')
+ft_toupper('z'): 'Z' (Expected: 'Z')
+
+Testing uppercase letters (A-Z):
+ft_toupper('A'): 'A' (Expected: 'A')
+ft_toupper('B'): 'B' (Expected: 'B')
+ft_toupper('C'): 'C' (Expected: 'C')
+ft_toupper('D'): 'D' (Expected: 'D')
+ft_toupper('E'): 'E' (Expected: 'E')
+ft_toupper('F'): 'F' (Expected: 'F')
+ft_toupper('G'): 'G' (Expected: 'G')
+ft_toupper('H'): 'H' (Expected: 'H')
+ft_toupper('I'): 'I' (Expected: 'I')
+ft_toupper('J'): 'J' (Expected: 'J')
+ft_toupper('K'): 'K' (Expected: 'K')
+ft_toupper('L'): 'L' (Expected: 'L')
+ft_toupper('M'): 'M' (Expected: 'M')
+ft_toupper('N'): 'N' (Expected: 'N')
+ft_toupper('O'): 'O' (Expected: 'O')
+ft_toupper('P'): 'P' (Expected: 'P')
+ft_toupper('Q'): 'Q' (Expected: 'Q')
+ft_toupper('R'): 'R' (Expected: 'R')
+ft_toupper('S'): 'S' (Expected: 'S')
+ft_toupper('T'): 'T' (Expected: 'T')
+ft_toupper('U'): 'U' (Expected: 'U')
+ft_toupper('V'): 'V' (Expected: 'V')
+ft_toupper('W'): 'W' (Expected: 'W')
+ft_toupper('X'): 'X' (Expected: 'X')
+ft_toupper('Y'): 'Y' (Expected: 'Y')
+ft_toupper('Z'): 'Z' (Expected: 'Z')
+
+Testing digits (0-9):
+ft_toupper('0'): '0' (Expected: '0')
+ft_toupper('1'): '1' (Expected: '1')
+ft_toupper('2'): '2' (Expected: '2')
+ft_toupper('3'): '3' (Expected: '3')
+ft_toupper('4'): '4' (Expected: '4')
+ft_toupper('5'): '5' (Expected: '5')
+ft_toupper('6'): '6' (Expected: '6')
+ft_toupper('7'): '7' (Expected: '7')
+ft_toupper('8'): '8' (Expected: '8')
+ft_toupper('9'): '9' (Expected: '9')
+
+Testing some special characters:
+ft_toupper(' '): ' ' (Expected: ' ')
+ft_toupper('!'): '!' (Expected: '!')
+ft_toupper('@'): '@' (Expected: '@')
+ft_toupper('#'): '#' (Expected: '#')
+ft_toupper('$'): '$' (Expected: '$')
+ft_toupper('%'): '%' (Expected: '%')
+ft_toupper('^'): '^' (Expected: '^')
+ft_toupper('&'): '&' (Expected: '&')
+ft_toupper('*'): '*' (Expected: '*')
+ft_toupper('('): '(' (Expected: '(')
+ft_toupper(')'): ')' (Expected: ')')
+ft_toupper('-'): '-' (Expected: '-')
+ft_toupper('_'): '_' (Expected: '_')
+ft_toupper('='): '=' (Expected: '=')
+ft_toupper('+'): '+' (Expected: '+')
+ft_toupper('['): '[' (Expected: '[')
+ft_toupper(']'): ']' (Expected: ']')
+ft_toupper('{'): '{' (Expected: '{')
+ft_toupper('}'): '}' (Expected: '}')
+ft_toupper('|'): '|' (Expected: '|')
+ft_toupper(';'): ';' (Expected: ';')
+ft_toupper(':'): ':' (Expected: ':')
+ft_toupper('''): ''' (Expected: ''')
+ft_toupper('"'): '"' (Expected: '"')
+ft_toupper(','): ',' (Expected: ',')
+ft_toupper('.'): '.' (Expected: '.')
+ft_toupper('<'): '<' (Expected: '<')
+ft_toupper('>'): '>' (Expected: '>')
+ft_toupper('/'): '/' (Expected: '/')
+ft_toupper('?'): '?' (Expected: '?')
+ft_toupper('\'): '\' (Expected: '\')
+
+Testing edge cases:
+ft_toupper(-1): -1 (Expected: -1)
+ft_toupper(128): 128 (Expected: 128)
+
+===== FT_TOUPPER TEST SUMMARY =====
+Tests passed: 128/128 (100.00%)
+All tests passed! ft_toupper works correctly.
+
+
+
+===== TESTING FT_TOLOWER =====
+
+Testing all ASCII characters (0-127):
+✓ Char: (ASCII:   0) | Expected:   0 | Result:   0
+✓ Char: (ASCII:   1) | Expected:   1 | Result:   1
+✓ Char: (ASCII:   2) | Expected:   2 | Result:   2
+✓ Char: (ASCII:   3) | Expected:   3 | Result:   3
+✓ Char: (ASCII:   4) | Expected:   4 | Result:   4
+✓ Char: (ASCII:   5) | Expected:   5 | Result:   5
+✓ Char: (ASCII:   6) | Expected:   6 | Result:   6
+✓ Char: (ASCII:   7) | Expected:   7 | Result:   7
+✓ Char: (ASCII:   8) | Expected:   8 | Result:   8
+✓ Char: (ASCII:   9) | Expected:   9 | Result:   9
+✓ Char: (ASCII:  10) | Expected:  10 | Result:  10
+✓ Char: (ASCII:  11) | Expected:  11 | Result:  11
+✓ Char: (ASCII:  12) | Expected:  12 | Result:  12
+✓ Char: (ASCII:  13) | Expected:  13 | Result:  13
+✓ Char: (ASCII:  14) | Expected:  14 | Result:  14
+✓ Char: (ASCII:  15) | Expected:  15 | Result:  15
+✓ Char: (ASCII:  16) | Expected:  16 | Result:  16
+✓ Char: (ASCII:  17) | Expected:  17 | Result:  17
+✓ Char: (ASCII:  18) | Expected:  18 | Result:  18
+✓ Char: (ASCII:  19) | Expected:  19 | Result:  19
+✓ Char: (ASCII:  20) | Expected:  20 | Result:  20
+✓ Char: (ASCII:  21) | Expected:  21 | Result:  21
+✓ Char: (ASCII:  22) | Expected:  22 | Result:  22
+✓ Char: (ASCII:  23) | Expected:  23 | Result:  23
+✓ Char: (ASCII:  24) | Expected:  24 | Result:  24
+✓ Char: (ASCII:  25) | Expected:  25 | Result:  25
+✓ Char: (ASCII:  26) | Expected:  26 | Result:  26
+✓ Char: (ASCII:  27) | Expected:  27 | Result:  27
+✓ Char: (ASCII:  28) | Expected:  28 | Result:  28
+✓ Char: (ASCII:  29) | Expected:  29 | Result:  29
+✓ Char: (ASCII:  30) | Expected:  30 | Result:  30
+✓ Char: (ASCII:  31) | Expected:  31 | Result:  31
+✓ Char: ' ' (ASCII:  32) | Expected: ' ' | Result: ' '
+✓ Char: '!' (ASCII:  33) | Expected: '!' | Result: '!'
+✓ Char: '"' (ASCII:  34) | Expected: '"' | Result: '"'
+✓ Char: '#' (ASCII:  35) | Expected: '#' | Result: '#'
+✓ Char: '$' (ASCII:  36) | Expected: '$' | Result: '$'
+✓ Char: '%' (ASCII:  37) | Expected: '%' | Result: '%'
+✓ Char: '&' (ASCII:  38) | Expected: '&' | Result: '&'
+✓ Char: ''' (ASCII:  39) | Expected: ''' | Result: '''
+✓ Char: '(' (ASCII:  40) | Expected: '(' | Result: '('
+✓ Char: ')' (ASCII:  41) | Expected: ')' | Result: ')'
+✓ Char: '*' (ASCII:  42) | Expected: '*' | Result: '*'
+✓ Char: '+' (ASCII:  43) | Expected: '+' | Result: '+'
+✓ Char: ',' (ASCII:  44) | Expected: ',' | Result: ','
+✓ Char: '-' (ASCII:  45) | Expected: '-' | Result: '-'
+✓ Char: '.' (ASCII:  46) | Expected: '.' | Result: '.'
+✓ Char: '/' (ASCII:  47) | Expected: '/' | Result: '/'
+✓ Char: '0' (ASCII:  48) | Expected: '0' | Result: '0'
+✓ Char: '1' (ASCII:  49) | Expected: '1' | Result: '1'
+✓ Char: '2' (ASCII:  50) | Expected: '2' | Result: '2'
+✓ Char: '3' (ASCII:  51) | Expected: '3' | Result: '3'
+✓ Char: '4' (ASCII:  52) | Expected: '4' | Result: '4'
+✓ Char: '5' (ASCII:  53) | Expected: '5' | Result: '5'
+✓ Char: '6' (ASCII:  54) | Expected: '6' | Result: '6'
+✓ Char: '7' (ASCII:  55) | Expected: '7' | Result: '7'
+✓ Char: '8' (ASCII:  56) | Expected: '8' | Result: '8'
+✓ Char: '9' (ASCII:  57) | Expected: '9' | Result: '9'
+✓ Char: ':' (ASCII:  58) | Expected: ':' | Result: ':'
+✓ Char: ';' (ASCII:  59) | Expected: ';' | Result: ';'
+✓ Char: '<' (ASCII:  60) | Expected: '<' | Result: '<'
+✓ Char: '=' (ASCII:  61) | Expected: '=' | Result: '='
+✓ Char: '>' (ASCII:  62) | Expected: '>' | Result: '>'
+✓ Char: '?' (ASCII:  63) | Expected: '?' | Result: '?'
+✓ Char: '@' (ASCII:  64) | Expected: '@' | Result: '@'
+✓ Char: 'A' (ASCII:  65) | Expected: 'a' | Result: 'a'
+✓ Char: 'B' (ASCII:  66) | Expected: 'b' | Result: 'b'
+✓ Char: 'C' (ASCII:  67) | Expected: 'c' | Result: 'c'
+✓ Char: 'D' (ASCII:  68) | Expected: 'd' | Result: 'd'
+✓ Char: 'E' (ASCII:  69) | Expected: 'e' | Result: 'e'
+✓ Char: 'F' (ASCII:  70) | Expected: 'f' | Result: 'f'
+✓ Char: 'G' (ASCII:  71) | Expected: 'g' | Result: 'g'
+✓ Char: 'H' (ASCII:  72) | Expected: 'h' | Result: 'h'
+✓ Char: 'I' (ASCII:  73) | Expected: 'i' | Result: 'i'
+✓ Char: 'J' (ASCII:  74) | Expected: 'j' | Result: 'j'
+✓ Char: 'K' (ASCII:  75) | Expected: 'k' | Result: 'k'
+✓ Char: 'L' (ASCII:  76) | Expected: 'l' | Result: 'l'
+✓ Char: 'M' (ASCII:  77) | Expected: 'm' | Result: 'm'
+✓ Char: 'N' (ASCII:  78) | Expected: 'n' | Result: 'n'
+✓ Char: 'O' (ASCII:  79) | Expected: 'o' | Result: 'o'
+✓ Char: 'P' (ASCII:  80) | Expected: 'p' | Result: 'p'
+✓ Char: 'Q' (ASCII:  81) | Expected: 'q' | Result: 'q'
+✓ Char: 'R' (ASCII:  82) | Expected: 'r' | Result: 'r'
+✓ Char: 'S' (ASCII:  83) | Expected: 's' | Result: 's'
+✓ Char: 'T' (ASCII:  84) | Expected: 't' | Result: 't'
+✓ Char: 'U' (ASCII:  85) | Expected: 'u' | Result: 'u'
+✓ Char: 'V' (ASCII:  86) | Expected: 'v' | Result: 'v'
+✓ Char: 'W' (ASCII:  87) | Expected: 'w' | Result: 'w'
+✓ Char: 'X' (ASCII:  88) | Expected: 'x' | Result: 'x'
+✓ Char: 'Y' (ASCII:  89) | Expected: 'y' | Result: 'y'
+✓ Char: 'Z' (ASCII:  90) | Expected: 'z' | Result: 'z'
+✓ Char: '[' (ASCII:  91) | Expected: '[' | Result: '['
+✓ Char: '\' (ASCII:  92) | Expected: '\' | Result: '\'
+✓ Char: ']' (ASCII:  93) | Expected: ']' | Result: ']'
+✓ Char: '^' (ASCII:  94) | Expected: '^' | Result: '^'
+✓ Char: '_' (ASCII:  95) | Expected: '_' | Result: '_'
+✓ Char: '`' (ASCII:  96) | Expected: '`' | Result: '`'
+✓ Char: 'a' (ASCII:  97) | Expected: 'a' | Result: 'a'
+✓ Char: 'b' (ASCII:  98) | Expected: 'b' | Result: 'b'
+✓ Char: 'c' (ASCII:  99) | Expected: 'c' | Result: 'c'
+✓ Char: 'd' (ASCII: 100) | Expected: 'd' | Result: 'd'
+✓ Char: 'e' (ASCII: 101) | Expected: 'e' | Result: 'e'
+✓ Char: 'f' (ASCII: 102) | Expected: 'f' | Result: 'f'
+✓ Char: 'g' (ASCII: 103) | Expected: 'g' | Result: 'g'
+✓ Char: 'h' (ASCII: 104) | Expected: 'h' | Result: 'h'
+✓ Char: 'i' (ASCII: 105) | Expected: 'i' | Result: 'i'
+✓ Char: 'j' (ASCII: 106) | Expected: 'j' | Result: 'j'
+✓ Char: 'k' (ASCII: 107) | Expected: 'k' | Result: 'k'
+✓ Char: 'l' (ASCII: 108) | Expected: 'l' | Result: 'l'
+✓ Char: 'm' (ASCII: 109) | Expected: 'm' | Result: 'm'
+✓ Char: 'n' (ASCII: 110) | Expected: 'n' | Result: 'n'
+✓ Char: 'o' (ASCII: 111) | Expected: 'o' | Result: 'o'
+✓ Char: 'p' (ASCII: 112) | Expected: 'p' | Result: 'p'
+✓ Char: 'q' (ASCII: 113) | Expected: 'q' | Result: 'q'
+✓ Char: 'r' (ASCII: 114) | Expected: 'r' | Result: 'r'
+✓ Char: 's' (ASCII: 115) | Expected: 's' | Result: 's'
+✓ Char: 't' (ASCII: 116) | Expected: 't' | Result: 't'
+✓ Char: 'u' (ASCII: 117) | Expected: 'u' | Result: 'u'
+✓ Char: 'v' (ASCII: 118) | Expected: 'v' | Result: 'v'
+✓ Char: 'w' (ASCII: 119) | Expected: 'w' | Result: 'w'
+✓ Char: 'x' (ASCII: 120) | Expected: 'x' | Result: 'x'
+✓ Char: 'y' (ASCII: 121) | Expected: 'y' | Result: 'y'
+✓ Char: 'z' (ASCII: 122) | Expected: 'z' | Result: 'z'
+✓ Char: '{' (ASCII: 123) | Expected: '{' | Result: '{'
+✓ Char: '|' (ASCII: 124) | Expected: '|' | Result: '|'
+✓ Char: '}' (ASCII: 125) | Expected: '}' | Result: '}'
+✓ Char: '~' (ASCII: 126) | Expected: '~' | Result: '~'
+✓ Char: (ASCII: 127) | Expected: 127 | Result: 127
+
+===== SPECIFIC TEST CASES FOR FT_TOLOWER =====
+
+Testing uppercase letters (A-Z):
+ft_tolower('A'): 'a' (Expected: 'a')
+ft_tolower('B'): 'b' (Expected: 'b')
+ft_tolower('C'): 'c' (Expected: 'c')
+ft_tolower('D'): 'd' (Expected: 'd')
+ft_tolower('E'): 'e' (Expected: 'e')
+ft_tolower('F'): 'f' (Expected: 'f')
+ft_tolower('G'): 'g' (Expected: 'g')
+ft_tolower('H'): 'h' (Expected: 'h')
+ft_tolower('I'): 'i' (Expected: 'i')
+ft_tolower('J'): 'j' (Expected: 'j')
+ft_tolower('K'): 'k' (Expected: 'k')
+ft_tolower('L'): 'l' (Expected: 'l')
+ft_tolower('M'): 'm' (Expected: 'm')
+ft_tolower('N'): 'n' (Expected: 'n')
+ft_tolower('O'): 'o' (Expected: 'o')
+ft_tolower('P'): 'p' (Expected: 'p')
+ft_tolower('Q'): 'q' (Expected: 'q')
+ft_tolower('R'): 'r' (Expected: 'r')
+ft_tolower('S'): 's' (Expected: 's')
+ft_tolower('T'): 't' (Expected: 't')
+ft_tolower('U'): 'u' (Expected: 'u')
+ft_tolower('V'): 'v' (Expected: 'v')
+ft_tolower('W'): 'w' (Expected: 'w')
+ft_tolower('X'): 'x' (Expected: 'x')
+ft_tolower('Y'): 'y' (Expected: 'y')
+ft_tolower('Z'): 'z' (Expected: 'z')
+
+Testing lowercase letters (a-z):
+ft_tolower('a'): 'a' (Expected: 'a')
+ft_tolower('b'): 'b' (Expected: 'b')
+ft_tolower('c'): 'c' (Expected: 'c')
+ft_tolower('d'): 'd' (Expected: 'd')
+ft_tolower('e'): 'e' (Expected: 'e')
+ft_tolower('f'): 'f' (Expected: 'f')
+ft_tolower('g'): 'g' (Expected: 'g')
+ft_tolower('h'): 'h' (Expected: 'h')
+ft_tolower('i'): 'i' (Expected: 'i')
+ft_tolower('j'): 'j' (Expected: 'j')
+ft_tolower('k'): 'k' (Expected: 'k')
+ft_tolower('l'): 'l' (Expected: 'l')
+ft_tolower('m'): 'm' (Expected: 'm')
+ft_tolower('n'): 'n' (Expected: 'n')
+ft_tolower('o'): 'o' (Expected: 'o')
+ft_tolower('p'): 'p' (Expected: 'p')
+ft_tolower('q'): 'q' (Expected: 'q')
+ft_tolower('r'): 'r' (Expected: 'r')
+ft_tolower('s'): 's' (Expected: 's')
+ft_tolower('t'): 't' (Expected: 't')
+ft_tolower('u'): 'u' (Expected: 'u')
+ft_tolower('v'): 'v' (Expected: 'v')
+ft_tolower('w'): 'w' (Expected: 'w')
+ft_tolower('x'): 'x' (Expected: 'x')
+ft_tolower('y'): 'y' (Expected: 'y')
+ft_tolower('z'): 'z' (Expected: 'z')
+
+Testing digits (0-9):
+ft_tolower('0'): '0' (Expected: '0')
+ft_tolower('1'): '1' (Expected: '1')
+ft_tolower('2'): '2' (Expected: '2')
+ft_tolower('3'): '3' (Expected: '3')
+ft_tolower('4'): '4' (Expected: '4')
+ft_tolower('5'): '5' (Expected: '5')
+ft_tolower('6'): '6' (Expected: '6')
+ft_tolower('7'): '7' (Expected: '7')
+ft_tolower('8'): '8' (Expected: '8')
+ft_tolower('9'): '9' (Expected: '9')
+
+Testing some special characters:
+ft_tolower(' '): ' ' (Expected: ' ')
+ft_tolower('!'): '!' (Expected: '!')
+ft_tolower('@'): '@' (Expected: '@')
+ft_tolower('#'): '#' (Expected: '#')
+ft_tolower('$'): '$' (Expected: '$')
+ft_tolower('%'): '%' (Expected: '%')
+ft_tolower('^'): '^' (Expected: '^')
+ft_tolower('&'): '&' (Expected: '&')
+ft_tolower('*'): '*' (Expected: '*')
+ft_tolower('('): '(' (Expected: '(')
+ft_tolower(')'): ')' (Expected: ')')
+ft_tolower('-'): '-' (Expected: '-')
+ft_tolower('_'): '_' (Expected: '_')
+ft_tolower('='): '=' (Expected: '=')
+ft_tolower('+'): '+' (Expected: '+')
+ft_tolower('['): '[' (Expected: '[')
+ft_tolower(']'): ']' (Expected: ']')
+ft_tolower('{'): '{' (Expected: '{')
+ft_tolower('}'): '}' (Expected: '}')
+ft_tolower('|'): '|' (Expected: '|')
+ft_tolower(';'): ';' (Expected: ';')
+ft_tolower(':'): ':' (Expected: ':')
+ft_tolower('''): ''' (Expected: ''')
+ft_tolower('"'): '"' (Expected: '"')
+ft_tolower(','): ',' (Expected: ',')
+ft_tolower('.'): '.' (Expected: '.')
+ft_tolower('<'): '<' (Expected: '<')
+ft_tolower('>'): '>' (Expected: '>')
+ft_tolower('/'): '/' (Expected: '/')
+ft_tolower('?'): '?' (Expected: '?')
+ft_tolower('\'): '\' (Expected: '\')
+
+Testing edge cases:
+ft_tolower(-1): -1 (Expected: -1)
+ft_tolower(128): 128 (Expected: 128)
+
+===== FT_TOLOWER TEST SUMMARY =====
+Tests passed: 128/128 (100.00%)
+All tests passed! ft_tolower works correctly.
+
+
+
+===== TESTING FT_MEMSET =====
+
+Test 1: Basic functionality (fill first 5 bytes with 'A')
+Original: "Hello, world!"
+Standard memset: "AAAAA, world!"
+Your ft_memset: "AAAAA, world!"
+✓ Test passed!
+
+Test 2: Fill with zero (fill first 5 bytes with '\0')
+Original: "Hello, world!"
+Standard memset: "\0\0\0\0\0"
+Your ft_memset: "\0\0\0\0\0"
+✓ Test passed!
+
+Test 3: Fill entire buffer with 'X'
+Original: "Hello, world!"
+Standard memset: "XXXXXXXXXXXXX"
+Your ft_memset: "XXXXXXXXXXXXX"
+✓ Test passed!
+
+Test 4: Fill with non-character value (0xFF)
+Original: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+Standard memset: [255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
+Your ft_memset: [255, 255, 255, 255, 255, 255, 255, 255, 255, 255]
+✓ Test passed!
+
+Test 5: Zero-length operation
+Original: "Hello, world!"
+Standard memset: "Hello, world!"
+Your ft_memset: "Hello, world!"
+✓ Test passed!
+
+Test 6: Large buffer (1000 bytes)
+Filling 1000 bytes with value 42
+✓ Test passed!
+
+
+===== FT_MEMSET TEST SUMMARY =====
+Tests passed: 6/6 (100.00%)
+All tests passed! Your ft_memset function works correctly.
+
+
+
+===== TESTING FT_BZERO =====
+
+Test 1: Basic functionality (zero first 5 bytes)
+Original: "Hello, world!"
+Standard bzero: "\0\0\0\0\0, world!"
+Your ft_bzero: "\0\0\0\0\0, world!"
+✓ Test passed!
+
+Test 2: Zero entire buffer
+Original: "Hello, world!"
+Standard bzero: "\0\0\0\0\0\0\0\0\0\0\0\0\0"
+Your ft_bzero: "\0\0\0\0\0\0\0\0\0\0\0\0\0"
+✓ Test passed!
+
+Test 3: Zero-length operation
+Original: "Hello, world!"
+Standard bzero: "Hello, world!"
+Your ft_bzero: "Hello, world!"
+✓ Test passed!
+
+Test 4: Numeric array (zero first 3 integers)
+Original: [1, 2, 3, 4, 5]
+Standard bzero: [0, 0, 0, 4, 5]
+Your ft_bzero: [0, 0, 0, 4, 5]
+✓ Test passed!
+
+Test 5: Large buffer (1000 bytes)
+Zeroing 1000 bytes
+✓ Test passed!
+
+Test 6: Struct zeroing
+Zeroing a struct with mixed data types
+✓ Test passed!
+
+
+===== FT_BZERO TEST SUMMARY =====
+Tests passed: 6/6 (100.00%)
+All tests passed! Your ft_bzero function works correctly.
+
+
+
+===== TESTING FT_MEMCPY =====
+
+Test 1: Basic string copy
+Source: "Hello, world!"
+Standard memcpy: "Hello, world!"
+Your ft_memcpy: "Hello, world!"
+✓ Test passed!
+
+Test 2: Partial copy (first 5 bytes)
+Source: "Hello, world!"
+Destination before: "XXXXXXXXXXXXXXX"
+Standard memcpy: "HelloXXXXXXXXXX"
+Your ft_memcpy: "HelloXXXXXXXXXX"
+✓ Test passed!
+
+Test 3: Copy integers
+Source: [1, 2, 3, 4, 5]
+Standard memcpy: [1, 2, 3, 4, 5]
+Your ft_memcpy: [1, 2, 3, 4, 5]
+✓ Test passed!
+
+Test 4: Zero-length operation
+Source: "Hello, world!"
+Destination before: "XXXXXXXXXXXXXXX"
+Standard memcpy: "XXXXXXXXXXXXXXX"
+Your ft_memcpy: "XXXXXXXXXXXXXXX"
+✓ Test passed!
+
+Test 5: Copy with non-aligned addresses
+Source: "Hello, world!" (starting from index 2)
+Destination before: "XXXXXXXXXXXXXXX" (starting at index 3)
+Standard memcpy: "XXXllo, worldXX"
+Your ft_memcpy: "XXXllo, worldXX"
+✓ Test passed!
+
+Test 6: Large buffer (1000 bytes)
+Copying 1000 bytes from source to destination
+✓ Test passed!
+
+Test 7: Struct copying
+Copying a struct with mixed data types
+Source struct: {a: 42, b: 'X', c: 3.141590, str: "Hello"}
+Standard memcpy: {a: 42, b: 'X', c: 3.141590, str: "Hello"}
+Your ft_memcpy: {a: 42, b: 'X', c: 3.141590, str: "Hello"}
+✓ Test passed!
+
+Test 8: NULL pointers with zero length
+Testing behavior with NULL source and destination but zero length
+✓ Test passed! Both functions returned non-NULL
+
+
+===== FT_MEMCPY TEST SUMMARY =====
+Tests passed: 8/8 (100.00%)
+All tests passed! Your ft_memcpy function works correctly.
+
+
+
+===== TESTING FT_STRLCPY =====
+
+Test 1: Basic string copy (sufficient buffer)
+Source: "Hello, world!" (length: 13)
+Buffer size: 20
+Standard strlcpy: "Hello, world!" (return: 13)
+Your ft_strlcpy: "Hello, world!" (return: 13)
+✓ Test passed!
+
+Test 2: Truncation (buffer smaller than source)
+Source: "Hello, world!" (length: 13)
+Buffer size: 7
+Standard strlcpy: "Hello," (return: 13)
+Your ft_strlcpy: "Hello," (return: 13)
+✓ Test passed!
+
+Test 3: Exact buffer size (buffer = source length + 1)
+Source: "Hello" (length: 5)
+Buffer size: 6
+Standard strlcpy: "Hello" (return: 5)
+Your ft_strlcpy: "Hello" (return: 5)
+✓ Test passed!
+
+Test 4: Zero-size buffer
+Source: "Hello, world!" (length: 13)
+Buffer size: 0
+Destination before: "XXXXXXXXX"
+Standard strlcpy return: 13
+Your ft_strlcpy return: 13
+Standard strlcpy result: "XXXXXXXXX"
+Your ft_strlcpy result: "XXXXXXXXX"
+✓ Test passed!
+
+Test 5: Empty source string
+Source: "" (empty string)
+Buffer size: 10
+Destination before: "XXXXXXXXX"
+Standard strlcpy: "" (return: 0)
+Your ft_strlcpy: "" (return: 0)
+✓ Test passed!
+
+Test 6: Size exactly 1 (only null terminator)
+Source: "Hello, world!" (length: 13)
+Buffer size: 1
+Destination before: "XXXXXXXXX"
+Standard strlcpy: "\0XXXXXXXX" (return: 13)
+Your ft_strlcpy: "\0XXXXXXXX" (return: 13)
+✓ Test passed!
+
+Test 7: String with special characters
+Source contains: "Hello" followed by tab, newline, carriage return, and null
+Buffer size: 20
+Standard strlcpy return: 8
+Your ft_strlcpy return: 8
+Standard strlcpy result: "Hello\t\n"
+Your ft_strlcpy result: "Hello\t\n"
+✓ Test passed!
+
+Test 8: Large string (1000 characters)
+Source: [1000-character string with pattern A-Z]
+Buffer size: 1100
+Standard strlcpy return: 1000
+Your ft_strlcpy return: 1000
+First 20 chars - Standard: ABCDEFGHIJKLMNOPQRST
+First 20 chars - Yours: ABCDEFGHIJKLMNOPQRST
+✓ Test passed!
+
+
+===== FT_STRLCPY TEST SUMMARY =====
+Tests passed: 8/8 (100.00%)
+All tests passed! Your ft_strlcpy function works correctly.
+
+
+
+===== TESTING FT_STRLCAT =====
+
+Test 1: Basic concatenation with enough space
+Destination before: "Hello, "
+Source: "world!"
+Buffer size: 30
+Standard strlcat: "Hello, world!" (return: 13)
+Your ft_strlcat: "Hello, world!" (return: 13)
+✓ Test passed!
+
+Test 2: Truncation (buffer too small)
+Destination before: "Hello, "
+Source: "world!"
+Buffer size: 10
+Standard strlcat: "Hello, wo" (return: 13)
+Your ft_strlcat: "Hello, wo" (return: 13)
+✓ Test passed!
+
+Test 3: Zero-size buffer
+Destination before: "Hello"
+Source: "world"
+Buffer size: 0
+Standard strlcat: "Hello" (return: 5)
+Your ft_strlcat: "Hello" (return: 5)
+✓ Test passed!
+
+Test 4: Empty source string
+Destination before: "Hello"
+Source: "" (empty string)
+Buffer size: 15
+Standard strlcat: "Hello" (return: 5)
+Your ft_strlcat: "Hello" (return: 5)
+✓ Test passed!
+
+Test 5: Empty destination string
+Destination before: "" (empty string)
+Source: "world!"
+Buffer size: 15
+Standard strlcat: "world!" (return: 6)
+Your ft_strlcat: "world!" (return: 6)
+✓ Test passed!
+
+Test 6: Buffer size equals destination length
+Destination before: "Hello"
+Source: "world"
+Buffer size: 5
+Standard strlcat: "Hello" (return: 10)
+Your ft_strlcat: "Hello" (return: 10)
+✓ Test passed!
+
+Test 7: Large string concatenation
+Destination before: "Begin-"
+Source: [1000-character string]
+Buffer size: 1100
+First 20 chars - Standard: Begin-ABCDEFGHIJKLMN
+First 20 chars - Yours: Begin-ABCDEFGHIJKLMN
+Standard strlcat return: 1006
+Your ft_strlcat return: 1006
+✓ Test passed!
+
+
+===== FT_STRLCAT TEST SUMMARY =====
+Tests passed: 7/7 (100.00%)
+All tests passed! Your ft_strlcat function works correctly.
+
+
+
+===== TESTING FT_STRCHR =====
+
+Test 1: Character present in the middle
+String: "Hello, world!", Char: 'o'
+Standard strchr: o, world!
+Your ft_strchr: o, world!
+✓ Test passed!
+
+Test 2: Character at the beginning
+String: "Test", Char: 'T'
+Standard strchr: Test
+Your ft_strchr: Test
+✓ Test passed!
+
+Test 3: Character at the end
+String: "End.", Char: '.'
+Standard strchr: .
+Your ft_strchr: .
+✓ Test passed!
+
+Test 4: Character not present
+String: "abcdef", Char: 'X'
+Standard strchr: NULL
+Your ft_strchr: NULL
+✓ Test passed!
+
+Test 5: Search for null terminator
+String: "abc", Char: '\0'
+Standard strchr: 0x414f03
+Your ft_strchr: 0x414f03
+✓ Test passed!
+
+Test 6: Empty string, search for '\0'
+String: "", Char: '\0'
+Standard strchr: 0x414f1a
+Your ft_strchr: 0x414f1a
+✓ Test passed!
+
+Test 7: Empty string, search for 'A'
+String: "", Char: 'A'
+Standard strchr: NULL
+Your ft_strchr: NULL
+✓ Test passed!
+
+Test 8: Multiple occurrences
+String: "banana", Char: 'a'
+Standard strchr: anana
+Your ft_strchr: anana
+✓ Test passed!
+
+Test 9: Non-ASCII character
+String: "héllo", Char: '�' (ASCII 233)
+Standard strchr: NULL
+Your ft_strchr: NULL
+✓ Test passed!
+
+Test 10: Search for int value > 127
+String: "abc", Char: 200
+Standard strchr: NULL
+Your ft_strchr: NULL
+✓ Test passed!
+
+
+===== FT_STRCHR TEST SUMMARY =====
+Tests passed: 10/10 (100.00%)
+All tests passed! Your ft_strchr function works correctly.
+
+
+
+===== TESTING FT_STRRCHR =====
+
+Test 1: Single occurrence
+String: "Hello, world!", Char: 'o'
+Standard strrchr: orld!
+Your ft_strrchr: orld!
+✓ Test passed!
+
+Test 2: Multiple occurrences
+String: "banana", Char: 'a'
+Standard strrchr: a
+Your ft_strrchr: a
+✓ Test passed!
+
+Test 3: Character not found
+String: "abcdef", Char: 'z'
+Standard strrchr: NULL
+Your ft_strrchr: NULL
+✓ Test passed!
+
+Test 4: Search for null terminator
+String: "test", Char: '\0'
+Standard strrchr: 0x417380
+Your ft_strrchr: 0x417380
+✓ Test passed!
+
+Test 5: Empty string
+String: "", Char: 'a'
+Standard strrchr: NULL
+Your ft_strrchr: NULL
+✓ Test passed!
+
+Test 6: First character match
+String: "first", Char: 'f'
+Standard strrchr: first
+Your ft_strrchr: first
+✓ Test passed!
+
+Test 7: Non-ASCII character
+String: "café", Char: 0xe9
+Standard strrchr: NULL
+Your ft_strrchr: NULL
+✓ Test passed!
+
+
+===== FT_STRRCHR TEST SUMMARY =====
+Tests passed: 7/7 (100.00%)
+All tests passed! Your ft_strrchr function works correctly.
+
+
+
+===== TESTING FT_STRNCMP =====
+
+✓ Test 1: s1="apple", s2="apple", n=5
+Expected: 0 | Actual: 0
+✓ Test 2: s1="apple", s2="apple", n=5
+Expected: 0 | Actual: 0
+✓ Test 3: s1="apple", s2="apples", n=6
+Expected: -1 | Actual: -1
+✓ Test 4: s1="apple", s2="banan", n=5
+Expected: -1 | Actual: -1
+✓ Test 5: s1="banan", s2="apple", n=5
+Expected: 1 | Actual: 1
+✓ Test 6: s1="", s2="", n=0
+Expected: 0 | Actual: 0
+✓ Test 7: s1="HELLO", s2="hello", n=5
+Expected: -1 | Actual: -1
+✓ Test 8: s1="hello", s2="HELLO", n=5
+Expected: 1 | Actual: 1
+✓ Test 9: s1="short", s2="short", n=5
+Expected: 0 | Actual: 0
+✓ Test 10: s1="short", s2="short", n=5
+Expected: 0 | Actual: 0
+✓ Test 11: s1="shorte", s2="short", n=6
+Expected: 1 | Actual: 1
+✓ Test 12: s1="test\x80", s2="test", n=5
+Expected: 1 | Actual: 1
+✓ Test 13: s1="\xad", s2="\xad", n=1
+Expected: 0 | Actual: 0
+✓ Test 14: s1="", s2="", n=4
+Expected: 0 | Actual: 0
+✓ Test 15: s1="", s2="", n=0
+Expected: 0 | Actual: 0
+✓ Test 16: s1="", s2="", n=0
+Expected: 0 | Actual: 0
+✓ Test 17: s1="ab", s2="ab", n=2
+Expected: 0 | Actual: 0
+✓ Test 18: s1="abc", s2="abd", n=3
+Expected: -1 | Actual: -1
+
+===== COMPREHENSIVE ASCII TEST =====
+
+
+===== FT_STRNCMP TEST SUMMARY =====
+Tests passed: 16402/16402 (100.00%)
+All tests passed! Your ft_strncmp works correctly.
+
+
+
+===== TESTING FT_MEMCHR =====
+
+Test 1: Character found in middle
+Buffer: "Hello, world!"
+Searching for 'o' in 13 bytes
+Standard memchr: o, world!
+Your ft_memchr: o, world!
+✓ Test passed!
+
+Test 2: Character not found
+Buffer: "abcdefghijkl"
+Searching for 'z' in 12 bytes
+Standard memchr: NULL
+Your ft_memchr: NULL
+✓ Test passed!
+
+Test 3: Search for null terminator
+Buffer: "test\0hidden"
+Searching for '\0' in 5 bytes
+Standard memchr: 
+Your ft_memchr: 
+✓ Test passed!
+
+Test 4: Partial buffer search
+Buffer: "123456789"
+Searching for '5' in first 5 bytes
+Standard memchr: 56789
+Your ft_memchr: 56789
+✓ Test passed!
+
+Test 5: Zero-length search
+Buffer: "test"
+Searching for 't' in 0 bytes
+Standard memchr: NULL
+Your ft_memchr: NULL
+✓ Test passed!
+
+Test 6: Non-ASCII character (0xFF)
+Buffer: {0x41, 0xFF, 0x42, 0x00}
+Searching for 0xFF in 4 bytes
+Standard memchr: 0x1ffeffbb4d
+Your ft_memchr: 0x1ffeffbb4d
+✓ Test passed!
+
+
+===== FT_MEMCHR TEST SUMMARY =====
+Tests passed: 6/6 (100.00%)
+All tests passed! Your ft_memchr works correctly.
+
+
+
+===== TESTING FT_MEMCMP =====
+
+Test 1: s1="apple", s2="apple", n=5
+Standard: 0 | Yours: 0
+✓ Passed
+
+Test 2: s1="apple", s2="apples", n=5
+Standard: 0 | Yours: 0
+✓ Passed
+
+Test 3: s1="apple", s2="apples", n=6
+Standard: -1 | Yours: -1
+✓ Passed
+
+Test 4: s1="apple", s2="banana", n=5
+Standard: -1 | Yours: -1
+✓ Passed
+
+Test 5: s1="banana", s2="apple", n=5
+Standard: 1 | Yours: 1
+✓ Passed
+
+Test 6: s1="", s2="", n=0
+Standard: 0 | Yours: 0
+✓ Passed
+
+Test 7: s1="short", s2="shorter", n=5
+Standard: 0 | Yours: 0
+✓ Passed
+
+Test 8: s1="shorter", s2="short", n=5
+Standard: 0 | Yours: 0
+✓ Passed
+
+Test 9: s1="shorter", s2="short", n=6
+Standard: 1 | Yours: 1
+✓ Passed
+
+Test 10: s1="test�", s2="test", n=5
+Standard: 1 | Yours: 1
+✓ Passed
+
+Test 11: s1="��", s2="��", n=2
+Standard: -1 | Yours: -1
+✓ Passed
+
+Test 12: s1="", s2="", n=2
+Standard: -1 | Yours: -1
+✓ Passed
+
+Test 13: s1="abcdef", s2="abcXYZ", n=3
+Standard: 0 | Yours: 0
+✓ Passed
+
+Test 14: s1="abcdef", s2="abcDEF", n=4
+Standard: 1 | Yours: 1
+✓ Passed
+
+Test 15: s1="HELLO", s2="hello", n=5
+Standard: -1 | Yours: -1
+✓ Passed
+
+Test 16: s1="hello", s2="HELLO", n=5
+Standard: 1 | Yours: 1
+✓ Passed
+
+
+===== BINARY DATA COMPARISON TEST =====
+
+Comparing 256-byte arrays with difference at position 128
+Standard: 1 | Yours: 1
+✓ Passed
+
+
+===== FT_MEMCMP TEST SUMMARY =====
+Tests passed: 17/17 (100.00%)
+All tests passed! Your ft_memcmp works correctly.
+
+
+
+===== TESTING FT_STRNSTR =====
+
+Test 1: haystack="Hello, world!", needle="world", len=13
+Expected: world!
+Received: world!
+✓ Passed
+
+Test 2: haystack="Hello, world!", needle="world", len=10
+Expected: NULL
+Received: NULL
+✓ Passed
+
+Test 3: haystack="startMiddleEnd", needle="start", len=5
+Expected: startMiddleEnd
+Received: startMiddleEnd
+✓ Passed
+
+Test 4: haystack="EndsWithNeedle", needle="Needle", len=20
+Expected: Needle
+Received: Needle
+✓ Passed
+
+Test 5: haystack="test", needle="", len=4
+Expected: test
+Received: test
+✓ Passed
+
+Test 6: haystack="test", needle="test", len=0
+Expected: NULL
+Received: NULL
+✓ Passed
+
+Test 7: haystack="CaseSensitive", needle="case", len=14
+Expected: NULL
+Received: NULL
+✓ Passed
+
+Test 8: haystack="partial", needle="art", len=4
+Expected: artial
+Received: artial
+✓ Passed
+
+Test 9: haystack="123456789", needle="456", len=9
+Expected: 456789
+Received: 456789
+✓ Passed
+
+Test 10: haystack="café", needle="fé", len=5
+Expected: fé
+Received: fé
+✓ Passed
+
+Test 11: haystack="abc", needle="def", len=6
+Expected: NULL
+Received: NULL
+✓ Passed
+
+Test 12: haystack="mississippi", needle="issip", len=10
+Expected: issippi
+Received: issippi
+✓ Passed
+
+Test 13: haystack="haystack", needle="needle", len=8
+Expected: NULL
+Received: NULL
+✓ Passed
+
+Test 14: haystack="perfect", needle="perfect", len=7
+Expected: perfect
+Received: perfect
+✓ Passed
+
+Test 15: haystack="overlap", needle="lap", len=5
+Expected: NULL
+Received: NULL
+✓ Passed
+
+
+===== FT_STRNSTR TEST SUMMARY =====
+Tests passed: 15/15 (100.00%)
+All tests passed! Your ft_strnstr works correctly.
+
+
+
+===== TESTING FT_ATOI =====
+
+Test 1: Input: "42"
+Expected: 42 | ft_atoi: 42 | std_atoi: 42
+✓ Passed
+
+Test 2: Input: "-123"
+Expected: -123 | ft_atoi: -123 | std_atoi: -123
+✓ Passed
+
+Test 3: Input: "0"
+Expected: 0 | ft_atoi: 0 | std_atoi: 0
+✓ Passed
+
+Test 4: Input: "+456"
+Expected: 456 | ft_atoi: 456 | std_atoi: 456
+✓ Passed
+
+Test 5: Input: "2147483647"
+Expected: 2147483647 | ft_atoi: 2147483647 | std_atoi: 2147483647
+✓ Passed
+
+Test 6: Input: "-2147483648"
+Expected: -2147483648 | ft_atoi: -2147483648 | std_atoi: -2147483648
+✓ Passed
+
+Test 7: Input: "2147483648"
+Expected: -1 | ft_atoi: -1 | std_atoi: -2147483648
+✓ Passed
+
+Test 8: Input: "-2147483649"
+Expected: 0 | ft_atoi: 0 | std_atoi: 2147483647
+✓ Passed
+
+Test 9: Input: " 	
++42"
+Expected: 42 | ft_atoi: 42 | std_atoi: 42
+✓ Passed
+
+Test 10: Input: "    -123"
+Expected: -123 | ft_atoi: -123 | std_atoi: -123
+✓ Passed
+
+Test 11: Input: "123abc"
+Expected: 123 | ft_atoi: 123 | std_atoi: 123
+✓ Passed
+
+Test 12: Input: "abc123"
+Expected: 0 | ft_atoi: 0 | std_atoi: 0
+✓ Passed
+
+Test 13: Input: "--123"
+Expected: 0 | ft_atoi: 0 | std_atoi: 0
+✓ Passed
+
+Test 14: Input: "++456"
+Expected: 0 | ft_atoi: 0 | std_atoi: 0
+✓ Passed
+
+Test 15: Input: ""
+Expected: 0 | ft_atoi: 0 | std_atoi: 0
+✓ Passed
+
+Test 16: Input: " 	
+"
+Expected: 0 | ft_atoi: 0 | std_atoi: 0
+✓ Passed
+
+Test 17: Input: "9223372036854775807"
+Expected: -1 | ft_atoi: -1 | std_atoi: -1
+✓ Passed
+
+Test 18: Input: "-9223372036854775808"
+Expected: 0 | ft_atoi: 0 | std_atoi: 0
+✓ Passed
+
+Special Case 1: Leading zeros
+Input: "00042"
+Expected: 42 | ft_atoi: 42
+✓ Passed
+
+Special Case 2: Positive with leading zeros
+Input: "+0042"
+Expected: 42 | ft_atoi: 42
+✓ Passed
+
+Special Case 3: Negative with leading zeros
+Input: "-000123"
+Expected: -123 | ft_atoi: -123
+✓ Passed
+
+Special Case 4: Mixed signs
+Input: "+-123"
+Expected: 0 | ft_atoi: 0
+✓ Passed
+
+Special Case 5: Multiple signs
+Input: "--123"
+Expected: 0 | ft_atoi: 0
+✓ Passed
+
+Special Case 6: Hexadecimal (invalid)
+Input: "0x1a"
+Expected: 0 | ft_atoi: 0
+✓ Passed
+
+Special Case 7: Binary (invalid)
+Input: "0b1010"
+Expected: 0 | ft_atoi: 0
+✓ Passed
+
+
+===== FT_ATOI TEST SUMMARY =====
+Tests passed: 25/25 (100.00%)
+All tests passed! Your ft_atoi works correctly.
+
+
+
+===== TESTING FT_STRDUP =====
+
+Test 1: Empty string
+Original: ""
+Standard strdup: ""
+Your ft_strdup: ""
+✓ Test passed!
+
+Test 2: Short string
+Original: "Hello, world!"
+Standard strdup: "Hello, world!"
+Your ft_strdup: "Hello, world!"
+✓ Test passed!
+
+Test 3: Special characters
+Original: "!@#$$%^&*()_+{}|:<>?"
+Standard strdup: "!@#$$%^&*()_+{}|:<>?"
+Your ft_strdup: "!@#$$%^&*()_+{}|:<>?"
+✓ Test passed!
+
+Test 4: Long string
+Original: "This is a very long string that will test if the function can handle longer strings properly without any issues or memory problems that might occur during allocation or copying."
+Standard strdup: "This is a very long string that will test if the function can handle longer strings properly without any issues or memory problems that might occur during allocation or copying."
+Your ft_strdup: "This is a very long string that will test if the function can handle longer strings properly without any issues or memory problems that might occur during allocation or copying."
+✓ Test passed!
+
+Test 5: Memory independence
+Original: "Memory independence"
+Your ft_strdup: "Memory independence"
+✓ Test passed! Duplicate is independent.
+
+
+===== FT_STRDUP TEST SUMMARY =====
+Tests passed: 5/5 (100.00%)
+All tests passed! Your ft_strdup function works correctly.
+
+
+
+===== TESTING FT_MEMMOVE =====
+
+Test 1: Non-overlapping regions (basic string copy)
+Source: "Hello, world!"
+Standard memmove: "Hello, world!"
+Your ft_memmove: "Hello, world!"
+✓ Test passed!
+
+Test 2: Overlapping regions (dst < src)
+Original: "ABCDEFGHIJKLMN"
+Standard memmove: "EFGHIJKLIJKLMN"
+Your ft_memmove: "EFGHIJKLIJKLMN"
+✓ Test passed!
+
+Test 3: Overlapping regions (dst > src)
+Original: "ABCDEFGHIJKLMN"
+Standard memmove: "ABCDABCDEFGHMN"
+Your ft_memmove: "ABCDABCDEFGHMN"
+✓ Test passed!
+
+Test 4: Zero-length operation
+Standard memmove: "XXXXXXXXXXXXXXX"
+Your ft_memmove: "XXXXXXXXXXXXXXX"
+✓ Test passed!
+
+Test 5: Large buffer (1000 bytes)
+✓ Test passed!
+
+Test 6: NULL pointers with zero length
+✓ Test passed! Both returned NULL
+
+Test 7: Struct copy with overlap
+✓ Test passed!
+
+
+===== FT_MEMMOVE TEST SUMMARY =====
+Tests passed: 7/7 (100.00%)
+All tests passed! Your ft_memmove function works correctly.
+
+
+
+===== TESTING FT_CALLOC =====
+
+Test 1: Allocate 5 ints
+✓ Both arrays are zero-initialized and match.
+
+Test 2: Allocate 10 chars
+✓ Both arrays are zero-initialized and match.
+
+Test 3: Zero nmemb
+✓ Both behave the same for nmemb = 0.
+
+Test 4: Zero size
+✓ Both behave the same for size = 0.
+
+Test 5: Memory independence
+✓ Memory is writable and independent.
+
+Test 6: Large allocation (100000 chars)
+✓ Large arrays are zero-initialized and match.
+
+===== FT_CALLOC TEST SUMMARY =====
+Tests passed: 6/6 (100.00%)
+All tests passed! Your ft_calloc function works correctly.
+
+
+
+===== TESTING FT_PUTCHAR_FD =====
+
+Test 1: Writing 'A' to standard output (should see 'A' below):
+Expected output: A
+Your output:    A
+(If you see 'A' above, the test passed visually.)
+
+Test 2: Writing 'Z' to a file and verifying content...
+✓ File contains the correct character: 'Z'
+
+Test 3: Writing 'E' to standard error (should see 'E' below):
+
+===== FT_PUTCHAR_FD TEST SUMMARY =====
+Tests passed: 3/3 (100.00%)
+All tests passed! Your ft_putchar_fd function works correctly.
+
+
+===== TESTING FT_PUTSTR_FD =====
+
+Test 1: Writing "Hello, World!" to standard output (should see below):
+Expected output: Hello, World!
+Your output:    Hello, World!
+(If you see 'Hello, World!' above, the test passed visually.)
+
+Test 3: Writing "File test string." to a file and verifying content...
+✓ File contains the correct string: "File test string."
+
+Test 4: Writing an empty string to stdout (should see nothing):
+Expected output: <nothing>
+Your output:    <>
+(If you see nothing between the angle brackets, the test passed visually.)
+
+Test 5: Writing NULL string to stdout (should not crash):
+If you see this message, your function handled NULL safely.
+
+===== FT_PUTSTR_FD TEST SUMMARY =====
+Tests passed: 5/5 (100.00%)
+All tests passed! Your ft_putstr_fd function works correctly.
+
+
+===== TESTING FT_PUTENDL_FD =====
+
+Test 1: Writing "Hello, World!" with newline to stdout (should see below):
+Expected output:
+Hello, World!
+Your output:
+Hello, World!
+(If you see 'Hello, World!' followed by a newline, the test passed visually.)
+
+Test 3: Writing "File test string." with newline to a file and verifying content...
+✓ File contains the correct string and newline: "File test string.
+"
+
+Test 4: Writing an empty string to stdout (should see just a newline):
+Expected output: <newline>
+Your output: <
+
+>
+(If you see only a newline between the angle brackets, the test passed visually.)
+
+Test 5: Writing NULL string to stdout (should not crash):
+If you see this message, your function handled NULL safely.
+
+===== FT_PUTENDL_FD TEST SUMMARY =====
+Tests passed: 5/5 (100.00%)
+All tests passed! Your ft_putendl_fd function works correctly.
+
+
+===== TESTING FT_PUTNBR_FD =====
+
+Test 1: Writing numbers to standard output (should see below):
+Expected: 0 | Your output: 0
+Expected: 42 | Your output: 42
+Expected: -42 | Your output: -42
+Expected: 2147483647 | Your output: 2147483647
+Expected: -2147483648 | Your output: -2147483648
+Expected: 123456 | Your output: 123456
+Expected: -987654 | Your output: -987654
+(If the numbers above match the expected, the test passed visually.)
+
+Test 2: Writing numbers to a file and verifying content...
+✓ File contains correct output for 0: "0"
+✓ File contains correct output for 42: "42"
+✓ File contains correct output for -42: "-42"
+✓ File contains correct output for 2147483647: "2147483647"
+✓ File contains correct output for -2147483648: "-2147483648"
+✓ File contains correct output for 123456: "123456"
+✓ File contains correct output for -987654: "-987654"
+
+===== FT_PUTNBR_FD TEST SUMMARY =====
+Tests passed: 3/3 (100.00%)
+All tests passed! Your ft_putnbr_fd function works correctly.
+
+
+===== TESTING FT_STRITERI =====
+
+Test 1: Uppercase conversion
+Result: "HELLO WORLD!"
+✓ Test passed!
+
+Test 2: Lowercase conversion
+Result: "hello world!"
+✓ Test passed!
+
+Test 3: Star at even indices
+Result: "*b*d*f"
+✓ Test passed!
+
+Test 4: Empty string
+Result: ""
+✓ Test passed!
+
+Test 5: NULL string (should not crash)
+If you see this message, the function handled NULL safely.
+Test 6: NULL function pointer (should not crash)
+If you see this message, the function handled NULL safely.
+
+===== FT_STRITERI TEST SUMMARY =====
+Tests passed: 6/6 (100.00%)
+All tests passed! Your ft_striteri function works correctly.
+
+
+
+===== TESTING FT_STRMAPI =====
+
+Test 1: Uppercase every odd index
+Input:    "hello world"
+Expected: "hElLo wOrLd"
+Result:   "hElLo wOrLd"
+✓ Test passed!
+
+Test 2: Identity function
+Input:    "LibftTest"
+Expected: "LibftTest"
+Result:   "LibftTest"
+✓ Test passed!
+
+Test 3: Empty string
+Input:    ""
+Expected: ""
+Result:   ""
+✓ Test passed!
+
+Test 4: NULL input string
+Expected: (null)
+Result:   (null)
+✓ Test passed!
+
+Test 5: NULL function pointer
+Expected: (null)
+Result:   (null)
+✓ Test passed!
+
+
+===== FT_STRMAPI TEST SUMMARY =====
+Tests passed: 5/5 (100.00%)
+All tests passed! Your ft_strmapi function works correctly.
+
+
+
+===== TESTING FT_ITOA =====
+
+Test 1: Input: 0
+Expected: "0" | Yours: "0"
+✓ Passed
+
+Test 2: Input: 42
+Expected: "42" | Yours: "42"
+✓ Passed
+
+Test 3: Input: -42
+Expected: "-42" | Yours: "-42"
+✓ Passed
+
+Test 4: Input: 2147483647
+Expected: "2147483647" | Yours: "2147483647"
+✓ Passed
+
+Test 5: Input: -2147483648
+Expected: "-2147483648" | Yours: "-2147483648"
+✓ Passed
+
+Test 6: Input: 123456
+Expected: "123456" | Yours: "123456"
+✓ Passed
+
+Test 7: Input: -123456
+Expected: "-123456" | Yours: "-123456"
+✓ Passed
+
+Test 8: Input: 1
+Expected: "1" | Yours: "1"
+✓ Passed
+
+Test 9: Input: -999
+Expected: "-999" | Yours: "-999"
+✓ Passed
+
+✓ Memory and null termination test passed
+
+
+===== FT_ITOA TEST SUMMARY =====
+Tests passed: 10/10 (100.00%)
+All tests passed! Your ft_itoa works correctly.
+
+
+
+===== TESTING FT_SUBSTR =====
+
+Test 1: ft_substr("Hello, World!", 7, 5) -> "World"
+✓ Test passed!
+
+Test 2: ft_substr("Hello", 10, 3) -> ""
+✓ Test passed!
+
+Test 3: ft_substr("Hi", 0, 10) -> "Hi"
+✓ Test passed!
+
+Test 4: ft_substr("Hello", 2, 0) -> ""
+✓ Test passed!
+
+Test 5: ft_substr("", 0, 5) -> ""
+✓ Test passed!
+
+Test 6: ft_substr(NULL, 0, 5) -> NULL
+✓ Test passed! (NULL returned as expected)
+
+
+===== FT_SUBSTR TEST SUMMARY =====
+Tests passed: 6/6 (100.00%)
+All tests passed! Your ft_substr function works correctly.
+
+
+===== TESTING FT_STRJOIN =====
+
+Test 1: Basic concatenation
+s1: "Hello, "
+s2: "world!"
+Expected: "Hello, world!"
+Result:   "Hello, world!"
+
+Test 2: Empty first string
+s1: ""
+s2: "Test"
+Expected: "Test"
+Result:   "Test"
+
+Test 3: Empty second string
+s1: "Test"
+s2: ""
+Expected: "Test"
+Result:   "Test"
+
+Test 4: Both strings empty
+s1: ""
+s2: ""
+Expected: ""
+Result:   ""
+
+Test 5: First string NULL
+s1: NULL
+s2: "Test"
+Expected: "Test"
+Result:   "Test"
+
+Test 6: Second string NULL
+s1: "Test"
+s2: NULL
+Expected: "Test"
+Result:   "Test"
+
+Test 7: Both strings NULL
+s1: NULL
+s2: NULL
+Expected: NULL
+Result:   NULL
+
+Test 8: Large strings
+s1 length: 35
+s2 length: 34
+Result length: ✓ Correct
+
+===== FT_STRJOIN TEST SUMMARY =====
+Tests passed: 8/8 (100.00%)
+All tests passed! Your ft_strjoin works correctly.
+
+
+
+===== TESTING FT_STRTRIM =====
+
+Test 1: Trim spaces
+Input: "   Hello World   " | Set: " "
+Expected: "Hello World"
+Result:   "Hello World"
+✓ Test passed!
+
+Test 2: Trim 'a', 'b', 'c'
+Input: "abcHelloabc" | Set: "abc"
+Expected: "Hello"
+Result:   "Hello"
+✓ Test passed!
+
+Test 3: No characters to trim
+Input: "Hello" | Set: "xyz"
+Expected: "Hello"
+Result:   "Hello"
+✓ Test passed!
+
+Test 4: Empty string
+Input: "" | Set: "abc"
+Expected: ""
+Result:   ""
+✓ Test passed!
+
+Test 5: Empty set
+Input: "Hello" | Set: ""
+Expected: "Hello"
+Result:   "Hello"
+✓ Test passed!
+
+Test 6: All characters trimmed
+Input: "aaa" | Set: "a"
+Expected: ""
+Result:   ""
+✓ Test passed!
+
+Test 7: NULL string
+Input: NULL | Set: "a"
+Expected: NULL
+Result:   NULL
+✓ Test passed!
+
+Test 8: NULL set
+Input: "Hello" | Set: NULL
+Expected: "Hello"
+Result:   "Hello"
+✓ Test passed!
+
+
+===== FT_STRTRIM TEST SUMMARY =====
+Tests passed: 8/8 (100.00%)
+All tests passed! Your ft_strtrim function works correctly.
+
+
+
+===== TESTING FT_SPLIT =====
+
+Test 1: Input: "Hello world this is test", Delimiter: ' '
+✓ Passed
+Test 2: Input: "foo,,bar,,baz", Delimiter: ','
+✓ Passed
+Test 3: Input: "HelloWorld", Delimiter: ' '
+✓ Passed
+Test 4: Input: "", Delimiter: 'a'
+✓ Passed
+Test 5: Input: "||||", Delimiter: '|'
+✓ Passed
+Test 6: Input: ":one:two:", Delimiter: ':'
+✓ Passed
+Test 7: Input: "  Split  this   string  ", Delimiter: ' '
+✓ Passed
+Test 8: Input: "1,2,3,4,5", Delimiter: ','
+✓ Passed
+Test 9: NULL input
+✓ Passed
+
+===== FT_SPLIT TEST SUMMARY =====
+Tests passed: 9/9 (100.00%)
+All tests passed! Your ft_split works correctly.
+
+

@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:47:47 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/29 20:13:54 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 03:13:37 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char	*ft_itoa(int n)
 	char	*str;
 	size_t	len;
 	long	num;
-	int 	is_neg;
+	int		is_neg;
 
 	len = ft_numlen(n);
 	str = (char *)malloc(len + 1);

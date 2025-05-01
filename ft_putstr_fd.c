@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 19:46:45 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/22 19:48:09 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 03:15:33 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_putstr_fd(char *s, int fd)
 {
 	if (!s)
-		return;
+		return ;
 	while (*s)
 	{
 		write(fd, s, 1);

@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 18:09:29 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 14:21:27 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 03:17:20 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
+	int		sign;
 	long	result;
 
 	sign = 1;
 	result = 0;
-	while (*str == ' '  || (*str >= 9 && *str <= 13))
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 	{
