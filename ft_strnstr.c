@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 00:07:53 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 03:18:20 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:14:48 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ * ft_strnstr - Locate a substring in a string, searching only the first 'len' characters
+ * This is a FreeBSD-specific function that we're reimplementing for our library
+ *
+ * @haystack: The string to be searched
+ * @needle: The substring to search for
+ * @len: The maximum number of characters to search in haystack
+ *
+ * Return: If needle is empty, returns haystack
+ *         If needle is found, returns pointer to first occurrence in haystack
+ *         If needle is not found or search exceeds len, returns NULL
+ */
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {

@@ -3,14 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 20:08:30 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 21:46:59 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:27:23 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ * ft_putnbr_fd - Outputs the integer 'n' to the given file descriptor.
+ *
+ * @n: The integer to output.
+ * @fd: The file descriptor on which to write.
+ *
+ * This function converts an integer to its character representation
+ * and writes it to the specified file descriptor. It handles negative
+ * numbers and the special case of INT_MIN.
+ *
+ * Return: None
+ */
 
 void	ft_putnbr_fd(int n, int fd)
 {

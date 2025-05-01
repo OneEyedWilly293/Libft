@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 17:42:03 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 03:00:04 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:42:52 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* 
+ * ft_split - splits a string into an array of strings based on a delimiter
+ * 
+ * @s: The string to be split
+ * @c: The delimiter character
+ * 
+ * Return: An array of strings (NULL-terminated), or NULL if allocation fails
+ */
 
 static int	count_words(char const *s, char c)
 {

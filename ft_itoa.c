@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:47:47 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 03:13:37 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:40:10 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ * ft_numlen - Calculate the number of digits in an integer
+ * @n: The integer to calculate length for
+ *
+ * This helper function determines how many characters we need
+ * to allocate for our string (including the sign for negatives).
+ *
+ * Return: The number of digits (plus sign if negative)
+ */
 
 static size_t	ft_numlen(int n)
 {

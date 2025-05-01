@@ -9,6 +9,9 @@ Libft
 ## <ins>Logs</ins>
 
 ### <ins>01.05.2025</ins>
+- Added comment for each function with their descriptions.
+
+### <ins>01.05.2025</ins>
 - Norm compliance check for functions.
 - Created Makefile.
 	> *Thank you Mika!*

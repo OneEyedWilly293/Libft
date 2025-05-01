@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 17:35:20 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 03:17:51 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:10:13 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* 
+ * ft_memchr - Searches for the first occurrence of a byte in a memory area
+ *
+ * This function scans the first 'n' bytes of the memory area pointed to by 's'
+ * for the first occurrence of the byte 'c'. Both 'c' and the bytes of the
+ * memory area are interpreted as unsigned char.
+ *
+ * Parameters:
+ * s - Pointer to the memory area to be searched
+ * c - The byte to search for (interpreted as an unsigned char)
+ * n - Number of bytes to search
+ *
+ * Return:
+ * - A pointer to the matching byte if found
+ * - NULL if the byte doesn't occur in the given memory area
+ */
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

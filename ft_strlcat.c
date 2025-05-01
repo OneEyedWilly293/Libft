@@ -6,11 +6,24 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 19:49:21 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/27 20:57:33 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:45:58 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ * ft_strlcat - concatenates strings with size limitation
+ * @dst: destination string buffer
+ * @src: source string to append
+ * @size: size of the destination buffer
+ *
+ * This function appends the null-terminated string src to the end of dst.
+ * It will append at most size - strlen(dst) - 1 bytes, and then null-terminate.
+ * 
+ * Return: The total length of the string it tried to create
+ *         (initial length of dst plus length of src)
+ */
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {

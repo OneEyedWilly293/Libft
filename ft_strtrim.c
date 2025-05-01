@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 14:49:36 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 03:12:13 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:42:28 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ * This function checks if a character 'c' is present in the string 'set'.
+ * It returns 1 if the character is found in the set, 0 otherwise.
+ *
+ * Parameters:
+ *   c: The character to check
+ *   set: The reference set of characters
+ *
+ * Return value:
+ *   1 if 'c' is in 'set', 0 otherwise
+ */
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

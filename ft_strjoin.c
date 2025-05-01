@@ -3,14 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 17:38:27 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 03:11:04 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:41:43 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* 
+ * Function: strjoin
+ * ----------------
+ * Allocates and returns a new string which is the result of concatenating
+ * the prefix string 's1' and the suffix string 's2'.
+ *
+ * Parameters:
+ *   s1: The prefix string (first string to concatenate)
+ *   s2: The suffix string (second string to concatenate)
+ *
+ * Returns:
+ *   A newly allocated string containing the concatenation of s1 and s2
+ *   NULL if the memory allocation fails
+ *
+ * Note:
+ *   The caller is responsible for freeing the memory allocated by this function
+ */
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

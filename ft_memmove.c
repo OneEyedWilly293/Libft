@@ -3,14 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:39:37 by jgueon            #+#    #+#             */
-/*   Updated: 2025/04/28 19:22:54 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/01 22:22:38 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/*
+ * ft_memmove - Copies n bytes from memory area src to memory area dst.
+ * The memory areas may overlap.
+ *
+ * @dst: Pointer to the destination memory area
+ * @src: Pointer to the source memory area
+ * @n: Number of bytes to copy
+ *
+ * Return: The original value of dst
+ *
+ * Description:
+ * This function copies n bytes from memory area src to memory area dst.
+ * Unlike memcpy, memmove handles overlapping memory regions correctly.
+ * If src and dst overlap, the copy is done in a non-destructive manner.
+ * The function first checks if the memory areas overlap and determines
+ * the direction of copying to avoid data corruption.
+ */
 
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
