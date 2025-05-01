@@ -9,11 +9,11 @@ Libft
 ## <ins>Logs</ins>
 
 ### <ins>01.05.2025</ins>
+- Norm compliance check for functions.
 - Created Makefile.
 	> *Thank you Mika!*
 
 ### <ins>30.04.2025</ins>
-- Created Makefile.
 - Configured testfile for valgrind error summary.
 	> *Thank you Leon^^*
 
