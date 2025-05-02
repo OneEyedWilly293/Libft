@@ -9,6 +9,7 @@ Libft
 ## <ins>Logs</ins>
 
 ### <ins>02.05.2025</ins>
+- Updated syntax for ft_atoi after further testing.
 - Learned to out test file result with "&> [filename].tt"
 - Implemented Norm compliance check after comments were added.
 - Modified test file.
