@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/02 15:55:02 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 00:46:44 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2548,7 +2548,7 @@ int	main(void)
 		{"", "non-empty", 0, 0},				// Test 15
 		{"abc", "abc", 0, 0},					// Test 16
 		{"abc", "abd", 2, 0},					// Test 17
-		{"abc", "abd", 3, 'c' - 'd'}			// Test 18
+		{"sad", "boy", 3, "s" - "b"}			// Test 18
 	};
 
 	size_t num_tests = sizeof(tests) / sizeof(tests[0]);
@@ -3063,8 +3063,8 @@ int	main(void)
 		/* Overflow/underflow cases (Libft specific) */
 		{"2147483647", 2147483647, 2147483647},       //t5 /* INT_MAX */
 		{"-2147483648", -2147483648, -2147483648},     //t6 /* INT_MIN */
-		{"2147483648", 2147483647, 2147483647},                //t7 /* Overflow  (Std: undefined) */
-		{"-2147483649", -2147483648, -2147483648},               //t8 /* Underflow (Std: undefined) */
+		{"2147483648", -2147483648, -2147483648},                //t7 /* Overflow  (Std: undefined) */
+		{"-2147483649", 2147483647, 2147483647},               //t8 /* Underflow (Std: undefined) */
 
 		/* Whitespace handling */
 		{" \t\n\v\f\r+42", 42, 42},			//t9
