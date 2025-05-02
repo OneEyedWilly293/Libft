@@ -1,6 +1,6 @@
 Libft
 
-## <ins>How to run the test<ins>
+### <ins>How to run the test<ins>
 ```json
 "terminal.integrated.scrollback": 100000
 ```
@@ -8,10 +8,13 @@ Libft
 
 ## <ins>Logs</ins>
 
-### <ins>01.05.2025</ins>
-- Added comment for each function with their descriptions.
+### <ins>02.05.2025</ins>
+- Learned to out test file result with "&> [filename].tt"
+- Implemented Norm compliance check after comments were added.
+- Modified test file.
 
 ### <ins>01.05.2025</ins>
+- Added comment for each function with their descriptions.
 - Norm compliance check for functions.
 - Created Makefile.
 	> *Thank you Mika!*

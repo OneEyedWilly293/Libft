@@ -1966,8 +1966,8 @@ Your ft_memchr: NULL
 Test 6: Non-ASCII character (0xFF)
 Buffer: {0x41, 0xFF, 0x42, 0x00}
 Searching for 0xFF in 4 bytes
-Standard memchr: 0x1ffeffbb4d
-Your ft_memchr: 0x1ffeffbb4d
+Standard memchr: 0x7ffc81e4c01d
+Your ft_memchr: 0x7ffc81e4c01d
 ✓ Test passed!
 
 
@@ -2168,12 +2168,12 @@ Expected: -2147483648 | ft_atoi: -2147483648 | std_atoi: -2147483648
 ✓ Passed
 
 Test 7: Input: "2147483648"
-Expected: -1 | ft_atoi: -1 | std_atoi: -2147483648
-✓ Passed
+Expected: 2147483647 | ft_atoi: -2147483648 | std_atoi: -2147483648
+✗ Failed!
 
 Test 8: Input: "-2147483649"
-Expected: 0 | ft_atoi: 0 | std_atoi: 2147483647
-✓ Passed
+Expected: -2147483648 | ft_atoi: 2147483647 | std_atoi: 2147483647
+✗ Failed!
 
 Test 9: Input: " 	
 +42"
@@ -2254,8 +2254,8 @@ Expected: 0 | ft_atoi: 0
 
 
 ===== FT_ATOI TEST SUMMARY =====
-Tests passed: 25/25 (100.00%)
-All tests passed! Your ft_atoi works correctly.
+Tests passed: 23/25 (92.00%)
+Some tests failed. Please check your implementation.
 
 
 
@@ -2368,7 +2368,10 @@ All tests passed! Your ft_calloc function works correctly.
 
 Test 1: Writing 'A' to standard output (should see 'A' below):
 Expected output: A
-Your output:    A
+Your output:    AExpected output (stderr): E
+Your output (stderr):    E
+(If you see 'E' above, the test passed visually.)
+
 (If you see 'A' above, the test passed visually.)
 
 Test 2: Writing 'Z' to a file and verifying content...
@@ -2386,6 +2389,11 @@ All tests passed! Your ft_putchar_fd function works correctly.
 Test 1: Writing "Hello, World!" to standard output (should see below):
 Expected output: Hello, World!
 Your output:    Hello, World!
+Test 2: Writing "Error output!" to standard error (should see below):
+Expected output (stderr): Error output!
+Your output (stderr):    Error output!
+(If you see 'Error output!' above, the test passed visually.)
+
 (If you see 'Hello, World!' above, the test passed visually.)
 
 Test 3: Writing "File test string." to a file and verifying content...
@@ -2411,6 +2419,13 @@ Expected output:
 Hello, World!
 Your output:
 Hello, World!
+
+Test 2: Writing "Error output!" with newline to stderr (should see below):
+Expected output (stderr):
+Error output!
+Your output (stderr):
+Error output!
+(If you see 'Error output!' followed by a newline, the test passed visually.)
 (If you see 'Hello, World!' followed by a newline, the test passed visually.)
 
 Test 3: Writing "File test string." with newline to a file and verifying content...
@@ -2442,6 +2457,11 @@ Expected: 2147483647 | Your output: 2147483647
 Expected: -2147483648 | Your output: -2147483648
 Expected: 123456 | Your output: 123456
 Expected: -987654 | Your output: -987654
+Test 3: Writing -12345 to standard error (should see -12345 below):
+Expected output (stderr): -12345
+Your output (stderr):    -12345
+(If you see -12345 above, the test passed visually.)
+
 (If the numbers above match the expected, the test passed visually.)
 
 Test 2: Writing numbers to a file and verifying content...

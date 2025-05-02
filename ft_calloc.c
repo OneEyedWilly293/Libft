@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 01:17:48 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 22:22:24 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/02 15:14:37 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@
  * returns a pointer that can safely be passed to free(). If the memory
  * allocation fails, it returns NULL.
  */
-
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
