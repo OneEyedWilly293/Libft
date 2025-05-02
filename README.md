@@ -10,8 +10,9 @@ Libft
 
 ### <ins>02.05.2025</ins>
 - Updated normcheck and test output result.
-	> *added test_outputt.tt*
-	> *added normcheck.tt*
+	> * added test_output.tt
+	> * added normcheck.tt
+	> * added LibftTester_output.tt
 - Implemented correction for ft_calloc to handle overflow.
 - Tested against "Libft Tester"
 - Updated syntax for ft_atoi after further testing.
