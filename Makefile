@@ -6,7 +6,7 @@
 #    By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/30 21:00:09 by jgueon            #+#    #+#              #
-#    Updated: 2025/05/01 02:57:16 by jgueon           ###   ########.fr        #
+#    Updated: 2025/05/02 16:57:49 by jgueon           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SOURCES := ft_isalpha.c \
 			ft_itoa.c \
 			ft_strmapi.c \
 			ft_striteri.c \
-			ft_putchar_fd.c \-
+			ft_putchar_fd.c \
 			ft_putstr_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \

@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 01:17:48 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/02 15:14:37 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/02 17:46:52 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,21 @@
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
-	void	*array;
+	void	*ptr;
+	size_t	total_size;
+	size_t	i;
 
-	array = malloc(nmemb * size);
-	if (array == NULL)
+	if (nmemb != 0 && size != 0 && nmemb > SIZE_MAX / size)
 		return (NULL);
-	ft_bzero(array, (nmemb * size));
-	return (array);
+	total_size = nmemb * size;
+	ptr = malloc(total_size);
+	if (ptr == NULL)
+		return (NULL);
+	i = 0;
+	while (i < total_size)
+	{
+		((unsigned char *)ptr)[i] = 0;
+		i++;
+	}
+	return (ptr);
 }

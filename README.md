@@ -9,6 +9,11 @@ Libft
 ## <ins>Logs</ins>
 
 ### <ins>02.05.2025</ins>
+- Updated normcheck and test output result.
+	> *added test_outputt.tt*
+	> *added normcheck.tt*
+- Implemented correction for ft_calloc to handle overflow.
+- Tested against "Libft Tester"
 - Updated syntax for ft_atoi after further testing.
 - Learned to out test file result with "&> [filename].tt"
 - Implemented Norm compliance check after comments were added.
