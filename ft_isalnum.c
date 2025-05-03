@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 19:43:08 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/03 00:41:55 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 04:13:47 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@
  *
  * @param c - The character to check (represented as an int)
  *
- * @return value: Non-zero value (1) if c is alphanumeric, zero (0) otherwise.
+ * @return return value: Non-zero value (1) if c is alphanumeric,
+ * 		zero (0) otherwise.
 */
 int	ft_isalnum(int c)
 {

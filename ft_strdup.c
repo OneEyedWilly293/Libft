@@ -6,24 +6,24 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 15:02:20 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 22:22:53 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 05:08:26 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /**
- * ft_strdup - Duplicates a string
- * @s: The string to duplicate
- *
+ * @brief Duplicates a string
+ * 
  * Description: This function allocates memory for a new string which is
  * a duplicate of the string s. Memory for the new string is obtained with
  * malloc, and can be freed with free.
  *
- * Return: A pointer to the duplicated string, or NULL if insufficient memory
+ * @param s: The string to duplicate
+ *
+ * @return A pointer to the duplicated string, or NULL if insufficient memory
  * was available
  */
-
 char	*ft_strdup(const char *s1)
 {
 	char	*dup;

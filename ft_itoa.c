@@ -6,22 +6,21 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 17:47:47 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 22:40:10 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 03:39:34 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
  * ft_numlen - Calculate the number of digits in an integer
  * @n: The integer to calculate length for
  *
  * This helper function determines how many characters we need
  * to allocate for our string (including the sign for negatives).
  *
- * Return: The number of digits (plus sign if negative)
+ * @return: The number of digits (plus sign if negative)
  */
-
 static size_t	ft_numlen(int n)
 {
 	size_t	len;
@@ -44,6 +43,16 @@ static size_t	ft_numlen(int n)
 	return (len);
 }
 
+/**
+ * ft_itoa - Convert an integer to a string
+ *
+ * This function allocates memory and returns a 'fresh' string
+ * that represents the integer n passed as argument.
+ * Negative numbers are supported.
+ *
+ * @param n: The integer to convert
+ * @return The string representing the integer, or NULL if allocation fails
+ */
 char	*ft_itoa(int n)
 {
 	char	*str;

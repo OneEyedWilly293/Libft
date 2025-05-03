@@ -6,13 +6,13 @@
 /*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/15 20:53:31 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/01 22:07:44 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 04:22:47 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/* 
+/**
  * ft_memcpy - Copies n bytes from memory area src to memory area dest
  *
  * This function copies n bytes from memory area src to memory area dest.
@@ -24,7 +24,6 @@
  * @param n     Number of bytes to copy
  * @return      A pointer to dest
  */
-
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	const unsigned char	*s;
