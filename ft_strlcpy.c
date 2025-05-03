@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:55:26 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/03 05:13:49 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 18:08:40 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	src_len;
 	size_t	i;
 
-	if (!dst || !src)
-		return (0);
 	src_len = 0;
 	while (src[src_len])
 		src_len++;

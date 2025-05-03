@@ -8,6 +8,15 @@ Libft
 
 ## <ins>Logs</ins>
 
+### <ins>03.05.2025</ins>
+- Updated test file for more clarity.
+- Updated ft_strdup test 5 to make it more visually clear.
+- Modified ft_memmove to make it more concise.
+- Added Null check for ft_putendl_fd.
+- Modified ft_striteri to make it more concise.
+- Modified Doxygen comments in ft_split to comply with Norm standards.
+	> * Column 80 limit*
+
 ### <ins>02.05.2025</ins>
 - Updated normcheck and test output result.
 	> * added test_output.tt

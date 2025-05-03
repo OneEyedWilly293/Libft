@@ -6,7 +6,7 @@
 /*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 18:12:00 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/03 00:46:44 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 22:08:45 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -2523,32 +2523,35 @@ int	main(void)
 		int expected;
 	} tests[] = {
 		/* Basic comparisons */
-		{"apple", "apple", 5, 0},				// Test 1
-		{"apple", "apples", 5, 0},				// Test 2
-		{"apple", "apples", 6, -'s'},			// Test 3
-		{"apple", "banana", 5, 'a' - 'b'},		// Test 4
-		{"banana", "apple", 5, 'b' - 'a'},		// Test 5
-		{"", "", 0, 0},							// Test 6
+		{"apple", "apple", 5, 0},               // Test 1 (identical)
+		{"apple", "apples", 5, 0},              // Test 2 (equal in first 5)
+		{"apple", "apples", 6, -'s'},           // Test 3 (-115)
+		{"apple", "apricot", 5, 'l'-'r'},       // Test 4 (-6) new
+		{"banana", "apple", 5, 'b'-'a'},        // Test 5 (1)
+		{"", "", 0, 0},                         // Test 6
 
 		/* Case sensitivity */
-		{"HELLO", "hello", 5, 'H' - 'h'},		// Test 7
-		{"hello", "HELLO", 5, 'h' - 'H'},		// Test 8
+		{"HELLO", "hello", 5, 'H'-'h'},         // Test 7 (-32)
+		{"hello", "HELLO", 5, 'h'-'H'},         // Test 8 (32) new
 
 		/* Different lengths */
-		{"short", "shorter", 5, 0},				// Test 9
-		{"shorter", "short", 5, 0},				// Test 10
-		{"shorter", "short", 6, 'e' - '\0'},	// Test 11
+		{"short", "shorter", 5, 0},             // Test 9
+		{"shorter", "short", 5, 0},             // Test 10
+		{"shorter", "short", 6, 'e'-'\0'},      // Test 11 (101)
 
 		/* Special characters */
-		{"test\200", "test\0", 5, 128},			// Test 12 (\200 is octal for 128 && \000 NULL character)
-		{"\255", "\255", 1, 0},					// Test 13 (\255 Octal/ \xad for Hex; soft hyphen)
-		{"\0abc", "\0xyz", 4, 0},				// Test 14
+		{"test\200", "test\0", 5, 128},         // Test 12 (\200 is octal fo4 128 && \000 NULL character)
+		{"\255", "\255", 1, 0},                 // Test 13 (\255 Octal/ \xad for Hex; soft hyphen)
+		{"\0abc", "\0xyz", 4, 0},               // Test 14
+		{"\xff", "\x7f", 1, 128},               // Test 15 new (255-127=128)
 
 		/* Edge cases */
-		{"", "non-empty", 0, 0},				// Test 15
-		{"abc", "abc", 0, 0},					// Test 16
-		{"abc", "abd", 2, 0},					// Test 17
-		{"sad", "boy", 3, "s" - "b"}			// Test 18
+		{"", "non-empty", 0, 0},                // Test 16
+		{"abc", "abc", 0, 0},                   // Test 17
+		{"dog", "dig", 3, 'o'-'i'},             // Test 18 new (6)
+		{"~", "!", 1, '~'-'!'},                 // Test 19 new (94)
+		{"\1", "\2", 2, -1},                    // Test 20 new
+		{"\3", "\1", 2, 2}                      // Test 21 new
 	};
 
 	size_t num_tests = sizeof(tests) / sizeof(tests[0]);
@@ -2556,6 +2559,7 @@ int	main(void)
 	for (size_t t = 0; t < num_tests; t++) {
 		int result = ft_strncmp(tests[t].s1, tests[t].s2, tests[t].n);
 		int actual = result < 0 ? -1 : result > 0 ? 1 : 0;
+		int expected_raw = strncmp(tests[t].s1, tests[t].s2, tests[t].n);
 		int expected = tests[t].expected < 0 ? -1 : tests[t].expected > 0 ? 1 : 0;
 
 		total++;
@@ -2591,16 +2595,31 @@ int	main(void)
 		printf("Test %zu: s1=\"%s\", s2=\"%s\", n=%zu\n", t+1,   // This was causing the hex to print Unicode "replacement-
 			tests[t].s1, tests[t].s2, tests[t].n);				character(U+FFFD;question mark indicating that the editor cannot correctly
 		*/														// display a byte that is not valid bUTF-8 or not current locale/font/)"
-		printf("Expected: %d | Actual: %d\n", expected, actual);
+		printf("Expected: %d (raw: %d) | Actual: %d (raw %d)\n", expected, expected_raw, actual, result);
 
 
 		if (actual != expected) {
 			printf("MISMATCH! (Standard: %d, Yours: %d)\n",
-				strncmp(tests[t].s1, tests[t].s2, tests[t].n), result);
+				expected_raw, result);
 		}
 	}
 
 	/* Additional comprehensive test */
+	/*The "Comprehensive ASCII Test" in your ft_strncmp test function
+	tests all possible combinations of ASCII characters (0-127) against each other.
+	It creates 16,384 test cases (128×128) by comparing every ASCII character
+	with every other ASCII character using both the standard strncmp and your
+	ft_strncmp implementation.
+
+	This test ensures your function correctly handles all possible character
+	comparisons, including control characters, printable characters,
+	and edge cases. It normalizes the return values to -1, 0, or 1 to verify the
+	comparison direction is correct, rather than checking the exact difference value.
+
+	The test is silent by default and only shows output when it finds a mismatch
+	which is why you don't see detailed output for each of the 16,384 comparisons.
+	The summary at the end ("Tests passed: 16402/16402") includes both the
+	specific test cases and this comprehensive test.*/
 	printf("\n===== COMPREHENSIVE ASCII TEST =====\n\n");
 	for (int i = 0; i <= 127; i++) {
 		for (int j = 0; j <= 127; j++) {
@@ -2612,14 +2631,20 @@ int	main(void)
 			int norm_result = result < 0 ? -1 : result > 0 ? 1 : 0;
 
 			total++;
-			if (norm_expected == norm_result) {
+			if (norm_expected == norm_result)
+			{
 				passed++;
-			} else {
-				printf("✗ Char %d vs %d: Expected %d, Got %d\n",
-					i, j, norm_expected, norm_result);
+				if (i % 32 == 0 && j == 0)	// Progress indicator
+					printf("✓ ✓ ✓ ✓ ✓ ✓ ✓ ");
+			}
+			else
+			{
+				printf("✗ Char %d vs %d: Expected %d (raw %d), Got %d (raw %d)\n",
+					i, j, norm_expected, expected, norm_result, result);
 			}
 		}
 	}
+	printf("\n");
 
 	/* Print test summary */
 	printf("\n===== FT_STRNCMP TEST SUMMARY =====\n");
@@ -3266,33 +3291,40 @@ int	main(void)
 			printf("✗ Test failed!\n\n");
 		free(dup_std);
 		free(dup_ft);
-	
+
 		/* Test 5: Memory independence */
 		src = "Memory independence";
 		dup_ft = ft_strdup(src);
 		total++;
-		printf("Test 5: Memory independence\n");
-		printf("Original: \"%s\"\n", src);
-		printf("Your ft_strdup: \"%s\"\n", dup_ft);
+		printf("Test 5: Memory independence (visual)\n");
+		printf("Before modification:\n");
+		printf("  src    : \"%s\"\n", src);
+		printf("  dup_ft : \"%s\"\n", dup_ft);
+
 		if (dup_ft && dup_ft != src)
 		{
+			/* Change the first character of the duplicate */
 			dup_ft[0] = 'X';
-			if (src[0] != 'X')
+			printf("After modifying dup_ft[0] to 'X':\n");
+			printf("  src    : \"%s\"\n", src);
+			printf("  dup_ft : \"%s\"\n", dup_ft);
+
+			if (src[0] != dup_ft[0])
 			{
 				passed++;
 				printf("✓ Test passed! Duplicate is independent.\n\n");
 			}
 			else
-				printf("✗ Test failed! Duplicate is not independent.\n\n");
+				printf("✗ Test failed! Modifying dup_ft changed src (not independent).\n\n");
 		}
 		else
-			printf("✗ Test failed! ft_strdup returned NULL or same pointer.\n\n");
+			printf("✗ Test failed! ft_strdup returned NULL or same pointer as src.\n\n");
 		free(dup_ft);
-	
+
 		printf("\n===== FT_STRDUP TEST SUMMARY =====\n");
 		printf("Tests passed: %d/%d (%.2f%%)\n",
 			passed, total, (float)passed / total * 100);
-	
+
 		if (passed == total)
 			printf("All tests passed! Your ft_strdup function works correctly.\n\n\n");
 		else
@@ -3455,6 +3487,27 @@ int	main(void)
 			ft_result == NULL ? "NULL" : "non-NULL");
 
 	/* Test 7: Struct copy with overlap */
+	/* Check whether our implementation correctly handles copying overlapping memory regions
+		within a struct.
+			- It initialized two identical structs with the same values
+			- Then call memmove(and ft_memmove) on these structs, but instead of copying from one
+				struct to another, it COPIES MEMORY WITHIN THE SAME STRUCT:
+				- The destination is the start of the struct (&s1 or &s2).
+				- The source is the address of the struct pllus the size of an int((char *)&s1)
+					+ sizeof(int)), i.e. it skips the first field.
+				- The nunmber of byes copied is the size of struct minus the size of an int(so, all
+					fields except the first one)
+			-This means it’s moving all the fields except the first one to the beginning of the struct, 
+					which causes the struct’s memory to overlap during the copy.
+		Why is this important?
+		This tests if your ft_memmove handles overlapping memory regions correctly,
+		even when the overlap happens inside a complex data type like a struct, not just a simple array. 
+		If your function is not implemented properly, it may corrupt the struct’s data during the copy.
+
+		Summary:
+		Test 7 checks if ft_memmove can copy overlapping regions inside a struct without corrupting data, 
+		which is a classic and critical edge case for memmove.
+	*/
 	struct memmove_struct {
 		int a;
 		char b;
@@ -3475,6 +3528,7 @@ int	main(void)
 	}
 	else
 		printf("✗ Test failed!\n\n");
+
 
 	/* Print test summary */
 	printf("\n===== FT_MEMMOVE TEST SUMMARY =====\n");
@@ -4961,7 +5015,5 @@ int	main(void)
     //     printf("✗ Found %d dangling pointers!\n", detected);
 
 	// }
-
-
-	return (0);
+return (0);
 }

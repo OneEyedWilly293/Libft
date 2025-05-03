@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 14:49:36 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/03 05:44:24 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 17:09:35 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@
  *   A duplicate of 's1' if 'set' is NULL
  *
  * @note Memory:
- *   The returned string is allocated with malloc() and must be freed by the caller
+ *   The returned string is allocated with malloc() and must be freed by
+ * 		the caller
  *
  * @note Edge cases:
  *   - If all characters in 's1' are in 'set', returns an empty string

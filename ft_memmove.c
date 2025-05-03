@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/16 15:39:37 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/03 04:23:41 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 22:06:28 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@
  * If src and dst overlap, the copy is done in a non-destructive manner.
  * The function first checks if the memory areas overlap and determines
  * the direction of copying to avoid data corruption.
- *
+ *	@note If both dst and src are NULL, return NULL (nothing to do).
+
  * @param dst: Pointer to the destination memory area
  * @param src: Pointer to the source memory area
  * @param n: Number of bytes to copy
@@ -31,24 +32,27 @@
  */
 void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-	unsigned char	*d;
-	unsigned char	*s;
+	unsigned char		*dest;
+	const unsigned char	*source;
 
-	d = (unsigned char *)dst;
-	s = (unsigned char *)src;
+	dest = (unsigned char *)dst;
+	source = (unsigned char *)src;
 	if (!dst && !src)
 		return (NULL);
-	if (dst > src)
+	if (dest > source)
 	{
-		d += n - 1;
-		s += n - 1;
-		while (n--)
-			*d-- = *s--;
+		while (n > 0)
+		{
+			dest[n - 1] = source[n - 1];
+			n--;
+		}
 	}
 	else
 	{
-		while (n--)
-			*d++ = *s++;
+		while (n-- > 0)
+		{
+			*dest++ = *source++;
+		}
 	}
 	return (dst);
 }

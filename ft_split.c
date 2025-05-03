@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jgueon <jgueon@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jgueon <jgueon@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 17:42:03 by jgueon            #+#    #+#             */
-/*   Updated: 2025/05/03 04:40:43 by jgueon           ###   ########.fr       */
+/*   Updated: 2025/05/03 17:09:10 by jgueon           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,10 @@ static int	word_length(char const *s, char c, int start)
  *
  * @param s The source string
  * @param c The delimiter character
- * @param start Pointer to the current position in the string (updated by function)
- * @return A newly allocated string containing the word, or NULL if allocation fails
+ * @param start Pointer to the current position in the string
+ * 		(updated by function)
+ * @return A newly allocated string containing the word, or NULL if
+ * 		allocation fails
  */
 static char	*create_word(char const	*s, char c, int *start)
 {
