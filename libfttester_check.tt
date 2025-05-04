@@ -1,0 +1,78 @@
+Already up to date.
+[33mIf all your tests are OK and the moulinette KO you, please run the tester with valgrind (see README)
+[36mmake -C /home/jgueon/Libft
+make[1]: Entering directory '/home/jgueon/Libft'
+cc -Wall -Wextra -Werror   -c -o ft_isalpha.o ft_isalpha.c
+cc -Wall -Wextra -Werror   -c -o ft_isdigit.o ft_isdigit.c
+cc -Wall -Wextra -Werror   -c -o ft_isalnum.o ft_isalnum.c
+cc -Wall -Wextra -Werror   -c -o ft_isascii.o ft_isascii.c
+cc -Wall -Wextra -Werror   -c -o ft_isprint.o ft_isprint.c
+cc -Wall -Wextra -Werror   -c -o ft_strlen.o ft_strlen.c
+cc -Wall -Wextra -Werror   -c -o ft_memset.o ft_memset.c
+cc -Wall -Wextra -Werror   -c -o ft_bzero.o ft_bzero.c
+cc -Wall -Wextra -Werror   -c -o ft_memcpy.o ft_memcpy.c
+cc -Wall -Wextra -Werror   -c -o ft_memmove.o ft_memmove.c
+cc -Wall -Wextra -Werror   -c -o ft_strlcpy.o ft_strlcpy.c
+cc -Wall -Wextra -Werror   -c -o ft_strlcat.o ft_strlcat.c
+cc -Wall -Wextra -Werror   -c -o ft_toupper.o ft_toupper.c
+cc -Wall -Wextra -Werror   -c -o ft_tolower.o ft_tolower.c
+cc -Wall -Wextra -Werror   -c -o ft_strchr.o ft_strchr.c
+cc -Wall -Wextra -Werror   -c -o ft_strrchr.o ft_strrchr.c
+cc -Wall -Wextra -Werror   -c -o ft_strncmp.o ft_strncmp.c
+cc -Wall -Wextra -Werror   -c -o ft_memchr.o ft_memchr.c
+cc -Wall -Wextra -Werror   -c -o ft_memcmp.o ft_memcmp.c
+cc -Wall -Wextra -Werror   -c -o ft_strnstr.o ft_strnstr.c
+cc -Wall -Wextra -Werror   -c -o ft_atoi.o ft_atoi.c
+cc -Wall -Wextra -Werror   -c -o ft_calloc.o ft_calloc.c
+cc -Wall -Wextra -Werror   -c -o ft_strdup.o ft_strdup.c
+cc -Wall -Wextra -Werror   -c -o ft_substr.o ft_substr.c
+cc -Wall -Wextra -Werror   -c -o ft_strjoin.o ft_strjoin.c
+cc -Wall -Wextra -Werror   -c -o ft_strtrim.o ft_strtrim.c
+cc -Wall -Wextra -Werror   -c -o ft_split.o ft_split.c
+cc -Wall -Wextra -Werror   -c -o ft_itoa.o ft_itoa.c
+cc -Wall -Wextra -Werror   -c -o ft_strmapi.o ft_strmapi.c
+cc -Wall -Wextra -Werror   -c -o ft_striteri.o ft_striteri.c
+cc -Wall -Wextra -Werror   -c -o ft_putchar_fd.o ft_putchar_fd.c
+cc -Wall -Wextra -Werror   -c -o ft_putstr_fd.o ft_putstr_fd.c
+cc -Wall -Wextra -Werror   -c -o ft_putendl_fd.o ft_putendl_fd.c
+cc -Wall -Wextra -Werror   -c -o ft_putnbr_fd.o ft_putnbr_fd.c
+ar -rcs libft.a ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_strlcat.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o
+make[1]: Leaving directory '/home/jgueon/Libft'
+[34m[Mandatory]
+[37mft_memset	: [32m1.OK [32m2.OK 
+[37mft_bzero	: [32m1.OK [32m2.OK [32m3.OK 
+[37mft_memcpy	: [32m1.OK [32m2.OK [32m3.OK 
+[37mft_memmove	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK 
+[37mft_memchr	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK 
+[37mft_memcmp	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK 
+[37mft_strlen	: [32m1.OK [32m2.OK 
+[37mft_isalpha	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK 
+[37mft_isdigit	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK 
+[37mft_isalnum	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [32m11.OK [32m12.OK 
+[37mft_isascii	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK 
+[37mft_isprint	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK 
+[37mft_toupper	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK 
+[37mft_tolower	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK 
+[37mft_strchr	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK 
+[37mft_strrchr	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK 
+[37mft_strncmp	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [32m11.OK [32m12.OK [32m13.OK [32m14.OK [32m15.OK [32m16.OK 
+[37mft_strlcpy	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK 
+[37mft_strlcat	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [32m11.OK [32m12.OK [32m13.OK [32m14.OK [32m15.OK [32m16.OK [32m17.OK 
+[37mft_strnstr	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [32m11.OK [32m12.OK [32m13.OK [32m14.OK 
+[37mft_atoi		: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [32m11.OK [32m12.OK [32m13.OK [32m14.OK [32m15.OK [32m16.OK [32m17.OK 
+[37mft_calloc	: [32m1.OK [32m2.MOK [32m3.OK [32m4.OK [32m5.OK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [32m11.OK [32m12.OK [32m13.OK 
+[37mft_strdup	: [32m1.OK [32m2.MOK [32m3.OK [32m4.MOK 
+[37mft_substr	: [32m1.OK [32m2.MOK [32m3.OK [32m4.MOK [32m5.OK [32m6.MOK [32m7.OK [32m8.MOK [32m9.OK [32m10.MOK [32m11.OK [32m12.MOK [32m13.OK [32m14.MOK [32m15.OK [32m16.MOK 
+[37mft_strjoin	: [32m1.OK [32m2.MOK [32m3.OK [32m4.MOK [32m5.OK [32m6.MOK [32m7.OK [32m8.MOK 
+[37mft_strtrim	: [32m1.OK [32m2.MOK [32m3.OK [32m4.MOK [32m5.OK [32m6.MOK [32m7.OK [32m8.MOK [32m9.OK [32m10.MOK [32m11.OK [32m12.MOK [32m13.OK [32m14.MOK [32m15.OK [32m16.MOK 
+[37mft_split	: [32m1.MOK [32m2.OK [32m3.MOK [32m4.OK [32m5.MOK [32m6.OK [32m7.OK [32m8.OK [32m9.OK [32m10.OK [32m11.MOK [32m12.OK [32m13.OK [32m14.MOK [32m15.OK [32m16.MOK [32m17.OK [32m18.OK [32m19.MOK [32m20.OK [32m21.OK [32m22.MOK [32m23.OK [32m24.OK [32m25.MOK [32m26.OK [32m27.MOK [32m28.OK [32m29.MOK [32m30.OK [32m31.MOK [32m32.OK [32m33.MOK [32m34.OK [32m35.MOK [32m36.OK [32m37.MOK [32m38.OK [32m39.MOK [32m40.OK [32m41.MOK [32m42.OK 
+[37mft_itoa		: [32m1.OK [32m2.MOK [32m3.OK [32m4.MOK [32m5.OK [32m6.MOK [32m7.OK [32m8.MOK [32m9.OK [32m10.MOK [32m11.OK [32m12.MOK 
+[37mft_strmapi	: [32m1.OK [32m2.MOK [32m3.OK [32m4.MOK 
+[37mft_putchar_fd	: [32m1.OK 
+[37mft_putstr_fd	: [32m1.OK 
+[37mft_putendl_fd	: [32m1.OK 
+[37mft_putnbr_fd	: [32m1.OK [32m2.OK [32m3.OK [32m4.OK [32m5.OK 
+[37mft_striteri	: [32m1.OK [32m2.OK [32m3.OK 
+[36mmake bonus -C /home/jgueon/Libft
+make[1]: Entering directory '/home/jgueon/Libft'
+make[1]: Leaving directory '/home/jgueon/Libft'

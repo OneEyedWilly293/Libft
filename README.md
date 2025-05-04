@@ -8,6 +8,9 @@ Libft
 
 ## <ins>Logs</ins>
 
+### <ins>044.05.2025</ins>
+- Updated check before defense.
+	> *Norm check, personal test, Libft tester*
 ### <ins>03.05.2025</ins>
 - Updated test file for more clarity.
 - Updated ft_strdup test 5 to make it more visually clear.
