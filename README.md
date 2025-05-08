@@ -21,7 +21,7 @@ I highly recommend testing your libft projects with multiple tests to ensure it'
 > *Through this test, I've learned about handling "SIZE_MAX" for ft_calloc.*
 
 2) Jtoty's Tests[https://github.com/jtoty/Libftest].
-> *This has tests for some additional functions, that were not in our project list.
+> *This has tests for some additional functions, that were not in our project list.*
 
 3) alelievr's test[https://github.com/alelievr/libft-unit-test].
-> *I haven't used this test myself but saw other peers using it.
+> *I haven't used this test myself but saw other peers using it.*
