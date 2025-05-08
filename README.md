@@ -1,6 +1,15 @@
-Libft
+# C Library from Scratch
+Finishing the Libft project has been a true milestone in my programming journey. At first, it felt overwhelming to recreate so many standard C functions from scratch, but as I progressed, I started to really understand how these core tools work under the hood. I learned how important careful memory management is-making sure to allocate, use, and free memory correctly to avoid leaks or crashes.
 
-### <ins>How to run the test</ins>
+The project also taught me the value of writing clean, well-structured code that follows strict standards (the Norm). This discipline forced me to break down problems into small, manageable pieces and to be precise with naming and formatting. Debugging became much easier as my code got more organized.
+
+Implementing string and memory manipulation functions gave me a much deeper appreciation for how C handles data, and building my own linked list library was my first real experience with dynamic data structures. I also got comfortable with using Makefiles and managing a multi-file project in Git.
+
+Overall, Libft gave me a strong foundation in C and boosted my confidence to tackle more complex projects. I now have a personal library of functions that I can reuse and improve as I continue my studies.
+
+If you’re curious about any specific part of the project or want to know more about my learning process, feel free to ask!
+
+## <ins>How to run the test</ins>
 ```json
 "terminal.integrated.scrollback": 100000
 ```
